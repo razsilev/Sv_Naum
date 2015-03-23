@@ -1,2 +1,2 @@
 # Sv_Naum
-Ortodox site for Sv. Naum charch.
+Ortodox site for Sv. Naum church.

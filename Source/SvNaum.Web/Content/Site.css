@@ -22,3 +22,80 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* Our css */
+#wrapper {
+    background-image: url('../Images/patern_croix3.png');
+    width:100%;
+    top:0px;
+    left:0px;
+    position:absolute;
+}
+#container {
+    max-width:90%;
+    height:1000px;
+    margin:0 auto;
+    top:-20px;
+    position:relative;
+    background-color: #fff;
+    box-shadow: 0px 0px 15px black;
+}
+header {
+    height:200px;
+    background-color: #83f0ff;
+    color:#003333;
+    font-family: "MonoType Corsiva", MonoCondensed, Cambria, "Time New Roman";
+    text-align: center;
+}
+header h1 {
+    font-family: "MonoType Corsiva", MonoCondensed, Cambria, "Time New Roman";
+}
+#hr {
+    height: 25px;
+    background-image: url('../Images/top_decor.jpg');
+    background-repeat:repeat-x;
+}
+#left {
+    width:20%;
+    margin:-10px 0px 0px 20px;
+    height:500px;
+    border-right:1px solid #003333;
+}
+aside, article {
+    display: inline-block;
+}
+article {
+    width: 70%;
+    height: 750px;
+    margin: 10px 0px 0px 30px;
+    border:1px solid #000000;
+}
+ul {
+    min-width:60%;
+    max-width: 80%;
+    display: block;
+    list-style-image:url('../Images/poso4ka.jpg');
+    list-style-position: outside;
+    margin:10px 0px 0px 10px;
+    border:0px solid #000;
+}
+li {
+    text-align: center;
+    line-height: 2em;
+}
+li a {
+    color:#003333;
+    font-family: MonoCondensed,Cambria,"Time New Roman";
+    font-size: 1em;
+    text-decoration: none;
+}
+#hrGreen {
+    background-image: url('../Images/hr.gif');
+    background-repeat:repeat-x;
+    height:22px ;
+}
+li a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #008080;
+}

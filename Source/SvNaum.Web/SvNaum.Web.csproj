@@ -177,6 +177,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\hr.gif" />
+    <Content Include="Images\patern_croix2.png" />
+    <Content Include="Images\patern_croix3.png" />
+    <Content Include="Images\poso4ka.jpg" />
+    <Content Include="Images\top_decor.jpg" />
+    <Content Include="Images\xv.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

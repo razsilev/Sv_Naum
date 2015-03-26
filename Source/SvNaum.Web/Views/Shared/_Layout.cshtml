@@ -10,26 +10,62 @@
 </head>
 <body>
     @*<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <div class="container">
+                <div class="navbar-header">
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+        </div>*@
+    <div id="wrapper0">
+        <div id="wrapper">
+            <div id="container">
+                <a href="/">
+                    <header>
+                        <div id="svNaum"><img src="../../Images/svNaumBlur.png" alt="Икона на Св.Наум Охридски" /></div>
+                        <div id="logo"><img src="../../Images/logo3.png" alt="Православен храм Св.Наум Охридски" /></div>
+                    </header>
+                </a>
+                <div id="hr"></div>
+                <div id="content">
+                    <aside id="leftAside">
+                        <nav>
+                            <ul>
+                                <li class="margin-bottom-10"><a href="/Home/Мinistry"><img src="../../Images/trumbSlujbi.jpg" alt="" />Служение</a></li>
+                                <li class="margin-bottom-10"><a href="/Home/Pictures"><img src="../../Images/trumbGaleria.jpg" alt="" />Фотоалбум</a></li>
+                                <li class="margin-bottom-10"><a href="/Home/Sermons"><img src="../../Images/trumbPropovedi.jpg" alt="" />Проповеди</a></li>
+                            </ul>
+                        </nav>
+                    </aside>
+                    <article>
+                        @RenderBody()
+                    </article>
+                </div>
+                <div id="koncovkaPrediFooter">
+                </div>
             </div>
+            <footer class="footer">
+                <div class="textCentered">Адрес: гр.София, жк.Дружба1</div>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="" target="_blank"><img src="../../Images/bg-88x31-native1.gif" alt="Православното християнство в Интернет" class="image" /></a>
+                        </td>
+                    </tr>
+                </table>
+            </footer>
+            @*<hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                </footer>*@
         </div>
-    </div>*@
-    <div class="container body-content">
-        @RenderBody()
-        @*<hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>*@
     </div>
 
     @Scripts.Render("~/bundles/jquery")

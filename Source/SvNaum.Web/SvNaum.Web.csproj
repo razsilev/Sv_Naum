@@ -177,12 +177,22 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\bg-88x31-native1.gif" />
+    <Content Include="Images\frizGreen.png" />
     <Content Include="Images\hr.gif" />
-    <Content Include="Images\patern_croix2.png" />
+    <Content Include="Images\logo3.png" />
+    <Content Include="Images\panoramnaLight1.jpg" />
     <Content Include="Images\patern_croix3.png" />
     <Content Include="Images\poso4ka.jpg" />
+    <Content Include="Images\simonopetra.png" />
+    <Content Include="Images\svNaumBlur.png" />
     <Content Include="Images\top_decor.jpg" />
+    <Content Include="Images\trumbGaleria.jpg" />
+    <Content Include="Images\trumbPropovedi.jpg" />
+    <Content Include="Images\trumbSlujbi.jpg" />
+    <Content Include="Images\XristosVoskreseGoldModifikated.png" />
     <Content Include="Images\xv.jpg" />
+    <Content Include="Images\xvoskrese.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -232,6 +242,9 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Мinistry.cshtml" />
+    <Content Include="Views\Home\Pictures.cshtml" />
+    <Content Include="Views\Home\Sermons.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

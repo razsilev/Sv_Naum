@@ -26,5 +26,20 @@ namespace SvNaum.Web.Controllers
 
             return View();
         }
+
+        public ActionResult Мinistry()
+        {
+            return View();
+        }
+
+        public ActionResult Pictures()
+        {
+            return View();
+        }
+
+        public ActionResult Sermons()
+        {
+            return View();
+        }
     }
 }

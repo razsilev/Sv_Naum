@@ -27,7 +27,7 @@ namespace SvNaum.Web.Controllers
             return View();
         }
 
-        public ActionResult Мinistry()
+        public ActionResult Timetable()
         {
             return View();
         }

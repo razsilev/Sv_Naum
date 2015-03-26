@@ -242,7 +242,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Мinistry.cshtml" />
+    <Content Include="Views\Home\Timetable.cshtml" />
     <Content Include="Views\Home\Pictures.cshtml" />
     <Content Include="Views\Home\Sermons.cshtml" />
   </ItemGroup>

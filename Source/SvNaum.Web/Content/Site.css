@@ -24,188 +24,174 @@ textarea {
 }
 
 /* Our css */
-#wrapper0 {
-    background-color: #fff;
-    width: 100%;
-    top: 0px;
-    left: 0px;
-    z-index: -2;
-}
-
 #wrapper {
-    background: url('../images/patern_croix3.png');
-    width: 100%;
-    top: 0px;
-    left: 0px;
-    position: absolute;
+    background: url('../images/patern_croix3.jpg');
+    width:100%;
+    top:0px;
+    left:0px;
+    position:absolute;
     display: block;
     z-index: -1;
 }
-
 #container {
     max-width: 1100px;
     min-width: 1100px;
     margin: 0 auto;
-    height: 1300px;
-    top: -20px;
-    position: relative;
-    background-color: #fff;
+    height:1500px;
+    top:-20px;
+    position:relative;
+    background-color: #d4f5d1;
     box-shadow: 0px 0px 15px black;
     z-index: 0;
 }
-
 article, aside, footer, header, nav, section {
     display: block;
 }
-
 header {
-    height: 200px;
+    height:200px;
     /*background-color: #83f0ff;*/
-    background-image: url('../images/panoramnaLight1.jpg');
-    color: #3f2e05;
+    background-image:url('../images/panoramnaLight1.jpg') ;
+    color:#3f2e05;
     font-family: Cambria,"Time New Roman";
     font-size: 0.9em;
     text-align: center;
     z-index: 1;
     position: relative;
 }
-
 #svNaum {
     width: 176px;
-    height: 200px;
-    margin-left: 50px;
-    border: 0px solid #000;
+    height:200px;
+    margin-left:50px;
+    border:0px solid #000;
     z-index: 2;
 }
-
 #logo {
     width: 500px;
-    height: 125px;
-    margin: 5px 0px 0px 130px;
-    border: 0px solid #000;
+    height:125px;
+    margin:5px 0px 0px 130px;
+    border:0px solid #000;
     z-index: 2;
 }
-
 #svNaum, #logo {
-    float: left;
+    float:left;
 }
-
 .textCentered {
     z-index: 2;
     font-weight: bold;
-    color: #001515;
+    color: #d4f5d1;
     font-family: Cambria,"Time New Roman",Helvetica;
-    font-size: 1.3em;
+    font-size: 0.8em;
     text-align: center;
-}
 
+}
 #hr {
     height: 29px;
     background-image: url('../images/frizGreen.png');
-    background-repeat: repeat-x;
+    background-repeat:repeat-x;
 }
-
 #leftAside {
-    max-width: 280px;
+    max-width:280px;
     min-width: 280px;
-    height: 1070px;
-    margin: 0;
-    padding: 0;
-    border-right: 1px solid #003333;
-    background-image: url('../images/patern_croix3.png');
+    height:1270px;
+    margin:0;
+    padding:0;
+    border-right:1px solid #003333;
+    background-image: url('../images/patern_croix3.jpg');
 }
-
 aside, article {
     float: left;
 }
-
 article {
     max-width: 800px;
     min-width: 800px;
-    border: 0px solid #000000;
+    padding: 0px 0px 20px 10px;
+    border:0px solid #000000;
 }
-
 .image {
-    margin: 10px 20px 0px 50px;
+    margin:10px 20px 5px 30px;
 }
-
+footer .footerBaneri {
+    margin:0px 5px 0px 5px;
+    float: right;
+    display: inline-block;
+}
 .text {
     display: inline;
-    color: #3f2e05;
-    font-family: Cambria,"Time New Roman";
-    text-align: left;
+    color:#3f2e05;
+    font-family:Cambria,"Time New Roman", Helvetica;
+    text-align: justify;
     line-height: 15pt;
-    margin: 0px 10px 20px 30px;
     font-size: 15px !important;
+    /*background-color: #d4f5d1;*/
 }
-
 ul {
-    min-width: 60%;
+    min-width:80%;
     max-width: 80%;
     display: block;
     list-style-type: none;
     /*list-style-image:url('../images/poso4ka.jpg');*/
     /*list-style-position: outside;*/
-    margin: 10px 0px 0px 10px;
-    border: 0px solid #000;
+    margin:10px 0px 0px 10px;
+    border:0px solid #000;
 }
-
-li {
-    width: 210px;
+.menu{
+    width:210px;
     text-align: center;
     line-height: 2em;
     background-color: #003333;
     border-radius: 10px;
 }
-
-    li img {
-        margin-top: 3px;
-    }
-
-    li a {
-        color: #fff;
-        font-family: MonoCondensed,Cambria,"Time New Roman";
-        font-size: 1.5em;
-        text-decoration: none;
-    }
-
+.menu img {
+    margin-top:3px;
+}
+.menu a {
+    color:#fff;
+    font-family: MonoCondensed,Cambria,"Time New Roman";
+    font-size: 1.5em;
+    text-decoration: none;
+}
+.citat {
+    width:210px;
+    padding: 3px 3px 3px 3px;
+    line-height: 1.8em;
+    background-color: #d4f5d1;
+    border-radius: 10px;
+}
 #koncovkaPrediFooter {
-    height: 22px;
+    height:22px ;
     width: 100%;
-    border: 0px solid #000;
+    border:0px solid #000;
     background-image: url('../images/hr.gif');
-    background-repeat: repeat-x;
+    background-repeat:repeat-x;
     bottom: 0px;
-    left: 0px;
+    left:0px;
     position: absolute;
 }
-
-.footer {
-    width: 100%;
+footer {
+    width:100%;
     height: 80px;
-    margin-top: 20;
-    padding: 0;
+    margin-top:20;
+    padding:0;
     /*border-top:1px solid #003333;*/
-    box-shadow: 0px 0px 15px black;
+    box-shadow:  0px 0px 15px black;
     background-image: url('../images/patern_croix3.png');
-    border: 1px solid #000;
+    border:0px solid #000;
     /*position: absolute;*/
     z-index: 2;
 }
-
-    .footer table {
-        float: right;
-    }
-
 li:hover {
     background-color: #001515;
     border-radius: 0px;
+    cursor: pointer;
 }
-
+li:hover .text{
+    color:#fff;
+}
+li a:hover {
+    color:#fff;
+    text-decoration: none;
+}
 .textCentered:hover {
-    color: #fff;
-}
-
-.margin-bottom-10 {
-    margin-bottom: 10px;
+    color:#fff;
+    cursor: pointer;
 }

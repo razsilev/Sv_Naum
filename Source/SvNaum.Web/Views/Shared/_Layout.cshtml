@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Православен храм Св.Наум Охридски</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -29,8 +29,8 @@
             <div id="container">
                 <a href="/">
                     <header>
-                        <div id="svNaum"><img src="../../Images/svNaumBlur.png" alt="Икона на Св.Наум Охридски" /></div>
-                        <div id="logo"><img src="../../Images/logo3.png" alt="Православен храм Св.Наум Охридски" /></div>
+                        <div id="svNaum"><img src="~/Images/svNaumBlur.png" alt="Икона на Св.Наум Охридски" /></div>
+                        <div id="logo"><img src="~/Images/logo3.png" alt="Православен храм Св.Наум Охридски" /></div>
                     </header>
                 </a>
                 <div id="hr"></div>
@@ -38,9 +38,18 @@
                     <aside id="leftAside">
                         <nav>
                             <ul>
-                                <li class="margin-bottom-10"><a href="/Home/Timetable"><img src="../../Images/trumbSlujbi.jpg" alt="" />Служение</a></li>
-                                <li class="margin-bottom-10"><a href="/Home/Pictures"><img src="../../Images/trumbGaleria.jpg" alt="" />Фотоалбум</a></li>
-                                <li class="margin-bottom-10"><a href="/Home/Sermons"><img src="../../Images/trumbPropovedi.jpg" alt="" />Проповеди</a></li>
+                                <li class="menu"><a href="/Home/Timetable"><img src="~/Images/trumbSlujbi.jpg" alt="" />Служение</a></li>
+                                <li class="menu"><a href="/Home/Pictures"><img src="~/Images/trumbGaleria.jpg" alt="" />Фотоалбум</a></li>
+                                <li class="menu"><a href="/Home/Sermons"><img src="~/Images/trumbPropovedi.jpg" alt="" />Проповеди</a></li>
+                                <li class="citat">
+                                    Примерен цитат:
+                                    <img src="~/Images/post-200x179.jpg" alt="" />
+                                    <p class="text">
+                                        Когато видим човек, обзет от голям душевен смут, притеснение и печал, въпреки че има всичко и нищо не му липсва,
+                                        трябва да знаем, че му липсва Бога.
+                                        Старецът Паисий
+                                    </p>
+                                </li>
                             </ul>
                         </nav>
                     </aside>
@@ -52,19 +61,11 @@
                 </div>
             </div>
             <footer class="footer">
-                <div class="textCentered">Адрес: гр.София, жк.Дружба1</div>
-                <table>
-                    <tr>
-                        <td>
-                            <a href="" target="_blank"><img src="../../Images/bg-88x31-native1.gif" alt="Православното християнство в Интернет" class="image" /></a>
-                        </td>
-                    </tr>
-                </table>
+                <div class="textCentered">Адрес: гр.София, жк.Дружба1, тел.02/978 86 88</div>
+                <a href="http://www.pravoslavnoto-hristianstvo.com/" target="_blank"><img src="~/Images/bg-88x31-native1.gif" alt="Православен свят" class="footerBaneri" /></a>
+                <a href="http://bg-patriarshia.bg/index.php?file=index.xml" target="_blank"><img src="~/Images/120x60_bpc.jpg" alt="Българска Православна Църква" class="footerBaneri" /></a>
+                <a href="http://pravoslaven-sviat.org/" target="_blank"><img src="~/Images/pravoslavenSvqtBaner.png" alt="Православното християнство в Интернет" class="footerBaneri" /></a>
             </footer>
-            @*<hr />
-                <footer>
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-                </footer>*@
         </div>
     </div>
 

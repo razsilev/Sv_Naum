@@ -8,34 +8,18 @@
 
     using MongoDB.Bson;
     using MongoDB.Driver.Builders;
-    
+
     using SvNaum.Data;
     using SvNaum.Models;
     using SvNaum.Web.Models;
 
-    public class AdminController : Controller
+    public class AdminController : BaseController
     {
-        private SvNaumDbContext context;
-
-        public AdminController()
-        {
-            var conString = System.Configuration.ConfigurationManager.AppSettings["MONGOLAB_URI"].ToString();
-
-            this.context = new SvNaumDbContext(conString);
-        }
-
-        public AdminController(SvNaumDbContext contex)
-        {
-            this.context = contex;
-        }
-
         public ActionResult DeleteMinistration(string id)
         {
-
             MongoDB.Driver.IMongoQuery query = Query.EQ("_id", ObjectId.Parse(id));
 
-            this.context.Ministration.Remove(query);
-
+            this.Context.Ministration.Remove(query);
 
             return RedirectToAction("Timetable", "Home");
         }
@@ -60,7 +44,7 @@
                 ministration.DayName = dayName;
                 ministration.Description = inputMinistration.Description;
 
-                this.context.Ministration.Insert(ministration);
+                this.Context.Ministration.Insert(ministration);
 
                 return RedirectToAction("Timetable", "Home");
             }

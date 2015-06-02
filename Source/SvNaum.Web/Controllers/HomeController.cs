@@ -12,22 +12,8 @@
     using MongoDB.Driver.Builders;
     using MongoDB.Bson;
 
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        private SvNaumDbContext context;
-
-        public HomeController()
-        {
-            var conString = System.Configuration.ConfigurationManager.AppSettings["MONGOLAB_URI"].ToString();
-
-            this.context = new SvNaumDbContext(conString);
-        }
-
-        public HomeController(SvNaumDbContext contex)
-        {
-            this.context = contex;
-        }
-
         public ActionResult Index()
         {
             return View();
@@ -50,7 +36,7 @@
         [HttpGet]
         public ActionResult Timetable()
         {
-            List<Ministration> result = this.context.Ministration.FindAll().OrderBy(m => m.Date).ToList();
+            List<Ministration> result = this.Context.Ministration.FindAll().OrderBy(m => m.Date).ToList();
 
             return View(result);
         }

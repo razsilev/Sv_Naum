@@ -1,6 +1,35 @@
-﻿@{
+﻿@model IEnumerable<SvNaum.Models.Ministration>
+@{
     ViewBag.Title = "Служение";
 }
 
 <h2>Служение!</h2>
+@Html.ActionLink("Create new ministration", "TimetableAdd", "Admin")
+<br />
+<br />
+<br />
+
+@if (Model != null && Model.Count() > 0)
+{
+    foreach (var item in Model)
+    {
+        <div>
+            <label>Date:</label>
+            <span>@item.Date.AddDays(1).GetDateTimeFormats('D')[1]</span>
+            <br />
+            <label>Day of week:</label>
+            <em>@item.DayName</em>
+            <br />
+            <label>Description:</label>
+            <p>@item.Description</p>
+
+            @Html.ActionLink("Delete", "DeleteMinistration", "Admin", new { id = item.Id }, null)
+        </div>
+        <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+    }
+}
+else
+{
+    <h3>There is no ministration!</h3>
+}
 

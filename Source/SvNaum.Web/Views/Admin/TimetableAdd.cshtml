@@ -1,0 +1,15 @@
+﻿@model SvNaum.Web.Models.MinistrationInputModel
+
+<h2>Create ministration:</h2>
+@using (Html.BeginForm("TimetableAdd", "Admin", FormMethod.Post))
+{
+    @Html.EditorForModel();
+    <br />
+    <input type="submit" value="Insert" />
+    <input type="button" value="Cancel" onclick="window.location = '/Home/Timetable';" />
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval");
+}

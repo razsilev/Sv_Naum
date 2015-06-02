@@ -36,8 +36,17 @@
         [HttpGet]
         public ActionResult Timetable()
         {
-            List<Ministration> result = this.Context.Ministration.FindAll().OrderBy(m => m.Date).ToList();
+            List<Ministration> result = new List<Ministration>();
 
+            try
+            {
+                result = this.Context.Ministration.FindAll().OrderBy(m => m.Date).ToList();
+            }
+            catch (Exception ex)
+            {
+                this.ViewBag.Ex = ex.ToString();
+            }
+            
             return View(result);
         }
 

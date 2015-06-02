@@ -4,7 +4,7 @@
 
     public class DbConnection
     {
-        public const string DbName = "svNaum";
+        public const string DbName = "appharbor_1aca7d3f-ed85-4975-8b3f-56a35407755d";
         private MongoDatabase db;
 
         public DbConnection(string connectionString)

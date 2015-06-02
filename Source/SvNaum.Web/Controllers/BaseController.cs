@@ -27,8 +27,7 @@
 
         private string GetMongoDbConnectionString()
         {
-            return ConfigurationManager.AppSettings.Get("MONGOHQ_URL") ??
-                ConfigurationManager.AppSettings.Get("MONGOLAB_URI") ??
+            return ConfigurationManager.AppSettings.Get("MONGOLAB_URI") ??
                 "mongodb://localhost:27017";
         }
     }

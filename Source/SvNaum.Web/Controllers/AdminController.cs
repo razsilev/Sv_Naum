@@ -75,6 +75,8 @@
 
             if(ministration != null)
             {
+                ministration.Date = ministration.Date.ToLocalTime();
+
                 var minViewModel = new MinistrationUpdateInputModel()
                 {
                     Id = ministration.Id,

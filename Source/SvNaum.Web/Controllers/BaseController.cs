@@ -12,8 +12,9 @@
 
         public BaseController()
         {
-            var conString = this.GetMongoDbConnectionString();
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("bg", false);
 
+            var conString = this.GetMongoDbConnectionString();
             this.context = new SvNaumDbContext(conString);
         }
 

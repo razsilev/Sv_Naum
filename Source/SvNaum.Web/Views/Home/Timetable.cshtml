@@ -17,7 +17,7 @@
             <span>@item.Date.ToLocalTime().GetDateTimeFormats('D')[1]</span>
             <br />
             <label>Time:</label>
-            <span>@item.Date.ToLocalTime().GetDateTimeFormats()[48]</span>
+            <span>@item.Date.ToLocalTime().Hour:@item.Date.ToLocalTime().Minute</span>
             <br />
             <label>Day of week:</label>
             <em>@item.DayName</em>

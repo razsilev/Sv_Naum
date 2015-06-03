@@ -1,12 +1,14 @@
-﻿@model SvNaum.Web.Models.MinistrationInputModel
+﻿@model SvNaum.Web.Models.MinistrationUpdateInputModel
 
-<h2>Create ministration:</h2>
-@using (Html.BeginForm("TimetableAdd", "Admin", FormMethod.Post))
+<h2>Edit ministration:</h2>
+@using (Html.BeginForm("MinistrationEdit", "Admin", FormMethod.Post))
 {
-    @Html.LabelFor(m => m.Date)
-    @Html.TextBoxFor(m => m.Date, new { @class = "form-control", placeholder = "dd/mm/yyyy", @type = "date"})
-    @Html.ValidationMessageFor(m => m.Date)
+    @Html.EditorFor(m => m.Id)
     
+    @Html.LabelFor(m => m.Date)
+    @Html.TextBoxFor(m => m.Date, new { @class = "form-control", placeholder = "dd/mm/yyyy", @type = "date" })
+    @Html.ValidationMessageFor(m => m.Date)
+
     <br />
     @Html.LabelFor(m => m.Time)
     @Html.TextBoxFor(m => m.Time, new { @class = "form-control", placeholder = "HH:mm" })
@@ -19,7 +21,7 @@
     @Html.ValidationMessageFor(m => m.Description)
     <br />
     <br />
-    <input type="submit" value="Insert" />
+    <input type="submit" value="Save" />
     <input type="button" value="Cancel" onclick="window.location = '/Home/Timetable';" />
 }
 

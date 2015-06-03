@@ -14,7 +14,10 @@
     {
         <div>
             <label>Date:</label>
-            <span>@item.Date.AddDays(1).GetDateTimeFormats('D')[1]</span>
+            <span>@item.Date.ToLocalTime().GetDateTimeFormats('D')[1]</span>
+            <br />
+            <label>Time:</label>
+            <span>@item.Date.ToLocalTime().GetDateTimeFormats()[48]</span>
             <br />
             <label>Day of week:</label>
             <em>@item.DayName</em>
@@ -23,6 +26,7 @@
             <p>@item.Description</p>
 
             @Html.ActionLink("Delete", "DeleteMinistration", "Admin", new { id = item.Id }, null)
+            @Html.ActionLink("Edit", "MinistrationEdit", "Admin", new { id = item.Id }, null)
         </div>
         <p>------------------------------------------</p>
     }

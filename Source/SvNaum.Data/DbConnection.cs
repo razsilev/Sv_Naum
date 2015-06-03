@@ -13,6 +13,9 @@
             var server = client.GetServer();
 
             this.Db = server.GetDatabase(DbConnection.DbName);
+            
+            // use with there connection string
+            //this.Db = MongoDatabase.Create(connectionString);
         }
 
         public MongoDatabase Db

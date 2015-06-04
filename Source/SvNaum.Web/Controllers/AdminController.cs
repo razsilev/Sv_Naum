@@ -13,6 +13,7 @@
     using SvNaum.Models;
     using SvNaum.Web.Models;
 
+    [Authorize]
     public class AdminController : BaseController
     {
         public ActionResult DeleteMinistration(string id)
@@ -29,6 +30,7 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult TimetableAdd(MinistrationInputModel inputMinistration)
         {
             if (this.ModelState.IsValid)
@@ -93,6 +95,7 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult MinistrationEdit(MinistrationUpdateInputModel inputMinistration)
         {
             if (this.ModelState.IsValid)

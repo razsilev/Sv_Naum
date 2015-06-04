@@ -9,30 +9,32 @@
 
 </head>
 <body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>*@
     <div id="wrapper0">
+        @if (this.User.Identity.IsAuthenticated)
+        {
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                        @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        }
+        else
+        {
+            <div style="text-align:right; margin-right: 3%;">
+                @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+            </div>
+        }
         <div id="wrapper">
             <div id="container">
-                <a href="/">
-                    <header>
-                        <div id="svNaum"><img src="~/Images/svNaumBlur.png" alt="Икона на Св.Наум Охридски" /></div>
-                        <div id="logo"><img src="~/Images/logo3.png" alt="Православен храм Св.Наум Охридски" /></div>
-                    </header>
-                </a>
+                <header>
+                    <div id="svNaum"><img src="~/Images/svNaumBlur.png" alt="Икона на Св.Наум Охридски" /></div>
+                    <div id="logo">
+                        <a href="/">
+                            <img src="~/Images/logo3.png" alt="Православен храм Св.Наум Охридски" />
+                        </a>
+                    </div>
+                </header>
+
                 <div id="hr"></div>
                 <div id="content">
                     <aside id="leftAside">

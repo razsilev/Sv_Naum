@@ -4,7 +4,10 @@
 }
 
 <h2>Служение!</h2>
-@Html.ActionLink("Create new ministration", "TimetableAdd", "Admin")
+@if (this.User.Identity.IsAuthenticated)
+{
+    @Html.ActionLink("Create new ministration", "TimetableAdd", "Admin")
+}
 <br />
 <br />
 
@@ -17,7 +20,16 @@
             <span>@item.Date.ToLocalTime().GetDateTimeFormats('D')[1]</span>
             <br />
             <label>Time:</label>
-            <span>@item.Date.ToLocalTime().Hour:@item.Date.ToLocalTime().Minute</span>
+            @{
+        string minute = item.Date.ToLocalTime().Minute.ToString();
+
+        if (minute.Length == 1)
+        {
+            minute = "0" + minute;
+        }
+            }
+
+            <span>@item.Date.ToLocalTime().Hour:@minute</span>
             <br />
             <label>Day of week:</label>
             <em>@item.DayName</em>
@@ -25,8 +37,12 @@
             <label>Description:</label>
             <p>@item.Description</p>
 
-            @Html.ActionLink("Delete", "DeleteMinistration", "Admin", new { id = item.Id }, null)
-            @Html.ActionLink("Edit", "MinistrationEdit", "Admin", new { id = item.Id }, null)
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                @Html.ActionLink("Delete", "DeleteMinistration", "Admin", new { id = item.Id }, null)
+                <br />
+                @Html.ActionLink("Edit", "MinistrationEdit", "Admin", new { id = item.Id }, null)
+            }
         </div>
         <p>------------------------------------------</p>
     }

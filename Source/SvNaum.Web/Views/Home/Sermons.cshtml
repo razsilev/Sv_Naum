@@ -1,6 +1,51 @@
-﻿@{
+﻿@model IEnumerable<SvNaum.Models.Sermon>
+
+@{
     ViewBag.Title = "Проповеди";
 }
 
 <h2>Проповеди!</h2>
+<br />
+@if (this.User.Identity.IsAuthenticated)
+{
+    @Html.ActionLink("Create Sermon", "SermonAdd", "Admin")
+    <br />
+    <br />
+}
 
+@if (Model != null && Model.Count() > 0)
+{
+
+    foreach (var item in Model)
+    {
+        <div>
+            @Html.LabelFor(m => item.Theme)
+            @Html.DisplayFor(m => item.Theme)
+            <br />
+            @Html.LabelFor(m => item.Title)
+            @Html.DisplayFor(m => item.Title)
+            <br />
+            @Html.LabelFor(m => item.Author)
+            @Html.DisplayFor(m => item.Author)
+            <br />
+            @Html.LabelFor(m => item.Text)
+            @Html.DisplayFor(m => item.Text)
+            <br />
+            @Html.LabelFor(m => item.Date)
+            @Html.DisplayFor(m => item.Date.ToLocalTime().GetDateTimeFormats()[1])
+            <br />
+
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                @Html.ActionLink("Delete", "SermonDelete", "Admin", new { id = item.Id }, null)
+                <br />
+                @Html.ActionLink("Edit", "SermonEdit", "Admin", new { id = item.Id }, null)
+            }
+        </div>
+        <p>-----------------------------------------</p>
+    }
+}
+else
+{
+    <h3>There is no sermons!</h3>
+}

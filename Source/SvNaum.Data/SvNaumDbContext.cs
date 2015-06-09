@@ -28,5 +28,13 @@
                 return this.db.GetCollection<Ministration>("Ministrations");
             }
         }
+
+        public MongoCollection<Sermon> Sermons
+        {
+            get
+            {
+                return this.db.GetCollection<Sermon>("Sermons");
+            }
+        }
     }
 }

@@ -30,8 +30,17 @@
         public ActionResult Timetable()
         {
             List<Ministration> result = new List<Ministration>();
-            result = this.Context.Ministration.FindAll().OrderBy(m => m.Date).ToList();
-            
+
+            try
+            {
+                result = this.Context.Ministration.FindAll().OrderBy(m => m.Date).ToList();
+            }
+            catch (System.Exception)
+            {
+
+            }
+
+
             return View(result);
         }
 
@@ -42,7 +51,18 @@
 
         public ActionResult Sermons()
         {
-            return View();
+            List<Sermon> sermons = new List<Sermon>();
+
+            try
+            {
+                sermons = this.Context.Sermons.FindAll().ToList();
+            }
+            catch (System.Exception)
+            {
+
+            }
+
+            return View(sermons);
         }
     }
 }

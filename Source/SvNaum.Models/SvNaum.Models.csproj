@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Ministration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sermon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

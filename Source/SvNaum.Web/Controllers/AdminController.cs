@@ -16,13 +16,6 @@
     [Authorize]
     public class AdminController : BaseController
     {
-        public ActionResult DeleteMinistration(string id)
-        {
-            this.DeleteMinistrationBy(id);
-            
-            return RedirectToAction("Timetable", "Home");
-        }
-
         [HttpGet]
         public ActionResult TimetableAdd()
         {
@@ -135,11 +128,114 @@
             return View(inputMinistration);
         }
 
+        public ActionResult DeleteMinistration(string id)
+        {
+            this.DeleteMinistrationBy(id);
+
+            return RedirectToAction("Timetable", "Home");
+        }
+
+        // crut sermons
+        [HttpGet]
+        public ActionResult SermonAdd()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SermonAdd(SermonInputModel inputSermon)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var sermon = new Sermon();
+                
+                sermon.Date = DateTime.Now;
+                sermon.Author = inputSermon.Author;
+                sermon.Text = inputSermon.Text;
+                sermon.Theme = inputSermon.Theme;
+                sermon.Title = inputSermon.Title;
+                sermon.ImageUrl = string.Empty;
+
+                this.Context.Sermons.Insert(sermon);
+
+                return RedirectToAction("Sermons", "Home");
+            }
+
+            return View(inputSermon);
+        }
+
+        [HttpGet]
+        public ActionResult SermonEdit(string id)
+        {
+            MongoDB.Driver.IMongoQuery query = Query.EQ("_id", ObjectId.Parse(id));
+
+            var sermon = this.Context.Sermons.Find(query).FirstOrDefault();
+
+            if (sermon != null)
+            {
+                var sermonViewModel = new SermonUpdateInputModel()
+                {
+                    Id = sermon.Id,
+                    Date = sermon.Date,
+                    Text = sermon.Text,
+                    Theme = sermon.Theme,
+                    Author = sermon.Author,
+                    Title = sermon.Title
+                };
+
+                return View(sermonViewModel);
+            }
+
+
+            return RedirectToAction("Sermons", "Home");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SermonEdit(SermonUpdateInputModel inputSermon)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var sermon = new Sermon();
+
+                sermon.Author = inputSermon.Author;
+                sermon.ImageUrl = string.Empty;
+                sermon.Text = inputSermon.Text;
+                
+                sermon.Theme = inputSermon.Theme;
+                sermon.Title = inputSermon.Title;
+                sermon.Date = inputSermon.Date;
+
+                this.Context.Sermons.Insert(sermon);
+
+                this.DeleteSermonBy(inputSermon.Id);
+
+                return RedirectToAction("Sermons", "Home");
+            }
+
+            return View(inputSermon);
+        }
+
+        public ActionResult SermonDelete(string id)
+        {
+            this.DeleteSermonBy(id);
+
+            return RedirectToAction("Sermons", "Home");
+        }
+
         private void DeleteMinistrationBy(string id)
         {
             MongoDB.Driver.IMongoQuery query = Query.EQ("_id", ObjectId.Parse(id));
 
             this.Context.Ministration.Remove(query);
+        }
+
+        private void DeleteSermonBy(string id)
+        {
+            MongoDB.Driver.IMongoQuery query = Query.EQ("_id", ObjectId.Parse(id));
+
+            this.Context.Sermons.Remove(query);
         }
     }
 }

@@ -9,21 +9,22 @@
 
 </head>
 <body>
+    @if (this.User.Identity.IsAuthenticated)
+    {
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    }
+    else
+    {
+        <div style="text-align:right; right: 3%; position: absolute; top: 50px; z-index: 10000;">
+            @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+        </div>
+    }
+
     <div id="wrapper0">
-        @if (this.User.Identity.IsAuthenticated)
-        {
-            <div class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container">
-                        @Html.Partial("_LoginPartial")
-                </div>
-            </div>
-        }
-        else
-        {
-            <div style="text-align:right; margin-right: 3%;">
-                @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-            </div>
-        }
         <div id="wrapper">
             <div id="container">
                 <header>
@@ -59,6 +60,7 @@
                         @RenderBody()
                     </article>
                 </div>
+
                 <div id="koncovkaPrediFooter">
                 </div>
             </div>

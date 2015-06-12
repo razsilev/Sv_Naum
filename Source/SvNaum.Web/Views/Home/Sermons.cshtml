@@ -29,7 +29,9 @@
             @Html.DisplayFor(m => item.Author)
             <br />
             @Html.LabelFor(m => item.Text)
-            @Html.DisplayFor(m => item.Text)
+            <p>
+                @Html.DisplayFor(m => item.Text)
+            </p>
             <br />
             @Html.LabelFor(m => item.Date)
             @Html.DisplayFor(m => item.Date.ToLocalTime().GetDateTimeFormats()[1])

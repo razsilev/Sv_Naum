@@ -1,13 +1,16 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    margin: 0;
+    padding: 0;
+    font-family: Cambria,"Time New Roman",Helvetica; 
+    font-size: 14px;
+    color: #3f2e05;
 }
 
 /* Set padding to keep content from hitting the edges */
-.body-content {
+/*.body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
+}*/
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -24,139 +27,215 @@ textarea {
 }
 
 /* Our css */
+body, article, section, div, aside, ul, li, header, footer, nav {
+    display:block;
+    margin: 0;
+    padding: 0;
+}
 #wrapper {
     background: url('../images/patern_croix3.jpg');
+    background-repeat:repeat;
     width:100%;
     top:0px;
     left:0px;
     position:absolute;
-    display: block;
     z-index: -1;
 }
-#container {
+div #container {
+    width: 90%;
     max-width: 1100px;
-    min-width: 1100px;
     margin: 0 auto;
-    height:1500px;
-    top:-20px;
+    /*top:-20px;*/
     position:relative;
-    background-color: #d4f5d1;
+    background-color:  #003333;
     box-shadow: 0px 0px 15px black;
     z-index: 0;
 }
-article, aside, footer, header, nav, section {
-    display: block;
-}
+/*start header*/
 header {
     height:200px;
-    /*background-color: #83f0ff;*/
+    background-color: #83f0ff;
     background-image:url('../images/panoramnaLight1.jpg') ;
-    color:#3f2e05;
-    font-family: Cambria,"Time New Roman";
-    font-size: 0.9em;
+    font-size: 1.2em;
     text-align: center;
     z-index: 1;
     position: relative;
 }
+header #loginLink {
+    z-index:100;
+    color:  #d4f5d1;
+    font-size: 0.8em;
+}
 #svNaum {
-    width: 176px;
-    height:200px;
-    margin-left:50px;
-    border:0px solid #000;
+    margin-left:5%;
     z-index: 2;
 }
 #logo {
-    width: 500px;
-    height:125px;
-    margin:5px 0px 0px 130px;
-    border:0px solid #000;
+    margin-left:18%;
     z-index: 2;
+}
+header img {
+    width: auto;
 }
 #svNaum, #logo {
     float:left;
+    margin-top: -22px;
 }
-.textCentered {
-    z-index: 2;
-    font-weight: bold;
-    color: #d4f5d1;
-    font-family: Cambria,"Time New Roman",Helvetica;
-    font-size: 0.8em;
-    text-align: center;
-
+#logo:after{
+    content: "";
+    display: block;
+    clear: both;
+    zoom: 1;
 }
+/*end header*/
 #hr {
     height: 29px;
     background-image: url('../images/frizGreen.png');
     background-repeat:repeat-x;
+    box-shadow: 3px 0px 3px #003333;
+    position: relative;
+    z-index: 3;
 }
-#leftAside {
-    max-width:280px;
-    min-width: 280px;
-    height:1270px;
+/*aside*/
+aside {
+    width: 28%;
+    max-width: 200px;
     margin:0;
-    padding:0;
-    border-right:1px solid #003333;
-    background-image: url('../images/patern_croix3.jpg');
+    padding-right:1%;
 }
-aside, article {
-    float: left;
+/*end aside*/
+article, aside {
+    float: right;
 }
 article {
-    max-width: 800px;
-    min-width: 800px;
-    padding: 0px 0px 20px 10px;
+    margin-right:3%;
+    margin-bottom: 50px;
+}
+/*h2*/
+@font-face {
+    font-family: 'BukyVede-Regular';
+    src: url('../fonts/BukyVede-Regular.ttf');
+}
+h2 {
+    font-family: 'BukyVede-Regular';
+    text-shadow: 2px 2px 2px #999;
+}
+/*end h2*/
+/*article*/
+article {
+    width: 75%;
+    max-width: 900px;
+    padding: 0px 7% 100px 3%;
     border:0px solid #000000;
+    background-color: #d4f5d1;
+}
+article img {
+        width: auto;
+        float: left;
+
+}
+article img:after {
+    content: "";
+    display: block;
+    clear: both;
+    zoom: 1;
 }
 .image {
-    margin:10px 20px 5px 30px;
+    margin:10px auto 25px auto;
 }
-footer .footerBaneri {
-    margin:0px 5px 0px 5px;
-    float: right;
-    display: inline-block;
+p:before {
+    content: "";
+    display: block;
+    clear: both;
+    zoom: 1;
 }
 .text {
-    display: inline;
+    /*display: inline;*/
     color:#3f2e05;
     font-family:Cambria,"Time New Roman", Helvetica;
     text-align: justify;
-    line-height: 15pt;
-    font-size: 15px !important;
+    line-height: 24px;
+    font-size: 1.2em;
     /*background-color: #d4f5d1;*/
 }
-ul {
-    min-width:80%;
-    max-width: 80%;
-    display: block;
-    list-style-type: none;
-    /*list-style-image:url('../images/poso4ka.jpg');*/
-    /*list-style-position: outside;*/
-    margin:10px 0px 0px 10px;
-    border:0px solid #000;
+p:first-line {
+    line-height: 30px;
 }
-.menu{
-    width:210px;
-    text-align: center;
-    line-height: 2em;
+p:first-letter {
+    padding-left: 10px;
+    font-size: 2.3em;
     background-color: #003333;
-    border-radius: 10px;
 }
-.menu img {
+#content:before, #content:after {
+    content: "";
+    display: block;
+    clear: both;
+    zoom: 1;
+}
+.avtor {
+   font-style: italic;
+   font-size: 1em;
+}
+/*end article*/
+/*start menu*/
+nav > ul {
+    width: 100%;
+    list-style-type: none;
+    background-color: #003333;
+    float: left;
+}
+li.menu  {
+    width: 18%;
+    display: inline-block;
+    margin-left: 1%;
+}
+li.menu{
+    text-align: center;
+    line-height: 24px;
+    background-color: transparent;
+    border-radius: 6px;
+}
+li.menu:first-child {
+    margin-left: 12%;
+}
+li.menu img {
     margin-top:3px;
+    width: auto;
 }
-.menu a {
+@font-face {
+    font-family: 'Bukyvede_Light';
+    src: url('../fonts/Bukyvede_Light.ttf');
+}
+li.menu a {
     color:#fff;
-    font-family: MonoCondensed,Cambria,"Time New Roman";
+    font-family: 'Bukyvede_Light';
     font-size: 1.5em;
     text-decoration: none;
 }
-.citat {
-    width:210px;
-    padding: 3px 3px 3px 3px;
-    line-height: 1.8em;
-    background-color: #d4f5d1;
-    border-radius: 10px;
+nav:after {
+    content: "";
+    zoom: 1;
+    clear: both;
+    display: block;
 }
+#hr:before {
+    content: "";
+    display: block;
+    clear: both;
+    zoom: 1;
+}
+/*end menu*/
+/*aside citat*/
+.citat {
+    width:100%;
+    padding: 3px 3px 3px 3px;
+    line-height: 24px;
+    font-size: 0.9em;
+    background-color: #d4f5d1;
+    /*border-radius: 10px;*/
+    margin-top: 10px;
+}
+/*end aside citat*/
 #koncovkaPrediFooter {
     height:22px ;
     width: 100%;
@@ -167,6 +246,7 @@ ul {
     left:0px;
     position: absolute;
 }
+/*start footer*/
 footer {
     width:100%;
     height: 80px;
@@ -178,6 +258,28 @@ footer {
     border:0px solid #000;
     /*position: absolute;*/
     z-index: 2;
+}
+.textCentered {
+    z-index: 2;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.9em;
+    text-align: center;
+    color: #d4f5d1;
+    width: 30%;
+}
+footer .footerBaneri {
+    width: auto;
+}
+footer .footerBaneri {
+    margin:0px 5px 0px 5px;
+    float: right;
+    display: inline-block;
+}
+/*end footer*/
+img {
+    max-width: 100%;
 }
 li:hover {
     background-color: #001515;
@@ -194,4 +296,5 @@ li a:hover {
 .textCentered:hover {
     color:#fff;
     cursor: pointer;
+    font-weight: bold;
 }

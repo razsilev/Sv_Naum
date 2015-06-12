@@ -9,69 +9,93 @@
 
 </head>
 <body>
-    @if (this.User.Identity.IsAuthenticated)
-    {
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    }
-    else
-    {
-        <div style="text-align:right; right: 3%; position: absolute; top: 50px; z-index: 10000;">
-            @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-        </div>
-    }
+    <div id="wrapper">
 
-    <div id="wrapper0">
-        <div id="wrapper">
-            <div id="container">
-                <header>
-                    <div id="svNaum"><img src="~/Images/svNaumBlur.png" alt="Икона на Св.Наум Охридски" /></div>
-                    <div id="logo">
-                        <a href="/">
-                            <img src="~/Images/logo3.png" alt="Православен храм Св.Наум Охридски" />
-                        </a>
+        <div id="container">
+
+            <header>
+                @if (this.User.Identity.IsAuthenticated)
+                {
+                    <div id="login" class="navbar navbar-inverse navbar-fixed-top">
+                        <!--<div class="container">-->
+                        @Html.Partial("_LoginPartial")
+                        <!--</div>-->
                     </div>
-                </header>
-
-                <div id="hr"></div>
-                <div id="content">
-                    <aside id="leftAside">
-                        <nav>
-                            <ul>
-                                <li class="menu"><a href="/Home/Timetable"><img src="~/Images/trumbSlujbi.jpg" alt="" />Служение</a></li>
-                                <li class="menu"><a href="/Home/Pictures"><img src="~/Images/trumbGaleria.jpg" alt="" />Фотоалбум</a></li>
-                                <li class="menu"><a href="/Home/Sermons"><img src="~/Images/trumbPropovedi.jpg" alt="" />Проповеди</a></li>
-                                <li class="citat">
-                                    Примерен цитат:
-                                    <img src="~/Images/post-200x179.jpg" alt="" />
-                                    <p class="text">
-                                        Когато видим човек, обзет от голям душевен смут, притеснение и печал, въпреки че има всичко и нищо не му липсва,
-                                        трябва да знаем, че му липсва Бога.
-                                        Старецът Паисий
-                                    </p>
-                                </li>
-                            </ul>
-                        </nav>
-                    </aside>
-                    <article>
-                        @RenderBody()
-                    </article>
+                }
+                else
+                {
+                    <div style="text-align:right; margin-right: 1%;">
+                        @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+                    </div>
+                }
+                <div id="svNaum"><img src="~/Images/svNaumBlur.png" alt="Икона на Св.Наум Охридски" /></div>
+                <div id="logo">
+                    <a href="/">
+                        <img src="~/Images/logo3.png" alt="Православен храм Св.Наум Охридски" />
+                    </a>
                 </div>
-
-                <div id="koncovkaPrediFooter">
-                </div>
+            </header>
+            <div id="hr"></div>
+            <nav>
+                <ul>
+                    <li class="menu"><a href="/Home/Timetable"><img src="~/Images/trumbSlujbi.jpg" alt="" />Служение</a></li>
+                    <li class="menu"><a href="/Home/Pictures"><img src="~/Images/trumbGaleria.jpg" alt="" />Фотоалбум</a></li>
+                    <li class="menu"><a href="/Home/Sermons"><img src="~/Images/trumbPropovedi.jpg" alt="" />Проповеди</a></li>
+                    <li class="menu"><a href="/Home/Sermons"><img src="~/Images/trumbPropovedi.jpg" alt="" />Молитвеник</a></li>
+                </ul>
+            </nav>
+            <div id="hr"></div>
+            <div id="content">
+                <aside id="rightAside">
+                    <ul>
+                        <li class="citat">
+                            <img src="~/Images/svPaisii1.jpg" alt="" />
+                            <p class="text">
+                                Когато видим човек, обзет от голям душевен смут, притеснение и печал, въпреки че има всичко и нищо не му липсва,
+                                трябва да знаем, че му липсва Бога.
+                                <span class="avtor">Свети Паисий Атонски</span>
+                            </p>
+                        </li>
+                        <li class="citat">
+                            <img src="~/Images/svPaisii3.jpg" alt="" />
+                            <p class="text">
+                                Трябва да правим това, което е в границите на човешките възможности, а другото, което надхвърля силите
+                                ни, да оставим в Божиите ръце.
+                                <span class="avtor">Свети Паисий Атонски</span>
+                            </p>
+                        </li>
+                        <li class="citat">
+                            <img src="~/Images/svPaisii2.jpg" alt="" />
+                            <p class="text">
+                                Светът е като тенджера под налягане с много клапани, готови да експлодират. Ако не се пропука от едно
+                                място, ще се спука от друго... да внимаваме да не бъдем ние причината.
+                                <span class="avtor">Свети Паисий Атонски</span>
+                            </p>
+                        </li>
+                        <li class="citat">
+                            <img src="~/Images/svPaisii4.jpg" alt="" />
+                            <p class="text">
+                                През малкото години на нашия живот ние трябва тихо и невидимо да вършим добри дела.
+                                <span class="avtor">Свети Паисий Атонски</span>
+                            </p>
+                        </li>
+                    </ul>
+                </aside>
+                <article>
+                    @RenderBody()
+                </article>
             </div>
-            <footer class="footer">
-                <div class="textCentered">Адрес: гр.София, жк.Дружба1, тел.02/978 86 88</div>
-                <a href="http://www.pravoslavnoto-hristianstvo.com/" target="_blank"><img src="~/Images/bg-88x31-native1.gif" alt="Православен свят" class="footerBaneri" /></a>
-                <a href="http://bg-patriarshia.bg/index.php?file=index.xml" target="_blank"><img src="~/Images/120x60_bpc.jpg" alt="Българска Православна Църква" class="footerBaneri" /></a>
-                <a href="http://pravoslaven-sviat.org/" target="_blank"><img src="~/Images/pravoslavenSvqtBaner.png" alt="Православното християнство в Интернет" class="footerBaneri" /></a>
-            </footer>
+            <div id="koncovkaPrediFooter">
+            </div>
         </div>
+        <footer class="footer">
+            <div class="textCentered">Адрес: гр.София, жк.Дружба1, тел.02/978 86 88</div>
+            <a href="http://www.pravoslavnoto-hristianstvo.com/" target="_blank"><img src="~/Images/bg-88x31-native1.gif" alt="Православен свят" class="footerBaneri" /></a>
+            <a href="http://bg-patriarshia.bg/index.php?file=index.xml" target="_blank"><img src="~/Images/120x60_bpc.jpg" alt="Българска Православна Църква" class="footerBaneri" /></a>
+            <a href="http://pravoslaven-sviat.org/" target="_blank"><img src="~/Images/pravoslavenSvqtBaner.png" alt="Православното християнство в Интернет" class="footerBaneri" /></a>
+        </footer>
     </div>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

@@ -3,6 +3,7 @@
     using MongoDB.Bson.Serialization.Attributes;
     using System;
     using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
     
     public class SermonInputModel
     {
@@ -20,6 +21,7 @@
 
         //public string ImageUrl { get; set; }
 
+        [AllowHtml]
         [Required]
         [DataType(DataType.MultilineText)]
         public string Text { get; set; }

@@ -30,7 +30,7 @@
             <br />
             @Html.LabelFor(m => item.Text)
             <p>
-                @Html.DisplayFor(m => item.Text)
+                @Html.Raw(item.Text)
             </p>
             <br />
             @Html.LabelFor(m => item.Date)

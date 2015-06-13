@@ -32,6 +32,9 @@ body, article, section, div, aside, ul, li, header, footer, nav {
     margin: 0;
     padding: 0;
 }
+p {
+    display: block;
+}
 #wrapper {
     background: url('../images/patern_croix3.jpg');
     background-repeat:repeat;
@@ -44,10 +47,11 @@ body, article, section, div, aside, ul, li, header, footer, nav {
 div #container {
     width: 90%;
     max-width: 1100px;
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
     /*top:-20px;*/
     position:relative;
-    background-color:  #003333;
+    background-color: #6e7649;
+    /*background-color:  #003333;*/
     box-shadow: 0px 0px 15px black;
     z-index: 0;
 }
@@ -102,6 +106,7 @@ aside {
     max-width: 200px;
     margin:0;
     padding-right:1%;
+    margin-bottom: 50px;
 }
 /*end aside*/
 article, aside {
@@ -127,7 +132,8 @@ article {
     max-width: 900px;
     padding: 0px 7% 100px 3%;
     border:0px solid #000000;
-    background-color: #d4f5d1;
+    background-color: #c7c397;
+    /*background-color: #d4f5d1;*/
 }
 article img {
         width: auto;
@@ -150,21 +156,22 @@ p:before {
     zoom: 1;
 }
 .text {
-    /*display: inline;*/
     color:#3f2e05;
-    font-family:Cambria,"Time New Roman", Helvetica;
+    font-family: Cambria,"Time New Roman", Helvetica;
     text-align: justify;
     line-height: 24px;
-    font-size: 1.2em;
-    /*background-color: #d4f5d1;*/
+    font-size: 1.1em;
 }
-p:first-line {
-    line-height: 30px;
+p {
+    color: #3f2e05;
+    font-family: Cambria,"Time New Roman", Helvetica;
+    line-height: 24px;
+    text-align: justify;
+    font-size: 1.2em;
+    display: block;
 }
 p:first-letter {
-    padding-left: 10px;
-    font-size: 2.3em;
-    background-color: #003333;
+    font-size: 50px;
 }
 #content:before, #content:after {
     content: "";
@@ -176,12 +183,16 @@ p:first-letter {
    font-style: italic;
    font-size: 1em;
 }
+#facebookButton {
+    margin-top: 10px;
+}
 /*end article*/
 /*start menu*/
 nav > ul {
     width: 100%;
     list-style-type: none;
-    background-color: #003333;
+    background-color: #6e7649;
+    /*background-color: #003333;*/
     float: left;
 }
 li.menu  {
@@ -207,7 +218,8 @@ li.menu img {
     src: url('../fonts/Bukyvede_Light.ttf');
 }
 li.menu a {
-    color:#fff;
+    /*color:#fff;*/
+    color: #dfd27c;
     font-family: 'Bukyvede_Light';
     font-size: 1.5em;
     text-decoration: none;
@@ -229,11 +241,23 @@ nav:after {
 .citat {
     width:100%;
     padding: 3px 3px 3px 3px;
-    line-height: 24px;
     font-size: 0.9em;
-    background-color: #d4f5d1;
-    /*border-radius: 10px;*/
+    background-color: #dfd27c;
+    /*background-color: #d4f5d1;*/
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
     margin-top: 10px;
+}
+.lightBrownTextHover {
+    padding: 3px 3px 3px 3px;
+    color:#3f2e05;
+    font-size: 1em;
+    font-family: Cambria,"Time New Roman", Helvetica;
+    text-align: justify;
+    line-height: 24px;
+}
+.pre-line {
+    white-space: pre-line;
 }
 /*end aside citat*/
 #koncovkaPrediFooter {
@@ -249,19 +273,19 @@ nav:after {
 /*start footer*/
 footer {
     width:100%;
-    height: 80px;
+    height: 90px;
     margin-top:20;
     padding:0;
     /*border-top:1px solid #003333;*/
     box-shadow:  0px 0px 15px black;
-    background-image: url('../images/patern_croix3.png');
+    background-image: url('../images/patern_croix3.jpg');
     border:0px solid #000;
     /*position: absolute;*/
     z-index: 2;
 }
 .textCentered {
     z-index: 2;
-    margin-top: 10px;
+    padding-top: 5px;
     margin-left: auto;
     margin-right: auto;
     font-size: 0.9em;
@@ -286,8 +310,11 @@ li:hover {
     border-radius: 0px;
     cursor: pointer;
 }
-li:hover .text{
-    color:#fff;
+li:hover span.avtor {
+    color: #fff;
+}
+li:hover .lightBrownTextHover{
+    color: #e5ae86;
 }
 li a:hover {
     color:#fff;

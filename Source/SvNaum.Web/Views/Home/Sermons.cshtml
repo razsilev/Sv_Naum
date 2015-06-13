@@ -4,7 +4,7 @@
     ViewBag.Title = "Проповеди";
 }
 
-<h2>Проповеди!</h2>
+@*<h2>Проповеди!</h2>*@
 <br />
 @if (this.User.Identity.IsAuthenticated)
 {
@@ -19,23 +19,31 @@
     foreach (var item in Model)
     {
         <div>
-            @Html.LabelFor(m => item.Theme)
-            @Html.DisplayFor(m => item.Theme)
+            @*@Html.LabelFor(m => item.Theme)*@
+            @*@Html.DisplayFor(m => item.Theme)*@
             <br />
-            @Html.LabelFor(m => item.Title)
-            @Html.DisplayFor(m => item.Title)
+            @*@Html.LabelFor(m => item.Title)*@
+           <h2> 
+               @Html.DisplayFor(m => item.Title)
+            </h2>
             <br />
-            @Html.LabelFor(m => item.Author)
-            @Html.DisplayFor(m => item.Author)
-            <br />
-            @Html.LabelFor(m => item.Text)
+            @*@Html.LabelFor(m => item.Text)*@
             <p>
-                @Html.Raw(item.Text)
+                @Html.DisplayFor(m => item.Text)
             </p>
             <br />
-            @Html.LabelFor(m => item.Date)
+            @*@Html.LabelFor(m => item.Author)*@
+            <div class="avtor">
+            @Html.DisplayFor(m => item.Author)
+            </div>
+            <br />
+
+            @*@Html.LabelFor(m => item.Date)*@
             @Html.DisplayFor(m => item.Date.ToLocalTime().GetDateTimeFormats()[1])
             <br />
+
+            <div id="facebookButton" class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button">
+            </div>
 
             @if (this.User.Identity.IsAuthenticated)
             {
@@ -43,8 +51,10 @@
                 <br />
                 @Html.ActionLink("Edit", "SermonEdit", "Admin", new { id = item.Id }, null)
             }
+            
+            
+
         </div>
-        <p>-----------------------------------------</p>
     }
 }
 else

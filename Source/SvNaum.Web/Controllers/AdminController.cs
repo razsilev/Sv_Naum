@@ -12,10 +12,23 @@
     using SvNaum.Data;
     using SvNaum.Models;
     using SvNaum.Web.Models;
+    using SvNaum.Web.Infrastructure;
 
     [Authorize]
     public class AdminController : BaseController
     {
+        private readonly ISanitizer sanitizer;
+
+        public AdminController()
+        {
+            this.sanitizer = new HtmlSanitizerAdapter();
+        }
+
+        public AdminController(ISanitizer sanitizer)
+        {
+            this.sanitizer = sanitizer;
+        }
+
         [HttpGet]
         public ActionResult TimetableAdd()
         {
@@ -152,7 +165,7 @@
                 
                 sermon.Date = DateTime.Now;
                 sermon.Author = inputSermon.Author;
-                sermon.Text = inputSermon.Text;
+                sermon.Text = this.sanitizer.Sanitize(inputSermon.Text);
                 sermon.Theme = inputSermon.Theme;
                 sermon.Title = inputSermon.Title;
                 sermon.ImageUrl = string.Empty;
@@ -201,8 +214,8 @@
 
                 sermon.Author = inputSermon.Author;
                 sermon.ImageUrl = string.Empty;
-                sermon.Text = inputSermon.Text;
-                
+                sermon.Text = this.sanitizer.Sanitize(inputSermon.Text);
+
                 sermon.Theme = inputSermon.Theme;
                 sermon.Title = inputSermon.Title;
                 sermon.Date = inputSermon.Date;

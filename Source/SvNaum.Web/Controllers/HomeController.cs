@@ -55,7 +55,7 @@
 
             try
             {
-                sermons = this.Context.Sermons.FindAll().ToList();
+                sermons = this.Context.Sermons.FindAll().OrderByDescending(s => s.Date).ToList();
             }
             catch (System.Exception)
             {

@@ -21,24 +21,18 @@
         <div>
             @*@Html.LabelFor(m => item.Theme)*@
             @*@Html.DisplayFor(m => item.Theme)*@
-            <br />
-            @*@Html.LabelFor(m => item.Title)*@
-           <h2> 
-               @Html.DisplayFor(m => item.Title)
+            <h2>
+                @Html.DisplayFor(m => item.Title)
             </h2>
-            <br />
-            @*@Html.LabelFor(m => item.Text)*@
             <p>
-                @Html.DisplayFor(m => item.Text)
+                @Html.Raw(item.Text)
             </p>
             <br />
-            @*@Html.LabelFor(m => item.Author)*@
             <div class="avtor">
-            @Html.DisplayFor(m => item.Author)
+                @Html.DisplayFor(m => item.Author)
             </div>
             <br />
 
-            @*@Html.LabelFor(m => item.Date)*@
             @Html.DisplayFor(m => item.Date.ToLocalTime().GetDateTimeFormats()[1])
             <br />
 
@@ -47,12 +41,12 @@
 
             @if (this.User.Identity.IsAuthenticated)
             {
-                @Html.ActionLink("Delete", "SermonDelete", "Admin", new { id = item.Id }, null)
-                <br />
-                @Html.ActionLink("Edit", "SermonEdit", "Admin", new { id = item.Id }, null)
+                <div>
+                    @Html.ActionLink("Edit", "SermonEdit", "Admin", new { id = item.Id }, null)
+                    &nbsp;
+                    @Html.ActionLink("Delete", "SermonDelete", "Admin", new { id = item.Id }, null)
+                </div>
             }
-            
-            
 
         </div>
     }

@@ -17,6 +17,7 @@
     foreach (var item in Model)
     {
         <div>
+            <h2>@item.Title</h2>
             <label>Date:</label>
             <span>@item.Date.ToLocalTime().GetDateTimeFormats('D')[1]</span>
             <br />

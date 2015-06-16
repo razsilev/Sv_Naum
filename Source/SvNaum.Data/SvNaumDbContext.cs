@@ -36,5 +36,13 @@
                 return this.db.GetCollection<Sermon>("Sermons");
             }
         }
+
+        public MongoCollection<Breviary> Breviary
+        {
+            get
+            {
+                return this.db.GetCollection<Breviary>("Breviary");
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@
     using System.Web.Mvc;
 
     using MongoDB.Bson;
+    using MongoDB.Driver;
     using MongoDB.Driver.Builders;
 
     using SvNaum.Data;
@@ -240,18 +241,114 @@
             return RedirectToAction("Sermons", "Home");
         }
 
+        // crut prayers
+        [HttpGet]
+        public ActionResult PrayerAdd()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult PrayerAdd(PrayerInputModel inputPrayer)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var prayerDb = new Prayer();
+
+                prayerDb.Author = inputPrayer.Author;
+                prayerDb.Text = this.sanitizer.Sanitize(inputPrayer.Text);
+                prayerDb.Title = inputPrayer.Title;
+                prayerDb.TitleSecond = inputPrayer.TitleSecond ?? string.Empty;
+
+                this.Context.Prayers.Insert(prayerDb);
+
+                return RedirectToAction("Breviary", "Home");
+            }
+
+            return View(inputPrayer);
+        }
+
+        [HttpGet]
+        public ActionResult PrayerEdit(string id)
+        {
+            IMongoQuery query = this.CreateQueryById(id);
+            var prauerDb = this.Context.Prayers.Find(query).FirstOrDefault();
+
+            if (prauerDb != null)
+            {
+                var prayerViewModel = new PrayerUpdateInputModel()
+                {
+                    Id = prauerDb.Id,
+                    Text = prauerDb.Text,
+                    Author = prauerDb.Author,
+                    Title = prauerDb.Title,
+                    TitleSecond = prauerDb.TitleSecond
+                };
+
+                return View(prayerViewModel);
+            }
+
+
+            return RedirectToAction("Breviary", "Home");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult PrayerEdit(PrayerUpdateInputModel prayerInput)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var PrayerDb = new Prayer();
+
+                PrayerDb.Title = prayerInput.Title;
+                PrayerDb.TitleSecond = prayerInput.TitleSecond;
+                PrayerDb.Text = this.sanitizer.Sanitize(prayerInput.Text);
+                PrayerDb.Author = prayerInput.Author;
+
+                this.Context.Prayers.Insert(PrayerDb);
+
+                this.DeletePrayerBy(prayerInput.Id);
+
+                return RedirectToAction("Breviary", "Home");
+            }
+
+            return View(prayerInput);
+        }
+
+        public ActionResult PrayerDelete(string id)
+        {
+            this.DeletePrayerBy(id);
+
+            return RedirectToAction("Breviary", "Home");
+        }
+
         private void DeleteMinistrationBy(string id)
         {
-            MongoDB.Driver.IMongoQuery query = Query.EQ("_id", ObjectId.Parse(id));
+            IMongoQuery query = this.CreateQueryById(id);
 
             this.Context.Ministration.Remove(query);
         }
 
         private void DeleteSermonBy(string id)
         {
-            MongoDB.Driver.IMongoQuery query = Query.EQ("_id", ObjectId.Parse(id));
+            IMongoQuery query = this.CreateQueryById(id);
 
             this.Context.Sermons.Remove(query);
+        }
+
+        private void DeletePrayerBy(string id)
+        {
+            IMongoQuery query = this.CreateQueryById(id);
+
+            this.Context.Prayers.Remove(query);
+        }
+
+        private IMongoQuery CreateQueryById(string id)
+        {
+            MongoDB.Driver.IMongoQuery query = Query.EQ("_id", ObjectId.Parse(id));
+
+            return query;
         }
     }
 }

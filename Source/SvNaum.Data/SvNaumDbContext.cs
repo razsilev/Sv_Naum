@@ -37,11 +37,11 @@
             }
         }
 
-        public MongoCollection<Breviary> Breviary
+        public MongoCollection<Prayer> Prayers
         {
             get
             {
-                return this.db.GetCollection<Breviary>("Breviary");
+                return this.db.GetCollection<Prayer>("Breviary");
             }
         }
     }

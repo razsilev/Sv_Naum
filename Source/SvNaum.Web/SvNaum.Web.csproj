@@ -210,7 +210,6 @@
     <Content Include="Images\logo3.png" />
     <Content Include="Images\panoramnaLight1.jpg" />
     <Content Include="Images\patern_croix3.jpg" />
-    <Content Include="Images\patern_croix3.png" />
     <Content Include="Images\post-200x179.jpg" />
     <Content Include="Images\pravoslavenSvqtBaner.png" />
     <Content Include="Images\svNaumBlur.png" />
@@ -221,8 +220,6 @@
     <Content Include="Images\trumbGaleria.jpg" />
     <Content Include="Images\trumbPropovedi.jpg" />
     <Content Include="Images\trumbSlujbi.jpg" />
-    <Content Include="Images\XristosVoskreseGoldModifikated.png" />
-    <Content Include="Images\xvoskrese.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\BukyVede-Bold.ttf" />

@@ -124,7 +124,7 @@ article {
 h2 {
     font-family: 'BukyVede-Regular';
     text-shadow: 2px 2px 2px #999;
-    text-align: left;
+    text-align: justify;
     margin-bottom: 20px;
     margin-top: 25px;
 }
@@ -133,9 +133,10 @@ h2 {
 h3 {
     color:#3f2e05;
     font-family: Cambria,"Time New Roman", Helvetica;
-    text-align: center;
+    text-align: justify;
     line-height: 28px;
     font-size: 1.2em;
+    font-weight: bold;
 }
 /*end h3*/
 /*article*/

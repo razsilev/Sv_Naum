@@ -67,9 +67,18 @@
 
         public ActionResult Breviary()
         {
+            List<Prayer> prayers = new List<Prayer>();
 
+            try
+            {
+                prayers = this.Context.Prayers.FindAll().Reverse().ToList();
+            }
+            catch (System.Exception)
+            {
 
-            return View();
+            }
+
+            return View(prayers);
         }
     }
 }

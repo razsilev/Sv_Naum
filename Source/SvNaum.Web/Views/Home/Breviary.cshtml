@@ -1,13 +1,14 @@
-﻿@model IEnumerable<SvNaum.Models.Sermon>
+﻿@model IEnumerable<SvNaum.Models.Prayer>
 
 @{
-    ViewBag.Title = "Проповеди";
+    ViewBag.Title = "Молитвеник";
 }
 
+<h2>Молитвеник</h2>
 <br />
 @if (this.User.Identity.IsAuthenticated)
 {
-    @Html.ActionLink("Create Sermon", "SermonAdd", "Admin")
+    @Html.ActionLink("Create prayer", "PrayerAdd", "Admin")
     <br />
     <br />
 }
@@ -18,11 +19,12 @@
     foreach (var item in Model)
     {
         <div>
-            @*@Html.LabelFor(m => item.Theme)*@
-            @*@Html.DisplayFor(m => item.Theme)*@
             <h2>
                 @Html.DisplayFor(m => item.Title)
             </h2>
+            <h3>
+                @Html.DisplayFor(m => item.TitleSecond)
+            </h3>
             <p>
                 @Html.Raw(item.Text)
             </p>
@@ -31,19 +33,16 @@
                 @Html.DisplayFor(m => item.Author)
             </div>
             <br />
-
-            @Html.DisplayFor(m => item.Date.ToLocalTime().GetDateTimeFormats()[1])
-            <br />
-
+            
             <div id="facebookButton" class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button">
             </div>
 
             @if (this.User.Identity.IsAuthenticated)
             {
                 <div>
-                    @Html.ActionLink("Edit", "SermonEdit", "Admin", new { id = item.Id }, null)
+                    @Html.ActionLink("Edit", "PrayerEdit", "Admin", new { id = item.Id }, null)
                     &nbsp;
-                    @Html.ActionLink("Delete", "SermonDelete", "Admin", new { id = item.Id }, null)
+                    @Html.ActionLink("Delete", "PrayerDelete", "Admin", new { id = item.Id }, null)
                 </div>
             }
 
@@ -52,5 +51,5 @@
 }
 else
 {
-    <h3>There is no sermons!</h3>
+    <h3>There is no prayer!</h3>
 }

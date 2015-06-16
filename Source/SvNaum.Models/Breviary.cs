@@ -5,17 +5,15 @@
     using MongoDB.Bson;
     using MongoDB.Bson.Serialization.Attributes;
 
-    public class Ministration
+    public class Breviary
     {
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
         public string Title { get; set; }
 
-        public DateTime Date { get; set; }
+        public string Author { get; set; }
 
-        public string Description { get; set; }
-
-        public string DayName { get; set; }
+        public string Text { get; set; }
     }
 }

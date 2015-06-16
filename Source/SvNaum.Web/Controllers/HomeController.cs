@@ -64,5 +64,12 @@
 
             return View(sermons);
         }
+
+        public ActionResult Breviary()
+        {
+
+
+            return View();
+        }
     }
 }

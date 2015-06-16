@@ -208,6 +208,7 @@
     <Content Include="Images\frizGreen.png" />
     <Content Include="Images\hr.gif" />
     <Content Include="Images\logo3.png" />
+    <Content Include="Images\ornament.png" />
     <Content Include="Images\panoramnaLight1.jpg" />
     <Content Include="Images\patern_croix3.jpg" />
     <Content Include="Images\post-200x179.jpg" />

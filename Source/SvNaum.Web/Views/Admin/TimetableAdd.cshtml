@@ -4,11 +4,15 @@
 @using (Html.BeginForm("TimetableAdd", "Admin", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
+
+    @Html.LabelFor(m => m.Title)
+    @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Title)
+
     @Html.LabelFor(m => m.Date)
-    @Html.TextBoxFor(m => m.Date, new { @class = "form-control", placeholder = "dd/mm/yyyy", @type = "date"})
+    @Html.TextBoxFor(m => m.Date, new { @class = "form-control", placeholder = "dd/mm/yyyy", @type = "date" })
     @Html.ValidationMessageFor(m => m.Date)
-    
+
     <br />
     @Html.LabelFor(m => m.Time)
     @Html.TextBoxFor(m => m.Time, new { @class = "form-control", placeholder = "HH:mm" })

@@ -7,6 +7,10 @@
 
     @Html.EditorFor(m => m.Id)
     
+    @Html.LabelFor(m => m.Title)
+    @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Title)
+
     @Html.LabelFor(m => m.Date)
     @Html.TextBoxFor(m => m.Date, new { @class = "form-control", placeholder = "dd/mm/yyyy", @type = "date" })
     @Html.ValidationMessageFor(m => m.Date)

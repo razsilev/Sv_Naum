@@ -62,6 +62,7 @@
                     return View(inputMinistration);
                 }
 
+                ministration.Title = inputMinistration.Title;
                 ministration.Date = inputMinistration.Date;
                 ministration.DayName = dayName;
                 ministration.Description = inputMinistration.Description;
@@ -88,6 +89,7 @@
                 var minViewModel = new MinistrationUpdateInputModel()
                 {
                     Id = ministration.Id,
+                    Title = ministration.Title,
                     Date = ministration.Date,
                     Description = ministration.Description,
                     Time = ministration.Date.Hour.ToString() + ":" + ministration.Date.Minute.ToString()
@@ -127,6 +129,7 @@
                     return View(inputMinistration);
                 }
 
+                ministration.Title = inputMinistration.Title;
                 ministration.Date = inputMinistration.Date;
                 ministration.DayName = dayName;
                 ministration.Description = inputMinistration.Description;

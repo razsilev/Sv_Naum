@@ -4,7 +4,8 @@
     ViewBag.Title = "Служение";
 }
 
-<h2>Служение!</h2>
+<h2>Разписание на богослуженията в храм Св. Наум Охридски</h2>
+
 @if (this.User.Identity.IsAuthenticated)
 {
     @Html.ActionLink("Create new ministration", "TimetableAdd", "Admin")
@@ -18,35 +19,48 @@
     {
         <div>
             <h2>@item.Title</h2>
-            <label>Date:</label>
-            <span>@item.Date.ToLocalTime().GetDateTimeFormats('D')[1]</span>
-            <br />
-            <label>Time:</label>
-            @{
-        string minute = item.Date.ToLocalTime().Minute.ToString();
+            <table>
+                <tr>
+                    <td class="persent15">
+                        @*<label>Day of week:</label>*@
+                        <em>@item.DayName</em>
+                        <br />
+                    </td>
+                    <td class="persent15">
+                        @*<label>Date:</label>*@
+                        <span>@item.Date.ToLocalTime().GetDateTimeFormats('D')[1]</span>
+                        <br />
+                    </td>
+                    <td class="persent15">
+                        @*<label>Time:</label>*@
+                        @{
+                        string minute = item.Date.ToLocalTime().Minute.ToString();
 
-        if (minute.Length == 1)
-        {
-            minute = "0" + minute;
-        }
-            }
+                        if (minute.Length == 1)
+                        {
+                            minute = "0" + minute;
+                        }
+                        }
 
-            <span>@item.Date.ToLocalTime().Hour:@minute</span>
-            <br />
-            <label>Day of week:</label>
-            <em>@item.DayName</em>
-            <br />
-            <label>Description:</label>
-            <p>@item.Description</p>
+                        <span>@item.Date.ToLocalTime().Hour:@minute</span>
+                        <br />
+                    </td>
+                    <td>
+                        @*<label>Description:</label>*@
+                        <p>@item.Description</p>
 
-            @if (this.User.Identity.IsAuthenticated)
-            {
-                @Html.ActionLink("Delete", "DeleteMinistration", "Admin", new { id = item.Id }, null)
-                <br />
-                @Html.ActionLink("Edit", "MinistrationEdit", "Admin", new { id = item.Id }, null)
-            }
+                        @if (this.User.Identity.IsAuthenticated)
+                        {
+                            @Html.ActionLink("Delete", "DeleteMinistration", "Admin", new { id = item.Id }, null)
+                            <br />
+                            @Html.ActionLink("Edit", "MinistrationEdit", "Admin", new { id = item.Id }, null)
+                        }
+                    </td>
+                </tr>
+            </table>
+
         </div>
-        <p>------------------------------------------</p>
+        <hr />
     }
 }
 else

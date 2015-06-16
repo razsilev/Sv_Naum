@@ -15,7 +15,6 @@
 
 @if (Model != null && Model.Count() > 0)
 {
-    <h2>???</h2>
     foreach (var item in Model)
     {
         <div>
@@ -26,7 +25,7 @@
                         <em>@item.DayName</em>
                         <br />
                     </td>
-                    <td class="persent15">
+                    <td class="persent20">
                         @*<label>Date:</label>*@
                         <span>@item.Date.ToLocalTime().GetDateTimeFormats('D')[1]</span>
                         <br />
@@ -57,10 +56,15 @@
                         }
                     </td>
                 </tr>
+                <tr>
+                    <td class="textAlignCenter" colspan="4">
+                        <img class="koncovka" src="~/Images/ornament.png" alt="line" />
+                    </td>
+                </tr>
             </table>
 
         </div>
-        <hr />
+
     }
 }
 else

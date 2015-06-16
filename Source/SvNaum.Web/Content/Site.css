@@ -125,8 +125,19 @@ h2 {
     font-family: 'BukyVede-Regular';
     text-shadow: 2px 2px 2px #999;
     text-align: left;
+    margin-bottom: 20px;
+    margin-top: 25px;
 }
 /*end h2*/
+/*h3*/
+h3 {
+    color:#3f2e05;
+    font-family: Cambria,"Time New Roman", Helvetica;
+    text-align: center;
+    line-height: 28px;
+    font-size: 1.2em;
+}
+/*end h3*/
 /*article*/
 article {
     width: 75%;
@@ -188,6 +199,7 @@ p:first-letter {
     margin-top: 10px;
 }
 /*end article*/
+
 /*start menu*/
 nav > ul {
     width: 100%;
@@ -257,9 +269,6 @@ nav:after {
     text-align: justify;
     line-height: 24px;
 }
-.pre-line {
-    white-space: pre-line;
-}
 /*end aside citat*/
 #koncovkaPrediFooter {
     height:22px ;
@@ -271,16 +280,35 @@ nav:after {
     left:0px;
     position: absolute;
 }
-/*mistration*/
+/*ministration*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
 table td {
     text-align: left;
     vertical-align: top;
-    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 25px;
 }
 .persent15 {
     width: 15%;
 }
-/*end mistration*/
+.persent20 {
+    width: 20%;
+}
+/*end ministration*/
+/*razspisanie koncovka*/
+
+td.textAlignCenter{
+    width: 100%;
+    text-align: center;
+}
+td.textAlignCenter > .koncovka{
+    width: 20%;
+    margin-left: 35%;
+}
+/*end razspisanie koncovka*/
 /*start footer*/
 footer {
     width:100%;
@@ -294,7 +322,7 @@ footer {
     /*position: absolute;*/
     z-index: 2;
 }
-.textCentered {
+.textCenteredFooter {
     z-index: 2;
     padding-top: 5px;
     margin-left: auto;

@@ -21,19 +21,15 @@
     </script>
 
     <div id="wrapper">
-
         <div id="container">
-
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                <div id="login" class="navbar navbar-inverse" style="margin:0;">
+                    @Html.Partial("_LoginPartial")
+                </div>
+            }
             <header>
-                @if (this.User.Identity.IsAuthenticated)
-                {
-                    <div id="login" class="navbar navbar-inverse navbar-fixed-top">
-                        <!--<div class="container">-->
-                        @Html.Partial("_LoginPartial")
-                        <!--</div>-->
-                    </div>
-                }
-                else
+                @if (!this.User.Identity.IsAuthenticated)
                 {
                     <div style="text-align:right; margin-right: 1%;">
                         @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
@@ -59,7 +55,7 @@
             <div id="content">
                 <aside id="rightAside">
                     <!--google search-->
-                   
+
 
                     <ul>
                         <li class="citat">
@@ -77,9 +73,10 @@
                             <div>
                                 <div class="lightBrownTextHover">
                                     Трябва да правим това, което е в границите на човешките възможности, а другото, което надхвърля силите
-                                    ни, да оставим в Божиите ръце.</div>
-                                    <span class="avtor">Свети Паисий Атонски</span>
-                             </div>
+                                    ни, да оставим в Божиите ръце.
+                                </div>
+                                <span class="avtor">Свети Паисий Атонски</span>
+                            </div>
                         </li>
                         <li class="citat">
                             <img src="~/Images/svPaisii2.jpg" alt="" />
@@ -87,16 +84,18 @@
                                 <div class="lightBrownTextHover">
                                     Светът е като тенджера под налягане с много клапани, готови да експлодират.
                                     Ако не се пропука от едно място, ще се спука от друго...
-                                    да внимаваме да не бъдем ние причината.</div>
-                                    <span class="avtor">Свети Паисий Атонски</span>
+                                    да внимаваме да не бъдем ние причината.
+                                </div>
+                                <span class="avtor">Свети Паисий Атонски</span>
                             </div>
                         </li>
                         <li class="citat">
                             <img src="~/Images/svPaisii4.jpg" alt="" />
                             <div>
                                 <div class="lightBrownTextHover">
-                                    През малкото години на нашия живот ние трябва тихо и невидимо да вършим добри дела.</div>
-                                    <span class="avtor">Свети Паисий Атонски</span>
+                                    През малкото години на нашия живот ние трябва тихо и невидимо да вършим добри дела.
+                                </div>
+                                <span class="avtor">Свети Паисий Атонски</span>
                             </div>
                         </li>
                     </ul>

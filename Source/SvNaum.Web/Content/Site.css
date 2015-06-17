@@ -219,6 +219,7 @@ li.menu{
     line-height: 24px;
     background-color: transparent;
     border-radius: 6px;
+    transition: all 0.5s ease;
 }
 li.menu:first-child {
     margin-left: 12%;
@@ -237,6 +238,7 @@ li.menu a {
     font-family: 'Bukyvede_Light';
     font-size: 1.5em;
     text-decoration: none;
+    transition: all 0.5s ease;
 }
 nav:after {
     content: "";
@@ -251,6 +253,13 @@ nav:after {
     zoom: 1;
 }
 /*end menu*/
+/*slideshow index page*/
+.ze_flexslider  {
+    margin-top: 20px !important;
+    border: none !important;
+    background-color: transparent !important;
+}
+/*end */
 /*aside citat*/
 .citat {
     width:100%;
@@ -261,6 +270,7 @@ nav:after {
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
     margin-top: 10px;
+    /*transition: all 0.5s ease;*/
 }
 .lightBrownTextHover {
     padding: 3px 3px 3px 3px;
@@ -269,6 +279,7 @@ nav:after {
     font-family: Cambria,"Time New Roman", Helvetica;
     text-align: justify;
     line-height: 24px;
+    transition: all 0.5s ease;
 }
 /*end aside citat*/
 #koncovkaPrediFooter {

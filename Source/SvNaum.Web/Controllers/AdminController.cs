@@ -83,7 +83,7 @@
 
             var ministration = this.Context.Ministration.Find(query).FirstOrDefault();
 
-            if(ministration != null)
+            if (ministration != null)
             {
                 ministration.Date = ministration.Date.ToLocalTime();
 
@@ -166,7 +166,7 @@
             if (this.ModelState.IsValid)
             {
                 var sermon = new Sermon();
-                
+
                 sermon.Date = DateTime.Now;
                 sermon.Author = inputSermon.Author;
                 sermon.Text = this.sanitizer.Sanitize(inputSermon.Text);
@@ -323,6 +323,78 @@
             return RedirectToAction("Breviary", "Home");
         }
 
+        // News CRUT
+        [HttpGet]
+        public ActionResult NewsAdd()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult NewsAdd(NewsInputModel inputNews)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var newsSingleDb = new NewsSingle();
+
+                newsSingleDb.Content = inputNews.Content;
+
+                this.Context.News.Insert(newsSingleDb);
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(inputNews);
+        }
+
+        [HttpGet]
+        public ActionResult NewsEdit(string id)
+        {
+            IMongoQuery query = this.CreateQueryById(id);
+            var newsDb = this.Context.News.Find(query).FirstOrDefault();
+
+            if (newsDb != null)
+            {
+                var newsViewModel = new NewsUpdateModel()
+                {
+                    Id = newsDb.Id,
+                    Content = newsDb.Content
+                };
+
+                return View(newsViewModel);
+            }
+
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult NewsEdit(NewsUpdateModel newsInput)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var newsDb = new NewsSingle();
+                newsDb.Content = newsInput.Content;
+
+                this.Context.News.Insert(newsDb);
+
+                this.DeleteNewsBy(newsInput.Id);
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(newsInput);
+        }
+
+        public ActionResult NewsDelete(string id)
+        {
+            this.DeleteNewsBy(id);
+
+            return RedirectToAction("Index", "Home");
+        }
+
         private void DeleteMinistrationBy(string id)
         {
             IMongoQuery query = this.CreateQueryById(id);
@@ -342,6 +414,13 @@
             IMongoQuery query = this.CreateQueryById(id);
 
             this.Context.Prayers.Remove(query);
+        }
+
+        private void DeleteNewsBy(string id)
+        {
+            IMongoQuery query = this.CreateQueryById(id);
+
+            this.Context.News.Remove(query);
         }
 
         private IMongoQuery CreateQueryById(string id)

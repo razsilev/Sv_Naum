@@ -9,7 +9,18 @@
     {
         public ActionResult Index()
         {
-            return View();
+            List<NewsSingle> news = new List<NewsSingle>();
+
+            try
+            {
+                news = this.Context.News.FindAll().Reverse().ToList();
+            }
+            catch (System.Exception)
+            {
+
+            }
+
+            return View(news);
         }
 
         public ActionResult About()

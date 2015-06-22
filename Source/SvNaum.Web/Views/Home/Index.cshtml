@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<SvNaum.Models.NewsSingle>
+
+@{
     ViewBag.Title = "Начало";
 }
 
@@ -14,3 +16,28 @@
         c.parentNode.insertBefore(cp, c);
     })();
 </script>
+
+@if (this.User.Identity.IsAuthenticated)
+{
+    <div>
+        @Html.ActionLink("Create News", "NewsAdd", "Admin")
+    </div>
+}
+
+@foreach (var item in Model)
+{
+    <article>
+        <div>
+            @Html.Raw(item.Content)
+        </div>
+
+        @if (this.User.Identity.IsAuthenticated)
+        {
+            <div>
+                @Html.ActionLink("Edit", "NewsEdit", "Admin", new { id = item.Id }, null)
+                &nbsp;
+                @Html.ActionLink("Delete", "NewsDelete", "Admin", new { id = item.Id }, null)
+            </div>
+        }
+    </article>
+}

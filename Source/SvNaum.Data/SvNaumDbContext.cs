@@ -44,5 +44,13 @@
                 return this.db.GetCollection<Prayer>("Breviary");
             }
         }
+
+        public MongoCollection<NewsSingle> News
+        {
+            get
+            {
+                return this.db.GetCollection<NewsSingle>("News");
+            }
+        }
     }
 }

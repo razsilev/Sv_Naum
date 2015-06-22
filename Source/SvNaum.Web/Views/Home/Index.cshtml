@@ -36,7 +36,7 @@
             <div>
                 @Html.ActionLink("Edit", "NewsEdit", "Admin", new { id = item.Id }, null)
                 &nbsp;
-                @Html.ActionLink("Delete", "NewsDelete", "Admin", new { id = item.Id }, null)
+                @Html.ActionLink("Delete", "NewsDelete", "Admin", new { id = item.Id }, new { @class = "text-danger" })
             </div>
         }
     </article>

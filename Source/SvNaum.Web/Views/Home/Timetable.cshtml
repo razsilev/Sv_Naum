@@ -34,26 +34,30 @@
                     <td class="persent15">
                         @*<label>Time:</label>*@
                         @{
-                        string minute = item.Date.ToLocalTime().Minute.ToString();
+        string minute = item.Date.ToLocalTime().Minute.ToString();
 
-                        if (minute.Length == 1)
-                        {
-                            minute = "0" + minute;
-                        }
+        if (minute.Length == 1)
+        {
+            minute = "0" + minute;
+        }
                         }
 
                         <span>@item.Date.ToLocalTime().Hour:@minute</span>
                         <br />
                     </td>
                     <td>
-                        @*<label>Description:</label>*@
                         <p>@item.Description</p>
-
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         @if (this.User.Identity.IsAuthenticated)
                         {
-                            @Html.ActionLink("Delete", "DeleteMinistration", "Admin", new { id = item.Id }, null)
-                            <br />
-                            @Html.ActionLink("Edit", "MinistrationEdit", "Admin", new { id = item.Id }, null)
+                            <div>
+                                @Html.ActionLink("Edit", "MinistrationEdit", "Admin", new { id = item.Id }, null)
+                                &nbsp;
+                                @Html.ActionLink("Delete", "DeleteMinistration", "Admin", new { id = item.Id }, new { @class = "text-danger" })
+                            </div>
                         }
                     </td>
                 </tr>

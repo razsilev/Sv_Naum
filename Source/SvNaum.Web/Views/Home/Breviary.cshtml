@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SvNaum.Models.Prayer>
+﻿@model SvNaum.Models.Prayer
 
 @{
     ViewBag.Title = "Молитвеник";
@@ -12,41 +12,51 @@
     <br />
 }
 
-@if (Model != null && Model.Count() > 0)
+@if ((int)this.ViewBag.PrevPage >= 0)
 {
+    @Html.ActionLink("< предишна", "Breviary", "Home", new { page = this.ViewBag.PrevPage }, null)
+    @:&nbsp;
+}
+else
+{
+    @:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    @:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}
+|&nbsp;
+@Html.ActionLink("следваща >", "Breviary", "Home", new { page = this.ViewBag.NextPage }, null)
+<br />
 
-    foreach (var item in Model)
-    {
-        <div>
-            <h2>
-                @Html.DisplayFor(m => item.Title)
-            </h2>
-            <h3>
-                @Html.DisplayFor(m => item.TitleSecond)
-            </h3>
-            <p>
-                @Html.Raw(item.Text)
-            </p>
-            <br />
-            <div class="avtor">
-                @Html.DisplayFor(m => item.Author)
-            </div>
-            <br />
-            
-            <div id="facebookButton" class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button">
-            </div>
-
-            @if (this.User.Identity.IsAuthenticated)
-            {
-                <div>
-                    @Html.ActionLink("Edit", "PrayerEdit", "Admin", new { id = item.Id }, null)
-                    &nbsp;
-                    @Html.ActionLink("Delete", "PrayerDelete", "Admin", new { id = item.Id }, new { @class = "text-danger" })
-                </div>
-            }
-
+@if (Model != null)
+{
+    <div>
+        <h2>
+            @Html.DisplayFor(m => m.Title)
+        </h2>
+        <h3>
+            @Html.DisplayFor(m => m.TitleSecond)
+        </h3>
+        <p>
+            @Html.Raw(Model.Text)
+        </p>
+        <br />
+        <div class="avtor">
+            @Html.DisplayFor(m => m.Author)
         </div>
-    }
+        <br />
+
+        <div id="facebookButton" class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button">
+        </div>
+
+        @if (this.User.Identity.IsAuthenticated)
+        {
+            <div>
+                @Html.ActionLink("Edit", "PrayerEdit", "Admin", new { id = Model.Id }, null)
+                &nbsp;
+                @Html.ActionLink("Delete", "PrayerDelete", "Admin", new { id = Model.Id }, new { @class = "text-danger" })
+            </div>
+        }
+
+    </div>
 }
 else
 {

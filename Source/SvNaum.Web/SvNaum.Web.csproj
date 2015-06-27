@@ -189,8 +189,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MinistrationInputModel.cs" />
     <Compile Include="Models\MinistrationUpdateInputModel.cs" />
-    <Compile Include="Models\NewsInputModel.cs" />
-    <Compile Include="Models\NewsUpdateModel.cs" />
     <Compile Include="Models\PrayerInputModel.cs" />
     <Compile Include="Models\PrayerUpdateInputModel.cs" />
     <Compile Include="Models\SermonInputModel.cs" />
@@ -211,6 +209,7 @@
     <Content Include="Images\120x60_bpc.jpg" />
     <Content Include="Images\bg-88x31-native1.gif" />
     <Content Include="Images\frizGreen.png" />
+    <Content Include="Images\hidemenu.png" />
     <Content Include="Images\hr.gif" />
     <Content Include="Images\logo3.png" />
     <Content Include="Images\ornament.png" />
@@ -273,6 +272,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\site.js" />
     <Content Include="Scripts\tinymce\license.txt" />
     <Content Include="Scripts\tinymce\plugins\advlist\plugin.js" />
     <Content Include="Scripts\tinymce\plugins\advlist\plugin.min.js" />
@@ -482,8 +482,6 @@
     <Content Include="Views\Home\Breviary.cshtml" />
     <Content Include="Views\Admin\PrayerAdd.cshtml" />
     <Content Include="Views\Admin\PrayerEdit.cshtml" />
-    <Content Include="Views\Admin\NewsAdd.cshtml" />
-    <Content Include="Views\Admin\NewsEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

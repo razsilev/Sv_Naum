@@ -5,10 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Православен храм Св.Наум Охридски</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <link type="text/css" rel="stylesheet" href="~/Content/font-awesome-4.3.0/css/font-awesome.css" />
+
+    <!--twitter share button-->
+    <script>
+        !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');
+    </script>
+    <!--end twitter share button-->
+    <!--google+ button-->
+    <script src="https://apis.google.com/js/platform.js" async defer>
+        { lang: 'bg' }
+    </script>
+    <!--end google+ button-->
 
 </head>
 <body>
+    <!--facebook buttons-->
     <div id="fb-root"></div>
     <script>
         (function (d, s, id) {
@@ -19,9 +31,13 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
+    <!--end facebook buttons-->
 
     <div id="wrapper">
         <div id="container">
+
+            <a name="anchorTopPage"></a>
+
             @if (this.User.Identity.IsAuthenticated)
             {
                 <div id="login" class="navbar navbar-inverse" style="margin:0;">
@@ -31,28 +47,47 @@
             <header>
                 @if (!this.User.Identity.IsAuthenticated)
                 {
-                    <div style="text-align:right; margin-right: 1%;">
+                    <div id="loginDiv">
                         @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
                     </div>
                 }
-                <div id="svNaum"><img src="~/Images/svNaumBlur.png" alt="Икона на Св.Наум Охридски" /></div>
-                <div id="logo">
-                    <a href="/">
-                        <img src="~/Images/logo3.png" alt="Православен храм Св.Наум Охридски" />
-                    </a>
+                <img id="backgroundHeader" src="~/Images/panoramnaLight1.jpg" alt="Снимка на храма" />
+                <div id="headerLogoContainer">
+                    <div id="svNaum"><img src="~/Images/svNaumBlur.png" alt="Икона на Св.Наум Охридски" /></div>
+                    <div id="logo">
+                        <a href="/">
+                            <img src="~/Images/logo3.png" alt="Православен храм Св.Наум Охридски" />
+                        </a>
+                    </div>
                 </div>
             </header>
-            <div id="hr"></div>
+            <div class="hr"></div>
             <nav>
+                <a href="#" class="hidemenu" onclick="displayMenu();">
+                </a>
+                <div class="smallmenu">
+                    <ul>
+                        <li><a href="/Home/Timetable">Служение</a></li>
+                        <li><a href="/Home/Pictures">Фотоалбум</a></li>
+                        <li><a href="/Home/Sermons">Проповеди</a></li>
+                        <li><a href="/Home/Breviary">Молитвеник</a></li>
+                    </ul>
+                </div>
                 <ul>
+                    <li class="menu"><a href="/Home/Index"><img src="~/Images/trumbSlujbi.jpg" alt="" />В храма</a></li>
                     <li class="menu"><a href="/Home/Timetable"><img src="~/Images/trumbSlujbi.jpg" alt="" />Служение</a></li>
                     <li class="menu"><a href="/Home/Pictures"><img src="~/Images/trumbGaleria.jpg" alt="" />Фотоалбум</a></li>
                     <li class="menu"><a href="/Home/Sermons"><img src="~/Images/trumbPropovedi.jpg" alt="" />Проповеди</a></li>
                     <li class="menu"><a href="/Home/Breviary"><img src="~/Images/trumbPropovedi.jpg" alt="" />Молитвеник</a></li>
                 </ul>
             </nav>
-            <div id="hr"></div>
+            <div id="secondHr" class="hr"></div>
             <div id="content">
+
+                <div id="topPage">
+                    <a class="fa fa-angle-up" href="#anchorTopPage"></a>
+                </div>
+
                 <aside id="rightAside">
                     <!--google search-->
 
@@ -100,9 +135,9 @@
                         </li>
                     </ul>
                 </aside>
-                <article>
+                <section>
                     @RenderBody()
-                </article>
+                </section>
             </div>
             <div id="koncovkaPrediFooter">
             </div>
@@ -119,5 +154,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/site.js"></script>
 </body>
 </html>

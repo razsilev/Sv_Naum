@@ -51,7 +51,7 @@
                 <div>
                     @Html.ActionLink("Edit", "SermonEdit", "Admin", new { id = item.Id }, null)
                     &nbsp;
-                    @Html.ActionLink("Delete", "SermonDelete", "Admin", new { id = item.Id }, null)
+                    @Html.ActionLink("Delete", "SermonDelete", "Admin", new { id = item.Id }, new { @class = "text-danger" })
                 </div>
             }
 

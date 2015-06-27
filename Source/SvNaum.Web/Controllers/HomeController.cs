@@ -9,7 +9,18 @@
     {
         public ActionResult Index()
         {
-            return View();
+            List<NewsSingle> news = new List<NewsSingle>();
+
+            try
+            {
+                news = this.Context.News.FindAll().Reverse().ToList();
+            }
+            catch (System.Exception)
+            {
+
+            }
+
+            return View(news);
         }
 
         public ActionResult About()
@@ -65,20 +76,36 @@
             return View(sermons);
         }
 
-        public ActionResult Breviary()
+        public ActionResult Breviary(int page = 0)
         {
-            List<Prayer> prayers = new List<Prayer>();
+            //TODO: Make paging.
+
+            if (page < 0)
+            {
+                page = 0;
+            }
+
+            this.ViewBag.PrevPage = page - 1;
+            this.ViewBag.NextPage = page + 1;
+            Prayer prayer = new Prayer();
 
             try
             {
-                prayers = this.Context.Prayers.FindAll().Reverse().ToList();
+                prayer = this.Context.Prayers.FindAll().Reverse().Skip(page).FirstOrDefault();
+
+                if (prayer == null)
+                {
+                    prayer = this.Context.Prayers.FindAll().Reverse().FirstOrDefault();
+                    this.ViewBag.NextPage = 1;
+                    this.ViewBag.PrevPage = -1;
+                }
             }
             catch (System.Exception)
             {
 
             }
 
-            return View(prayers);
+            return View(prayer);
         }
     }
 }

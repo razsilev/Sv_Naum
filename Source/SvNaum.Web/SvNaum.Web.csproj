@@ -189,9 +189,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MinistrationInputModel.cs" />
     <Compile Include="Models\MinistrationUpdateInputModel.cs" />
-    <Compile Include="Models\NewsInputModel.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Models\NewsInputModel.cs" />
     <Compile Include="Models\NewsUpdateModel.cs" />
     <Compile Include="Models\PrayerInputModel.cs" />
     <Compile Include="Models\PrayerUpdateInputModel.cs" />
@@ -217,7 +215,6 @@
     <Content Include="Images\hr.gif" />
     <Content Include="Images\logo3.png" />
     <Content Include="Images\ornament.png" />
-    <Content Include="Images\panoramna.png" />
     <Content Include="Images\panoramnaLight1.jpg" />
     <Content Include="Images\patern_croix3.jpg" />
     <Content Include="Images\post-200x179.jpg" />
@@ -487,6 +484,8 @@
     <Content Include="Views\Home\Breviary.cshtml" />
     <Content Include="Views\Admin\PrayerAdd.cshtml" />
     <Content Include="Views\Admin\PrayerEdit.cshtml" />
+    <Content Include="Views\Admin\NewsAdd.cshtml" />
+    <Content Include="Views\Admin\NewsEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

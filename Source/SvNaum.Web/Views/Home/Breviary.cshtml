@@ -4,7 +4,6 @@
     ViewBag.Title = "Молитвеник";
 }
 
-
 @if (this.User.Identity.IsAuthenticated)
 {
     @Html.ActionLink("Create prayer", "PrayerAdd", "Admin")

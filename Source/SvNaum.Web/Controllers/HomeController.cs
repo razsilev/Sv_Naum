@@ -60,26 +60,39 @@
             return View();
         }
 
-        public ActionResult Sermons()
+        public ActionResult Sermons(int page = 0)
         {
-            List<Sermon> sermons = new List<Sermon>();
+            if (page < 0)
+            {
+                page = 0;
+            }
+
+            this.ViewBag.PrevPage = page - 1;
+            this.ViewBag.NextPage = page + 1;
+
+            Sermon sermon = new Sermon();
 
             try
             {
-                sermons = this.Context.Sermons.FindAll().OrderByDescending(s => s.Date).ToList();
+                sermon = this.Context.Sermons.FindAll().OrderByDescending(s => s.Date).Skip(page).FirstOrDefault();
+
+                if (sermon == null)
+                {
+                    sermon = this.Context.Sermons.FindAll().OrderByDescending(s => s.Date).FirstOrDefault();
+                    this.ViewBag.NextPage = 1;
+                    this.ViewBag.PrevPage = -1;
+                }
             }
             catch (System.Exception)
             {
 
             }
 
-            return View(sermons);
+            return View(sermon);
         }
 
         public ActionResult Breviary(int page = 0)
         {
-            //TODO: Make paging.
-
             if (page < 0)
             {
                 page = 0;

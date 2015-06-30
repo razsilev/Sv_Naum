@@ -34,6 +34,11 @@
     <!--end facebook buttons-->
 
     <div id="wrapper">
+
+        <div id="topPage">
+            <a class="fa fa-angle-up" href="#anchorTopPage"></a>
+        </div>
+
         <div id="container">
 
             <a name="anchorTopPage"></a>
@@ -51,12 +56,11 @@
                         @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
                     </div>
                 }
-                <img id="backgroundHeader" src="~/Images/panoramnaLight1.jpg" alt="Снимка на храма" />
+                <img id="backgroundHeader" src="~/Images/panoramna.png" alt="Снимка на храма" />
                 <div id="headerLogoContainer">
-                    <div id="svNaum"><img src="~/Images/svNaumBlur.png" alt="Икона на Св.Наум Охридски" /></div>
                     <div id="logo">
                         <a href="/">
-                            <img src="~/Images/logo3.png" alt="Православен храм Св.Наум Охридски" />
+                            <img src="~/Images/logo4yellow.png" alt="Православен храм Св.Наум Охридски" />
                         </a>
                     </div>
                 </div>
@@ -68,13 +72,13 @@
                 <div class="smallmenu">
                     <ul>
                         <li><a href="/Home/Timetable">Служение</a></li>
-                        <li><a href="/Home/Pictures">Фотоалбум</a></li>
-                        <li><a href="/Home/Sermons">Проповеди</a></li>
-                        <li><a href="/Home/Breviary">Молитвеник</a></li>
+                        <li><a class="fa fa-caret-down" href="/Home/Pictures">Фотоалбум</a></li>
+                        <li><a class="fa fa-caret-down" href="/Home/Sermons">Проповеди</a></li>
+                        <li><a class="fa fa-caret-down" href="/Home/Breviary">Молитвеник</a></li>
                     </ul>
                 </div>
                 <ul>
-                    <li class="menu"><a href="/Home/Index"><img src="~/Images/trumbSlujbi.jpg" alt="" />В храма</a></li>
+                    @*<li class="menu"><a href="/Home/Index"><img src="~/Images/trumbSlujbi.jpg" alt="" />В храма</a></li>*@
                     <li class="menu"><a href="/Home/Timetable"><img src="~/Images/trumbSlujbi.jpg" alt="" />Служение</a></li>
                     <li class="menu"><a href="/Home/Pictures"><img src="~/Images/trumbGaleria.jpg" alt="" />Фотоалбум</a></li>
                     <li class="menu"><a href="/Home/Sermons"><img src="~/Images/trumbPropovedi.jpg" alt="" />Проповеди</a></li>
@@ -83,10 +87,6 @@
             </nav>
             <div id="secondHr" class="hr"></div>
             <div id="content">
-
-                <div id="topPage">
-                    <a class="fa fa-angle-up" href="#anchorTopPage"></a>
-                </div>
 
                 <aside id="rightAside">
                     <!--google search-->
@@ -142,11 +142,14 @@
             <div id="koncovkaPrediFooter">
             </div>
         </div>
-        <footer class="footer">
+        <footer>
             <div class="textCenteredFooter">Адрес: гр.София, жк.Дружба1, тел.02/978 86 88</div>
-            <a href="http://www.pravoslavnoto-hristianstvo.com/" target="_blank"><img src="~/Images/bg-88x31-native1.gif" alt="Православен свят" class="footerBaneri" /></a>
-            <a href="http://bg-patriarshia.bg/index.php?file=index.xml" target="_blank"><img src="~/Images/120x60_bpc.jpg" alt="Българска Православна Църква" class="footerBaneri" /></a>
-            <a href="http://pravoslaven-sviat.org/" target="_blank"><img src="~/Images/pravoslavenSvqtBaner.png" alt="Православното християнство в Интернет" class="footerBaneri" /></a>
+            <div id="footerBaneri">
+                <a href="http://www.pravoslavnoto-hristianstvo.com/" target="_blank"><img src="~/Images/bg-88x31-native1.gif" alt="Православен свят" class="footerBaneri" /></a>
+                <a href="http://bg-patriarshia.bg/index.php?file=index.xml" target="_blank"><img src="~/Images/120x60_bpc.jpg" alt="Българска Православна Църква" class="footerBaneri" /></a>
+                <a href="http://pravoslaven-sviat.org/" target="_blank"><img src="~/Images/pravoslavenSvqtBaner.png" alt="Православното християнство в Интернет" class="footerBaneri" /></a>
+                <a href="http://pravoslaven-sviat.org/" target="_blank"><img src="~/Images/pravoslavenSvqtBaner.png" alt="Православното християнство в Интернет" class="footerBaneri" /></a>
+            </div>
         </footer>
     </div>
 

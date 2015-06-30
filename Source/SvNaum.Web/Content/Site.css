@@ -3,6 +3,7 @@
     padding: 0;
     font-family: Cambria,"Time New Roman",Helvetica;
     font-size: 14px;
+    line-height: 24px;
     color: #3f2e05;
 }
 
@@ -61,7 +62,7 @@ div #container {
 /*link top page*/
 #topPage {
     position: fixed;
-    bottom: 60px;
+    bottom: 40px;
     right: 2%;
     z-index: 99;
 }
@@ -79,15 +80,16 @@ div #container {
         text-align: center;
         position: relative;
         transition: all 0.5s ease;
+        z-index: 99;
     }
 /*#topPage a:before {
   content: "\f106";
 }*/
-.fa:before {
+#topPage .fa:before {
     content: "\f106";
 }
 
-.fa-angle-up:before {
+#topPage .fa-angle-up:before {
     content: "\f106";
 }
 /*end link top page*/
@@ -127,21 +129,6 @@ header #loginLink {
     width: 80%;
     height: 200px;
     position: relative;
-    z-index: 2;
-}
-#svNaum {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 30%;
-    height: 200px;
-    z-index: 2;
-}
-#svNaum img {
-    position: absolute;
-    bottom: 0px;
-    margin-left: 5%;
-    width: auto;
     z-index: 2;
 }
 #logo {
@@ -219,13 +206,13 @@ h3 {
 section {
     width: 72%;
     max-width: 900px;
-    padding: 0px 7% 100px 3%;
+    padding: 0px 7% 100px 4%;
     border: 0px solid #000000;
     background-color: #c7c397;
     /*background-color: #d4f5d1;*/
 }
 
-section img {
+section > img {
         width: auto;
 }
 .image {
@@ -298,7 +285,7 @@ li.menu {
 }
 
     li.menu:first-child {
-        margin-left: 2.5%;
+        margin-left: 12%;
     }
 
     li.menu img {
@@ -387,12 +374,12 @@ table {
     border-collapse: collapse;
 }
 
-    table td {
-        text-align: left;
-        vertical-align: top;
-        padding-right: 1%;
-        padding-bottom: 25px;
-    }
+table td {
+    text-align: left;
+    vertical-align: top;
+    padding-right: 1%;
+    padding-bottom: 25px;
+}
 
 .persent15 {
     width: 15%;
@@ -436,14 +423,10 @@ td.textAlignCenter {
 /*start footer*/
 footer {
     width: 100%;
-    height: 90px;
-    margin-top: 20;
-    padding: 0;
-    /*border-top:1px solid #003333;*/
+    margin-top: 20px;
     box-shadow: 0px 0px 15px black;
     background-image: url('../images/patern_croix3.jpg');
     border: 0px solid #000;
-    /*position: absolute;*/
     z-index: 2;
 }
 
@@ -457,13 +440,22 @@ footer {
     color: #dfd27c;
     width: 30%;
 }
-
-footer .footerBaneri {
+footer > #footerBaneri {
+    width: 100%;
+    bottom: 5px;
+    margin-top: 20px;
+    position: relative;
+    height: 40px;
+}
+footer img.footerBaneri {
     width: auto;
+    height: 35px;
+    position: relative;
+    z-index: 2;
 }
 
 footer .footerBaneri {
-    margin: 0px 5px 0px 5px;
+    margin: 0px 5px 3px 5px;
     float: right;
     display: inline-block;
 }
@@ -479,12 +471,9 @@ img {
     }
     #headerLogoContainer {
         width: 70%;
+        height: 150px;
     }
-    #svNaum {
-        height: 160px;
-        width: 25%;
-    }
-        #logo {
+     #logo {
         width: 70%;   
     }
     /*footer*/
@@ -497,34 +486,25 @@ img {
     }
 }
 @media only screen and (max-width: 850px) {
-    #svNaum {
-        width: 28%;
-    }
-    #logo {
-        width: 63%;
-    }
     /*slideshow index page*/
     .textBoxDesc, .textBox {
         display: none;
     }
-    /*footer*/
-    footer {
-        height: 120px;
-    }
-    .footerBaneri.footerBaneri {
-        margin-top: 30px;
-    }
 }
 @media only screen and (max-width: 750px) {
+    /*top page*/
+    #topPage a {
+        color: #e5ae86;
+        border: 2px solid #e5ae86;
+        text-decoration: none;
+    }
+    /*header*/
        header {
         height: 120px;
     }
-       #svNaum {
-        height: 135px;
-        width: 30%;
-    }
        #logo {
            width: 65%;
+           height: 120px;
     }
     /*menu*/
     .hidemenu {
@@ -536,7 +516,32 @@ img {
         z-index: 50;
         top: 10px;
         left: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    nav .smallmenu {
+        left: 50px;
+        top: 155px;
+        position: absolute;
+        padding: 3px 20px;
+        margin-bottom: 50px;
+        border-radius: 10px;
+        border: 2px solid #c7c397;
+        z-index: 50;
+    }
+    .smallmenu > ul {
+        list-style-type: none;
+    }
+    .smallmenu ul a {
+        color: #dfd27c;
+        text-decoration: none;
+        line-height: 1.05em;
+        font-family: 'Bukyvede_Light';
+        font-size: 1.2em;
+        position: relative;
+        transition: all 0.5s ease;
+    }
+    .smallmenu ul a:before{
+        content:  "\f0da";
     }
     nav > ul, #secondHr {
         display: none;
@@ -553,16 +558,21 @@ img {
     section {
         width: 98%;
         margin-right: 1%;
+        padding-right: 3%;
+        margin-top: 70px;
     }
     /*footer*/
-    footer {
-        height: 120px;
+    footer > #footerBaneri {
+        height: 90px;
     }
     .textCenteredFooter  {
         width: 70%;
     }
-    .footerBaneri.footerBaneri {
-        margin-top: 30px;
+}
+@media only screen and (max-width: 450px) {
+    /*footer*/
+    .textCenteredFooter  {
+        width: 100%;
     }
 }
 /*end media*/
@@ -572,7 +582,10 @@ li:hover {
     border-radius: 0px;
     cursor: pointer;
 }
-
+li:hover a {
+    color: #fff;
+    text-decoration: none;
+}
 li:hover span.avtor {
     color: #fff;
 }

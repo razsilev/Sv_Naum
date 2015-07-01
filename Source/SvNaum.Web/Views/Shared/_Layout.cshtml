@@ -138,6 +138,26 @@
                 <section>
                     @RenderBody()
                 </section>
+                <aside id="leftAside">
+                    <section>
+                        <h3>Проповеди:</h3>
+
+                        @foreach (SvNaum.Models.Sermon item in this.ViewBag.TopTenSermons)
+                        {
+                            @Html.ActionLink(new string(item.Title.Take(20).ToArray()) + "...", "Sermons", "Home", new { id = item.Id }, new { title = item.Title })
+                            <hr />
+                        }
+                    </section>
+                    <section>
+                        <h3>Молитви:</h3>
+
+                        @foreach (SvNaum.Models.Prayer item in this.ViewBag.TopTenPrayers)
+                        {
+                            @Html.ActionLink(new string(item.Title.Take(20).ToArray()) + "...", "Breviary", "Home", new { id = item.Id }, new { title = item.Title })
+                            <hr>
+                        }
+                    </section>
+                </aside>
             </div>
             <div id="koncovkaPrediFooter">
             </div>

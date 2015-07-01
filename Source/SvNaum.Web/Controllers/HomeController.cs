@@ -1,5 +1,8 @@
 ﻿namespace SvNaum.Web.Controllers
 {
+    using MongoDB.Bson;
+    using MongoDB.Driver;
+    using MongoDB.Driver.Builders;
     using SvNaum.Models;
     using System.Collections.Generic;
     using System.Linq;
@@ -60,7 +63,7 @@
             return View();
         }
 
-        public ActionResult Sermons(int page = 0)
+        public ActionResult Sermons(int page = 0, string id = null)
         {
             if (page < 0)
             {
@@ -69,6 +72,13 @@
 
             this.ViewBag.PrevPage = page - 1;
             this.ViewBag.NextPage = page + 1;
+
+            if (!string.IsNullOrEmpty(id))
+            {
+                var sermonById = this.Context.Sermons.FindOneById(ObjectId.Parse(id));
+
+                return View(sermonById);
+            }
 
             Sermon sermon = new Sermon();
 
@@ -91,7 +101,7 @@
             return View(sermon);
         }
 
-        public ActionResult Breviary(int page = 0)
+        public ActionResult Breviary(int page = 0, string id = null)
         {
             if (page < 0)
             {
@@ -100,6 +110,14 @@
 
             this.ViewBag.PrevPage = page - 1;
             this.ViewBag.NextPage = page + 1;
+
+            if (!string.IsNullOrEmpty(id))
+            {
+                var prayerById = this.Context.Prayers.FindOneById(ObjectId.Parse(id));
+
+                return View(prayerById);
+            }
+
             Prayer prayer = new Prayer();
 
             try

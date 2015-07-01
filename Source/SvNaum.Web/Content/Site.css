@@ -540,12 +540,33 @@ img {
         position: relative;
         transition: all 0.5s ease;
     }
-    .smallmenu ul a:before{
+  .smallmenu ul a:before{
         content:  "\f0da";
+        font-family: FontAwesome;
+        margin-right: 5px;
     }
     nav > ul, #secondHr {
         display: none;
     }
+    /*example animation*/
+
+    /* The animation code */
+@keyframes bullets {
+    0%   {content:  "\f0da";}
+    25%  {content:  "\f0d7";}
+    50%  {content:  "\f0d9";}
+    /*70%  {content:  "\f0d8";}*/
+    100% {content:  "\f0da";}
+}
+@-webkit-keyframes  bullets {
+    0%   {content:  "\f0da";}
+    25%  {content:  "\f0d7";}
+    50%  {content:  "\f0d9";}
+    /*70%  {content:  "\f0d8";}*/
+    100% {content:  "\f0da";}
+}
+
+
 
     /*slideshow index page*/
     .textBoxDesc, .textBox {
@@ -592,6 +613,14 @@ li:hover span.avtor {
 
 li:hover .lightBrownTextHover {
     color: #e5ae86;
+}
+
+/* The element to apply the animation to */
+li:hover  .smallmenu ul a:before {
+    animation-name: bullets;
+    animation-duration: 5s;
+    -webkit-animation-name: bullets;
+    -webkit-animation-duration: 5s;
 }
 
 li a:hover {

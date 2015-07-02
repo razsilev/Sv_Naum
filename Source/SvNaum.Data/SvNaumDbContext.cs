@@ -1,14 +1,8 @@
 ﻿namespace SvNaum.Data
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using MongoDB.Driver;
 
     using SvNaum.Models;
-
-    using MongoDB.Driver;
 
     public class SvNaumDbContext
     {
@@ -50,6 +44,14 @@
             get
             {
                 return this.db.GetCollection<NewsSingle>("News");
+            }
+        }
+
+        public MongoCollection<Paterik> Pateriks
+        {
+            get
+            {
+                return this.db.GetCollection<Paterik>("Pateriks");
             }
         }
     }

@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NewsSingle.cs" />
+    <Compile Include="Paterik.cs" />
     <Compile Include="Prayer.cs" />
     <Compile Include="Ministration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

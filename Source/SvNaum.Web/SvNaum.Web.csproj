@@ -191,6 +191,7 @@
     <Compile Include="Models\MinistrationUpdateInputModel.cs" />
     <Compile Include="Models\NewsInputModel.cs" />
     <Compile Include="Models\NewsUpdateModel.cs" />
+    <Compile Include="Models\PaterikModel.cs" />
     <Compile Include="Models\PrayerInputModel.cs" />
     <Compile Include="Models\PrayerUpdateInputModel.cs" />
     <Compile Include="Models\SermonInputModel.cs" />

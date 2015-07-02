@@ -20,9 +20,6 @@
 
             var conString = this.GetMongoDbConnectionString();
             this.context = new SvNaumDbContext(conString);
-
-            this.PopulateTopTenSermons();
-            this.PopulateTopTenBreviaries();
         }
 
         public SvNaumDbContext Context
@@ -31,6 +28,14 @@
             {
                 return context;
             }
+        }
+
+        [ChildActionOnly]
+        public void PopulateLayoutData()
+        {
+            this.PopulateTopTenSermons();
+            this.PopulateTopTenBreviaries();
+            this.PopulatePateriks();
         }
 
         private string GetMongoDbConnectionString()
@@ -58,7 +63,7 @@
 
             }
 
-            this.ViewBag.TopTenSermons = sermons;
+            this.TempData["TopTenSermons"] = sermons;
         }
 
         private void PopulateTopTenBreviaries()
@@ -80,7 +85,29 @@
 
             }
 
-            this.ViewBag.TopTenPrayers = prayers;
+            this.TempData["TopTenPrayers"] = prayers;
+        }
+
+        private void PopulatePateriks()
+        {
+
+            var pateriks = new List<Paterik>();
+
+            try
+            {
+                pateriks = this.Context.Pateriks.FindAll().Reverse().ToList();
+
+                if (pateriks == null)
+                {
+                    pateriks = new List<Paterik>();
+                }
+            }
+            catch (System.Exception)
+            {
+
+            }
+
+            this.TempData["Pateriks"] = pateriks;
         }
     }
 }

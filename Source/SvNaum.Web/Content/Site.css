@@ -82,16 +82,16 @@ div #container {
         transition: all 0.5s ease;
         z-index: 99;
     }
-/*#topPage a:before {
+    /*#topPage a:before {
   content: "\f106";
 }*/
-#topPage .fa:before {
-    content: "\f106";
-}
+    #topPage .fa:before {
+        content: "\f106";
+    }
 
-#topPage .fa-angle-up:before {
-    content: "\f106";
-}
+    #topPage .fa-angle-up:before {
+        content: "\f106";
+    }
 /*end link top page*/
 /*start header*/
 header {
@@ -103,14 +103,15 @@ header {
     font-size: 1.2em;
     position: relative;
 }
-header #backgroundHeader {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 1;
-}
+
+    header #backgroundHeader {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+    }
 
 #loginDiv {
     position: absolute;
@@ -131,6 +132,7 @@ header #loginLink {
     position: relative;
     z-index: 2;
 }
+
 #logo {
     position: absolute;
     left: 30%;
@@ -139,11 +141,12 @@ header #loginLink {
     height: 200px;
     z-index: 2;
 }
-#logo img{
-    position: relative;
-    margin-left: 15%;
-    z-index: 2;
-}
+
+    #logo img {
+        position: relative;
+        margin-left: 15%;
+        z-index: 2;
+    }
 
 header img {
     width: auto;
@@ -166,27 +169,30 @@ header img {
     margin-left: 2%;
     margin-bottom: 50px;
 }
+
 #leftAside {
     width: 18%;
     max-width: 200px;
     padding: 0 1% 50px 1%;
-    margin:10px 1% 50px 1%;
+    margin: 10px 1% 50px 1%;
     background-color: #dfd27c;
     border-radius: 6px;
     /*box-shadow: 0px 0px 3px #3f2e05;*/
 }
+
 ul.propovediTitle {
     list-style-type: none;
 }
-ul.propovediTitle a {
-    font-size: 0.8em;
-    color: #3f2e05;
-    font-family: Cambria,"Time New Roman", Helvetica;
-    text-align: left;
-    line-height: 16px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
+
+    ul.propovediTitle a {
+        font-size: 0.8em;
+        color: #3f2e05;
+        font-family: Cambria,"Time New Roman", Helvetica;
+        text-align: left;
+        line-height: 16px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
 /*end aside*/
 #rightAside, section, #leftAside {
     float: right;
@@ -227,12 +233,14 @@ section {
     box-shadow: 0px 0px 5px black;
 }
 
-section > img {
+    section > img {
         width: auto;
-}
+    }
+
 .image {
     margin: 10px auto 25px auto;
 }
+
 .text {
     color: #3f2e05;
     font-family: Cambria,"Time New Roman", Helvetica;
@@ -250,14 +258,14 @@ p {
     display: block;
 }
 
-article>p:first-line {
-        line-height: 28px;
+article > p:first-line {
+    line-height: 28px;
 }
 
-article>p:first-letter {
-        font-family: 'BukyVede-Regular';
-        font-size: 1.5em;
-        font-weight: bold;
+article > p:first-letter {
+    font-family: 'BukyVede-Regular';
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 #content:before, #content:after {
@@ -275,8 +283,9 @@ article>p:first-letter {
 
 /*start menu*/
 .hidemenu, .smallmenu {
-  display: none;
+    display: none;
 }
+
 nav > ul {
     width: 100%;
     list-style-type: none;
@@ -344,9 +353,11 @@ nav:after {
     border: none !important;
     background-color: transparent !important;
 }
+
 .ze_slides > li {
     cursor: default !important;
 }
+
 .textBox {
     left: 0px !important;
 }
@@ -371,8 +382,11 @@ nav:after {
     font-family: Cambria,"Time New Roman", Helvetica;
     text-align: justify;
     line-height: 24px;
-    transition: all 0.5s ease;
 }
+
+    .lightBrownTextHover > p {
+        transition: all 0.5s ease;
+    }
 /*end aside citat*/
 #koncovkaPrediFooter {
     height: 22px;
@@ -390,15 +404,17 @@ table {
     border-collapse: collapse;
 }
 
-table td {
-    text-align: left;
-    vertical-align: top;
-    padding-right: 1%;
-    padding-bottom: 25px;
-}
+    table td {
+        text-align: left;
+        vertical-align: top;
+        padding-right: 1%;
+        padding-bottom: 25px;
+    }
+
 .persent12 {
     width: 12%;
 }
+
 .persent15 {
     width: 15%;
 }
@@ -417,14 +433,16 @@ table td {
     text-decoration: none;
     position: relative;
 }
-#back:before {
-    content: "\f100";
-    font-family: FontAwesome;
-}
-#next:after {
-    content: "\f100";
-    font-family: FontAwesome;
-}
+
+    #back:before {
+        content: "\f100";
+        font-family: FontAwesome;
+    }
+
+    #next:after {
+        content: "\f100";
+        font-family: FontAwesome;
+    }
 /*end sermons, breviary*/
 /*razspisanie koncovka*/
 
@@ -477,6 +495,7 @@ footer {
     color: #dfd27c;
     width: 30%;
 }
+
 footer > #footerBaneri {
     width: 100%;
     bottom: 5px;
@@ -484,6 +503,7 @@ footer > #footerBaneri {
     position: relative;
     height: 40px;
 }
+
 footer img.footerBaneri {
     width: auto;
     height: 35px;
@@ -501,40 +521,45 @@ img {
     max-width: 100%;
 }
 /*media*/
-@media only screen and (max-width:1000px){
+@media only screen and (max-width:1000px) {
     /*header*/
     header {
         height: 150px;
     }
+
     #headerLogoContainer {
         width: 70%;
         height: 150px;
     }
-     #logo {
-        width: 70%;   
+
+    #logo {
+        width: 70%;
     }
-     /*aside. section*/
-     #leftAside {
+    /*aside. section*/
+    #leftAside {
         display: none;
     }
-     section {
-         width: 80%;
-     }
+
+    section {
+        width: 80%;
+    }
     /*footer*/
-    .textCenteredFooter  {
+    .textCenteredFooter {
         width: 50%;
     }
-   /*slideshow index page*/
+    /*slideshow index page*/
     .textBoxDesc, .textBox {
-       display: none;
+        display: none;
     }
 }
+
 @media only screen and (max-width: 850px) {
     /*slideshow index page*/
     .textBoxDesc, .textBox {
         display: none;
     }
 }
+
 @media only screen and (max-width: 750px) {
     /*top page*/
     #topPage a {
@@ -543,12 +568,13 @@ img {
         text-decoration: none;
     }
     /*header*/
-       header {
+    header {
         height: 120px;
     }
-       #logo {
-           width: 65%;
-           height: 120px;
+
+    #logo {
+        width: 65%;
+        height: 120px;
     }
     /*menu*/
     .hidemenu {
@@ -562,6 +588,7 @@ img {
         left: 10px;
         margin-bottom: 20px;
     }
+
     nav .smallmenu {
         left: 50px;
         top: 155px;
@@ -572,9 +599,11 @@ img {
         border: 2px solid #c7c397;
         z-index: 50;
     }
+
     .smallmenu > ul {
         list-style-type: none;
     }
+
     .smallmenu ul a {
         color: #dfd27c;
         text-decoration: none;
@@ -584,31 +613,54 @@ img {
         position: relative;
         transition: all 0.5s ease;
     }
-  .smallmenu ul a:before{
-        content:  "\f0da";
-        font-family: FontAwesome;
-        margin-right: 5px;
-    }
+
+        .smallmenu ul a:before {
+            content: "\f0da";
+            font-family: FontAwesome;
+            margin-right: 5px;
+        }
+
     nav > ul, #secondHr {
         display: none;
     }
     /*example animation*/
 
     /* The animation code */
-@keyframes bullets {
-    0%   {content:  "\f0da";}
-    25%  {content:  "\f0d7";}
-    50%  {content:  "\f0d9";}
-    /*70%  {content:  "\f0d8";}*/
-    100% {content:  "\f0da";}
-}
-@-webkit-keyframes  bullets {
-    0%   {content:  "\f0da";}
-    25%  {content:  "\f0d7";}
-    50%  {content:  "\f0d9";}
-    /*70%  {content:  "\f0d8";}*/
-    100% {content:  "\f0da";}
-}
+    @keyframes bullets {
+        0% {
+            content: "\f0da";
+        }
+
+        25% {
+            content: "\f0d7";
+        }
+
+        50% {
+            content: "\f0d9";
+        }
+        /*70%  {content:  "\f0d8";}*/
+        100% {
+            content: "\f0da";
+        }
+    }
+
+    @-webkit-keyframes bullets {
+        0% {
+            content: "\f0da";
+        }
+
+        25% {
+            content: "\f0d7";
+        }
+
+        50% {
+            content: "\f0d9";
+        }
+        /*70%  {content:  "\f0d8";}*/
+        100% {
+            content: "\f0da";
+        }
+    }
 
 
 
@@ -620,6 +672,7 @@ img {
     #rightAside {
         display: none;
     }
+
     section {
         width: 98%;
         margin-right: 1%;
@@ -630,13 +683,15 @@ img {
     footer > #footerBaneri {
         height: 90px;
     }
-    .textCenteredFooter  {
+
+    .textCenteredFooter {
         width: 70%;
     }
 }
+
 @media only screen and (max-width: 450px) {
     /*footer*/
-    .textCenteredFooter  {
+    .textCenteredFooter {
         width: 100%;
     }
 }
@@ -647,25 +702,27 @@ li:hover {
     border-radius: 0px;
     cursor: pointer;
 }
-li:hover a {
-    color: #fff;
-    text-decoration: none;
-}
-li:hover span.avtor {
-    color: #fff;
-}
 
-li:hover .lightBrownTextHover {
-    color: #e5ae86;
-}
+    li:hover a {
+        color: #fff;
+        text-decoration: none;
+    }
 
-/* The element to apply the animation to */
-li:hover  .smallmenu ul a:before {
-    animation-name: bullets;
-    animation-duration: 5s;
-    -webkit-animation-name: bullets;
-    -webkit-animation-duration: 5s;
-}
+    li:hover span.avtor {
+        color: #fff;
+    }
+
+    li:hover .lightBrownTextHover p {
+        color: #e5ae86;
+    }
+
+    /* The element to apply the animation to */
+    li:hover .smallmenu ul a:before {
+        animation-name: bullets;
+        animation-duration: 5s;
+        -webkit-animation-name: bullets;
+        -webkit-animation-duration: 5s;
+    }
 
 li a:hover {
     color: #fff;
@@ -683,4 +740,3 @@ li a:hover {
     background: #6e7649;
     border: 2px solid #c7c397;
 }
-

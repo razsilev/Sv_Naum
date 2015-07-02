@@ -20,6 +20,8 @@
 
 </head>
 <body>
+    @Html.Action("PopulateLayoutData", "Home")
+
     <!--facebook buttons-->
     <div id="fb-root"></div>
     <script>
@@ -91,8 +93,36 @@
                 <aside id="rightAside">
                     <!--google search-->
 
+                    @if (this.User.Identity.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Create new paterik", "PaterikAdd", "Admin")
+                        <br />
+                    }
 
                     <ul>
+                        @foreach (var item in this.TempData["Pateriks"] as IEnumerable<SvNaum.Models.Paterik>)
+                        {
+                            <li class="citat">
+                                <div>
+                                    <div class="lightBrownTextHover">
+                                        @Html.Raw(item.Text)
+                                    </div>
+                                    <span class="avtor">@item.Author</span>
+                                </div>
+
+                                @if (this.User.Identity.IsAuthenticated)
+                                {
+                                    <div>
+                                        @Html.ActionLink("Edit", "PaterikEdit", "Admin", new { id = item.Id }, null)
+                                        &nbsp;
+                                        @Html.ActionLink("Delete", "PaterikDelete", "Admin", new { id = item.Id }, new { @class = "text-danger" })
+                                    </div>
+                                }
+                            </li>
+                        }
+                    </ul>
+
+                    @*<ul>
                         <li class="citat">
                             <img src="~/Images/svPaisii1.jpg" alt="" />
                             <div>
@@ -133,7 +163,7 @@
                                 <span class="avtor">Свети Паисий Атонски</span>
                             </div>
                         </li>
-                    </ul>
+                    </ul>*@
                 </aside>
                 <section>
                     @RenderBody()
@@ -142,7 +172,7 @@
                     <div>
                         <h3>Проповеди:</h3>
 
-                        @foreach (SvNaum.Models.Sermon item in this.ViewBag.TopTenSermons)
+                        @foreach (SvNaum.Models.Sermon item in this.TempData["TopTenSermons"] as IEnumerable<SvNaum.Models.Sermon>)
                         {
                             <ul class="propovediTitle">
                                 <li>
@@ -155,7 +185,7 @@
                     <div>
                         <h3>Молитви:</h3>
 
-                        @foreach (SvNaum.Models.Prayer item in this.ViewBag.TopTenPrayers)
+                        @foreach (SvNaum.Models.Prayer item in this.TempData["TopTenPrayers"] as IEnumerable<SvNaum.Models.Prayer>)
                         {
                             <ul class="propovediTitle">
                                 <li>

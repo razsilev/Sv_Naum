@@ -338,7 +338,7 @@
             {
                 var newsSingleDb = new NewsSingle();
 
-                newsSingleDb.Content = inputNews.Content;
+                newsSingleDb.Content = this.sanitizer.Sanitize(inputNews.Content);
 
                 this.Context.News.Insert(newsSingleDb);
 
@@ -376,7 +376,7 @@
             if (this.ModelState.IsValid)
             {
                 var newsDb = new NewsSingle();
-                newsDb.Content = newsInput.Content;
+                newsDb.Content = this.sanitizer.Sanitize(newsInput.Content);
 
                 this.Context.News.Insert(newsDb);
 
@@ -391,6 +391,82 @@
         public ActionResult NewsDelete(string id)
         {
             this.DeleteNewsBy(id);
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        // Paterik CRUT
+        [HttpGet]
+        public ActionResult PaterikAdd()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult PaterikAdd(PaterikModel inputPaterik)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var paterikDb = new Paterik();
+
+                paterikDb.Text = this.sanitizer.Sanitize(inputPaterik.Text);
+                paterikDb.Author = inputPaterik.Author;
+
+                this.Context.Pateriks.Insert(paterikDb);
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(inputPaterik);
+        }
+
+        [HttpGet]
+        public ActionResult PaterikEdit(string id)
+        {
+            IMongoQuery query = this.CreateQueryById(id);
+            var paterikDb = this.Context.Pateriks.Find(query).FirstOrDefault();
+
+            if (paterikDb != null)
+            {
+                var paterikViewModel = new PaterikModel()
+                {
+                    Id = paterikDb.Id,
+                    Text = paterikDb.Text,
+                    Author = paterikDb.Author
+                };
+
+                return View(paterikViewModel);
+            }
+
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult PaterikEdit(PaterikModel paterikInput)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var paterikDb = new Paterik();
+
+                paterikDb.Text = this.sanitizer.Sanitize(paterikInput.Text);
+                paterikDb.Author = paterikInput.Author;
+
+                this.Context.Pateriks.Insert(paterikDb);
+
+                this.DeletePaterikBy(paterikInput.Id);
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(paterikInput);
+        }
+
+        public ActionResult PaterikDelete(string id)
+        {
+            this.DeletePaterikBy(id);
 
             return RedirectToAction("Index", "Home");
         }
@@ -421,6 +497,13 @@
             IMongoQuery query = this.CreateQueryById(id);
 
             this.Context.News.Remove(query);
+        }
+
+        private void DeletePaterikBy(string id)
+        {
+            IMongoQuery query = this.CreateQueryById(id);
+
+            this.Context.Pateriks.Remove(query);
         }
 
         private IMongoQuery CreateQueryById(string id)

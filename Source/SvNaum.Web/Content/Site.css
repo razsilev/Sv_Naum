@@ -148,10 +148,6 @@ header #loginLink {
 header img {
     width: auto;
 }
-
-#svNaum, #logo {
-    display: inline-block;
-}
 /*end header*/
 .hr {
     height: 29px;
@@ -162,22 +158,40 @@ header img {
     z-index: 3;
 }
 /*aside*/
-aside {
-    width: 25%;
+#rightAside {
+    width: 18%;
     max-width: 200px;
     margin: 0;
     padding-right: 1%;
+    margin-left: 2%;
     margin-bottom: 50px;
 }
+#leftAside {
+    width: 18%;
+    max-width: 200px;
+    padding: 0 1% 50px 1%;
+    margin:10px 1% 50px 1%;
+    background-color: #dfd27c;
+    border-radius: 6px;
+    /*box-shadow: 0px 0px 3px #3f2e05;*/
+}
+ul.propovediTitle {
+    list-style-type: none;
+}
+ul.propovediTitle a {
+    font-size: 0.8em;
+    color: #3f2e05;
+    font-family: Cambria,"Time New Roman", Helvetica;
+    text-align: left;
+    line-height: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
 /*end aside*/
-section, aside {
+#rightAside, section, #leftAside {
     float: right;
 }
 
-section {
-    margin-right: 3%;
-    margin-bottom: 50px;
-}
 /*h2*/
 @font-face {
     font-family: 'BukyVede-Regular';
@@ -204,12 +218,13 @@ h3 {
 /*end h3*/
 /*article*/
 section {
-    width: 72%;
-    max-width: 900px;
-    padding: 0px 7% 100px 4%;
+    width: 60%;
+    max-width: 700px;
+    padding: 0px 4% 100px 4%;
+    margin-bottom: 50px;
     border: 0px solid #000000;
     background-color: #c7c397;
-    /*background-color: #d4f5d1;*/
+    box-shadow: 0px 0px 5px black;
 }
 
 section > img {
@@ -304,6 +319,7 @@ li.menu a {
     color: #dfd27c;
     font-family: 'Bukyvede_Light';
     font-size: 1.5em;
+    text-shadow: 3px 2px 2px #3f2e05;
     text-decoration: none;
     transition: all 0.5s ease;
 }
@@ -380,7 +396,9 @@ table td {
     padding-right: 1%;
     padding-bottom: 25px;
 }
-
+.persent12 {
+    width: 12%;
+}
 .persent15 {
     width: 15%;
 }
@@ -389,6 +407,25 @@ table td {
     width: 20%;
 }
 /*end ministration*/
+/*sermons, breviary*/
+#back, #next {
+    font-size: 0.8em;
+    color: #3f2e05;
+    font-family: Cambria,"Time New Roman", Helvetica;
+    text-align: left;
+    line-height: 16px;
+    text-decoration: none;
+    position: relative;
+}
+#back:before {
+    content: "\f100";
+    font-family: FontAwesome;
+}
+#next:after {
+    content: "\f100";
+    font-family: FontAwesome;
+}
+/*end sermons, breviary*/
 /*razspisanie koncovka*/
 
 td.textAlignCenter {
@@ -398,7 +435,7 @@ td.textAlignCenter {
 
     td.textAlignCenter > .koncovka {
         width: 20%;
-        margin-left: 35%;
+        margin-left: 40%;
     }
 /*end razspisanie koncovka*/
 /*social networks*/
@@ -476,6 +513,13 @@ img {
      #logo {
         width: 70%;   
     }
+     /*aside. section*/
+     #leftAside {
+        display: none;
+    }
+     section {
+         width: 80%;
+     }
     /*footer*/
     .textCenteredFooter  {
         width: 50%;
@@ -573,7 +617,7 @@ img {
         display: none;
     }
     /*aside, section*/
-    aside {
+    #rightAside {
         display: none;
     }
     section {

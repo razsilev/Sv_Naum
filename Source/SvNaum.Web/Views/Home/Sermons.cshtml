@@ -14,8 +14,9 @@
 
 @if (this.ViewBag.PrevPage != null && (int)this.ViewBag.PrevPage >= 0)
 {
-    @Html.ActionLink("< предишна", "Sermons", "Home", new { page = this.ViewBag.PrevPage, id = string.Empty }, null)
+    @Html.ActionLink("Предишна", "Sermons", "Home", new { page = this.ViewBag.PrevPage, id = string.Empty }, null)
     @:&nbsp;
+
 }
 else
 {
@@ -23,7 +24,7 @@ else
     @:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 }
 |&nbsp;
-@Html.ActionLink("следваща >", "Sermons", "Home", new { page = this.ViewBag.NextPage, id = string.Empty }, null)
+@Html.ActionLink("Следваща", "Sermons", "Home", new { page = this.ViewBag.NextPage, id = string.Empty }, null)
 <br />
 
 @if (Model != null)

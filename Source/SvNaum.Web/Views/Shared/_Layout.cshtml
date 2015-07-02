@@ -139,28 +139,37 @@
                     @RenderBody()
                 </section>
                 <aside id="leftAside">
-                    <section>
+                    <div>
                         <h3>Проповеди:</h3>
 
                         @foreach (SvNaum.Models.Sermon item in this.ViewBag.TopTenSermons)
                         {
-                            @Html.ActionLink(new string(item.Title.Take(20).ToArray()) + "...", "Sermons", "Home", new { id = item.Id }, new { title = item.Title })
-                            <hr />
+                            <ul class="propovediTitle">
+                                <li>
+                                    @Html.ActionLink(new string(item.Title.Take(20).ToArray()) + "...", "Sermons", "Home", new { id = item.Id }, new { title = item.Title })
+                                </li>
+                            </ul>
+                         @*<hr />*@
                         }
-                    </section>
-                    <section>
+                    </div>
+                    <div>
                         <h3>Молитви:</h3>
 
                         @foreach (SvNaum.Models.Prayer item in this.ViewBag.TopTenPrayers)
                         {
-                            @Html.ActionLink(new string(item.Title.Take(20).ToArray()) + "...", "Breviary", "Home", new { id = item.Id }, new { title = item.Title })
-                            <hr>
+                            <ul class="propovediTitle">
+                                <li>
+                                     @Html.ActionLink(new string(item.Title.Take(20).ToArray()) + "...", "Breviary", "Home", new { id = item.Id }, new { title = item.Title })
+                                </li>
+                            </ul>
+                                     @*<hr>*@
                         }
-                    </section>
+                    </div>
                 </aside>
             </div>
-            <div id="koncovkaPrediFooter">
-            </div>
+            @*<div id="koncovkaPrediFooter">
+            </div>*@
+            <hr class="hr" />
         </div>
         <footer>
             <div class="textCenteredFooter">Адрес: гр.София, жк.Дружба1, тел.02/978 86 88</div>

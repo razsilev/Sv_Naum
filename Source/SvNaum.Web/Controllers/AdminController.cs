@@ -327,7 +327,7 @@
         [HttpGet]
         public ActionResult NewsAdd()
         {
-            return View();
+            return View("NewsAdd");
         }
 
         [HttpPost]

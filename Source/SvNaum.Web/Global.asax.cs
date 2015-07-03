@@ -12,8 +12,8 @@ namespace SvNaum.Web
     {
         protected void Application_Start()
         {
-            ViewEngines.Engines.Clear();
-            ViewEngines.Engines.Add(new RazorViewEngine());
+            //ViewEngines.Engines.Clear();
+            //ViewEngines.Engines.Add(new RazorViewEngine());
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

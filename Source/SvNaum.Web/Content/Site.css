@@ -1,0 +1,742 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-family: Cambria,"Time New Roman",Helvetica;
+    font-size: 14px;
+    line-height: 24px;
+    color: #3f2e05;
+}
+
+/* Set padding to keep content from hitting the edges */
+/*.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Our css */
+body, article, section, div, aside, ul, li, header, footer, nav, img {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    display: block;
+}
+
+#wrapper {
+    background: url('../images/patern_croix3.jpg');
+    background-repeat: repeat;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    z-index: -1;
+}
+
+div #container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto 30px auto;
+    /*top:-20px;*/
+    position: relative;
+    background-color: #6e7649;
+    /*background-color:  #003333;*/
+    box-shadow: 0px 0px 15px black;
+    z-index: 0;
+}
+/*link top page*/
+#topPage {
+    position: fixed;
+    bottom: 40px;
+    right: 2%;
+    z-index: 99;
+}
+
+    #topPage a {
+        width: 45px;
+        height: 45px;
+        display: block;
+        text-decoration: none;
+        background: transparent;
+        border-radius: 500px;
+        border: 2px solid #c7c397;
+        color: #c7c397;
+        font-size: 2.5em;
+        text-align: center;
+        position: relative;
+        transition: all 0.5s ease;
+        z-index: 99;
+    }
+    /*#topPage a:before {
+  content: "\f106";
+}*/
+    #topPage .fa:before {
+        content: "\f106";
+    }
+
+    #topPage .fa-angle-up:before {
+        content: "\f106";
+    }
+/*end link top page*/
+/*start header*/
+header {
+    width: 100%;
+    max-width: 1100px;
+    height: 200px;
+    background-color: #6e7649;
+    /*background-image:url('../images/panoramnaLight1.jpg') ;*/
+    font-size: 1.2em;
+    position: relative;
+}
+
+    header #backgroundHeader {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+    }
+
+#loginDiv {
+    position: absolute;
+    right: 1%;
+}
+
+header #loginLink {
+    position: relative;
+    z-index: 100;
+    color: #d4f5d1;
+    font-size: 0.8em;
+}
+
+#headerLogoContainer {
+    vertical-align: middle;
+    width: 80%;
+    height: 200px;
+    position: relative;
+    z-index: 2;
+}
+
+#logo {
+    position: absolute;
+    left: 30%;
+    top: 0px;
+    width: 65%;
+    height: 200px;
+    z-index: 2;
+}
+
+    #logo img {
+        position: relative;
+        margin-left: 15%;
+        z-index: 2;
+    }
+
+header img {
+    width: auto;
+}
+/*end header*/
+.hr {
+    height: 29px;
+    background-image: url('../images/frizGreen.png');
+    background-repeat: repeat-x;
+    box-shadow: 3px 0px 3px #003333;
+    position: relative;
+    z-index: 3;
+}
+/*aside*/
+#rightAside {
+    width: 18%;
+    max-width: 200px;
+    margin: 0;
+    padding-right: 1%;
+    margin-left: 2%;
+    margin-bottom: 50px;
+}
+
+#leftAside {
+    width: 18%;
+    max-width: 200px;
+    padding: 0 1% 50px 1%;
+    margin: 10px 1% 50px 1%;
+    background-color: #dfd27c;
+    border-radius: 6px;
+    /*box-shadow: 0px 0px 3px #3f2e05;*/
+}
+
+ul.propovediTitle {
+    list-style-type: none;
+}
+
+    ul.propovediTitle a {
+        font-size: 0.8em;
+        color: #3f2e05;
+        font-family: Cambria,"Time New Roman", Helvetica;
+        text-align: left;
+        line-height: 16px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+/*end aside*/
+#rightAside, section, #leftAside {
+    float: right;
+}
+
+/*h2*/
+@font-face {
+    font-family: 'BukyVede-Regular';
+    src: url('../fonts/BukyVede-Regular.ttf');
+}
+
+h2 {
+    font-family: 'BukyVede-Regular';
+    text-shadow: 2px 2px 2px #999;
+    text-align: justify;
+    margin-bottom: 20px;
+    margin-top: 25px;
+}
+/*end h2*/
+/*h3*/
+h3 {
+    color: #3f2e05;
+    font-family: Cambria,"Time New Roman", Helvetica;
+    text-align: justify;
+    line-height: 28px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+/*end h3*/
+/*article*/
+section {
+    width: 60%;
+    max-width: 700px;
+    padding: 0px 4% 100px 4%;
+    margin-bottom: 50px;
+    border: 0px solid #000000;
+    background-color: #c7c397;
+    box-shadow: 0px 0px 5px black;
+}
+
+    section > img {
+        width: auto;
+    }
+
+.image {
+    margin: 10px auto 25px auto;
+}
+
+.text {
+    color: #3f2e05;
+    font-family: Cambria,"Time New Roman", Helvetica;
+    text-align: justify;
+    line-height: 24px;
+    font-size: 1.1em;
+}
+
+p {
+    color: #3f2e05;
+    font-family: Cambria,"Time New Roman", Helvetica;
+    line-height: 24px;
+    text-align: justify;
+    font-size: 1.2em;
+    display: block;
+}
+
+article > p:first-line {
+    line-height: 28px;
+}
+
+article > p:first-letter {
+    font-family: 'BukyVede-Regular';
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#content:before, #content:after {
+    content: "";
+    display: block;
+    clear: both;
+    zoom: 1;
+}
+
+.avtor {
+    font-style: italic;
+    font-size: 1em;
+}
+/*end article*/
+
+/*start menu*/
+.hidemenu, .smallmenu {
+    display: none;
+}
+
+nav > ul {
+    width: 100%;
+    list-style-type: none;
+    background-color: #6e7649;
+    /*background-color: #003333;*/
+    float: left;
+}
+
+li.menu {
+    width: 18%;
+    display: inline-block;
+    margin-left: 1%;
+}
+
+li.menu {
+    text-align: center;
+    line-height: 24px;
+    background-color: transparent;
+    border-radius: 6px;
+    transition: all 0.5s ease;
+}
+
+    li.menu:first-child {
+        margin-left: 12%;
+    }
+
+    li.menu img {
+        margin-top: 3px;
+        width: auto;
+    }
+
+@font-face {
+    font-family: 'Bukyvede_Light';
+    src: url('../fonts/Bukyvede_Light.ttf');
+}
+
+li.menu a {
+    /*color:#fff;*/
+    display: inline-block;
+    color: #dfd27c;
+    font-family: 'Bukyvede_Light';
+    font-size: 1.5em;
+    text-shadow: 3px 2px 2px #3f2e05;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+nav:after {
+    content: "";
+    zoom: 1;
+    clear: both;
+    display: block;
+}
+
+#hr:before {
+    content: "";
+    display: block;
+    clear: both;
+    zoom: 1;
+}
+/*end menu*/
+/*slideshow index page*/
+.ze_flexslider {
+    margin-top: 20px !important;
+    border: none !important;
+    background-color: transparent !important;
+}
+
+.ze_slides > li {
+    cursor: default !important;
+}
+
+.textBox {
+    left: 0px !important;
+}
+/*end */
+/*aside citat*/
+.citat {
+    width: 100%;
+    padding: 3px 3px 3px 3px;
+    font-size: 0.9em;
+    background-color: #dfd27c;
+    /*background-color: #d4f5d1;*/
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    margin-top: 10px;
+    /*transition: all 0.5s ease;*/
+}
+
+.lightBrownTextHover {
+    padding: 3px 3px 3px 3px;
+    color: #3f2e05;
+    font-size: 1em;
+    font-family: Cambria,"Time New Roman", Helvetica;
+    text-align: justify;
+    line-height: 24px;
+}
+
+    .lightBrownTextHover > p {
+        transition: all 0.5s ease;
+    }
+/*end aside citat*/
+#koncovkaPrediFooter {
+    height: 22px;
+    width: 100%;
+    border: 0px solid #000;
+    background-image: url('../images/hr.gif');
+    background-repeat: repeat-x;
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+}
+/*ministration*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    table td {
+        text-align: left;
+        vertical-align: top;
+        padding-right: 1%;
+        padding-bottom: 25px;
+    }
+
+.persent12 {
+    width: 12%;
+}
+
+.persent15 {
+    width: 15%;
+}
+
+.persent20 {
+    width: 20%;
+}
+/*end ministration*/
+/*sermons, breviary*/
+#back, #next {
+    font-size: 0.8em;
+    color: #3f2e05;
+    font-family: Cambria,"Time New Roman", Helvetica;
+    text-align: left;
+    line-height: 16px;
+    text-decoration: none;
+    position: relative;
+}
+
+    #back:before {
+        content: "\f100";
+        font-family: FontAwesome;
+    }
+
+    #next:after {
+        content: "\f100";
+        font-family: FontAwesome;
+    }
+/*end sermons, breviary*/
+/*razspisanie koncovka*/
+
+td.textAlignCenter {
+    width: 100%;
+    text-align: center;
+}
+
+    td.textAlignCenter > .koncovka {
+        width: 20%;
+        margin-left: 40%;
+    }
+/*end razspisanie koncovka*/
+/*social networks*/
+#socialNetworks > div {
+    float: left;
+    /*display: inline-block;*/
+    margin-right: 1%;
+    margin-bottom: 0 !important;
+}
+
+#socialNetworks {
+    width: 100%;
+}
+
+    #socialNetworks:after {
+        content: "";
+        display: block;
+        zoom: 1;
+        clear: both;
+    }
+/*end social networks*/
+/*start footer*/
+footer {
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0px 0px 15px black;
+    background-image: url('../images/patern_croix3.jpg');
+    border: 0px solid #000;
+    z-index: 2;
+}
+
+.textCenteredFooter {
+    z-index: 2;
+    padding-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.9em;
+    text-align: center;
+    color: #dfd27c;
+    width: 30%;
+}
+
+footer > #footerBaneri {
+    width: 100%;
+    bottom: 5px;
+    margin-top: 20px;
+    position: relative;
+    height: 40px;
+}
+
+footer img.footerBaneri {
+    width: auto;
+    height: 35px;
+    position: relative;
+    z-index: 2;
+}
+
+footer .footerBaneri {
+    margin: 0px 5px 3px 5px;
+    float: right;
+    display: inline-block;
+}
+/*end footer*/
+img {
+    max-width: 100%;
+}
+/*media*/
+@media only screen and (max-width:1000px) {
+    /*header*/
+    header {
+        height: 150px;
+    }
+
+    #headerLogoContainer {
+        width: 70%;
+        height: 150px;
+    }
+
+    #logo {
+        width: 70%;
+    }
+    /*aside. section*/
+    #leftAside {
+        display: none;
+    }
+
+    section {
+        width: 80%;
+    }
+    /*footer*/
+    .textCenteredFooter {
+        width: 50%;
+    }
+    /*slideshow index page*/
+    .textBoxDesc, .textBox {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    /*slideshow index page*/
+    .textBoxDesc, .textBox {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    /*top page*/
+    #topPage a {
+        color: #e5ae86;
+        border: 2px solid #e5ae86;
+        text-decoration: none;
+    }
+    /*header*/
+    header {
+        height: 120px;
+    }
+
+    #logo {
+        width: 65%;
+        height: 120px;
+    }
+    /*menu*/
+    .hidemenu {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background-image: url('../images/hidemenu.png');
+        position: relative;
+        z-index: 50;
+        top: 10px;
+        left: 10px;
+        margin-bottom: 20px;
+    }
+
+    nav .smallmenu {
+        left: 50px;
+        top: 155px;
+        position: absolute;
+        padding: 3px 20px;
+        margin-bottom: 50px;
+        border-radius: 10px;
+        border: 2px solid #c7c397;
+        z-index: 50;
+    }
+
+    .smallmenu > ul {
+        list-style-type: none;
+    }
+
+    .smallmenu ul a {
+        color: #dfd27c;
+        text-decoration: none;
+        line-height: 1.05em;
+        font-family: 'Bukyvede_Light';
+        font-size: 1.2em;
+        position: relative;
+        transition: all 0.5s ease;
+    }
+
+        .smallmenu ul a:before {
+            content: "\f0da";
+            font-family: FontAwesome;
+            margin-right: 5px;
+        }
+
+    nav > ul, #secondHr {
+        display: none;
+    }
+    /*example animation*/
+
+    /* The animation code */
+    @keyframes bullets {
+        0% {
+            content: "\f0da";
+        }
+
+        25% {
+            content: "\f0d7";
+        }
+
+        50% {
+            content: "\f0d9";
+        }
+        /*70%  {content:  "\f0d8";}*/
+        100% {
+            content: "\f0da";
+        }
+    }
+
+    @-webkit-keyframes bullets {
+        0% {
+            content: "\f0da";
+        }
+
+        25% {
+            content: "\f0d7";
+        }
+
+        50% {
+            content: "\f0d9";
+        }
+        /*70%  {content:  "\f0d8";}*/
+        100% {
+            content: "\f0da";
+        }
+    }
+
+
+
+    /*slideshow index page*/
+    .textBoxDesc, .textBox {
+        display: none;
+    }
+    /*aside, section*/
+    #rightAside {
+        display: none;
+    }
+
+    section {
+        width: 98%;
+        margin-right: 1%;
+        padding-right: 3%;
+        margin-top: 70px;
+    }
+    /*footer*/
+    footer > #footerBaneri {
+        height: 90px;
+    }
+
+    .textCenteredFooter {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    /*footer*/
+    .textCenteredFooter {
+        width: 100%;
+    }
+}
+/*end media*/
+
+li:hover {
+    background-color: #001515;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+    li:hover a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    li:hover span.avtor {
+        color: #fff;
+    }
+
+    li:hover .lightBrownTextHover p {
+        color: #e5ae86;
+    }
+
+    /* The element to apply the animation to */
+    li:hover .smallmenu ul a:before {
+        animation-name: bullets;
+        animation-duration: 5s;
+        -webkit-animation-name: bullets;
+        -webkit-animation-duration: 5s;
+    }
+
+li a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.textCenteredFooter:hover {
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#topPage a:hover {
+    color: #c7c397;
+    background: #6e7649;
+    border: 2px solid #c7c397;
+}

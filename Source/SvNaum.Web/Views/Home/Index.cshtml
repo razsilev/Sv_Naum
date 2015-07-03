@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SvNaum.Models.NewsSingle>
+
+@{
+    ViewBag.Title = "Начало";
+}
+
+
+<div id="cp_widget_08eb9e0f-f6e9-42e2-bd2d-b686428611dd">...</div>
+<script type="text/javascript">
+    var cpo = []; cpo["_object"] = "cp_widget_08eb9e0f-f6e9-42e2-bd2d-b686428611dd"; cpo["_fid"] = "AYIA3o8cmlii";
+    var _cpmp = _cpmp || []; _cpmp.push(cpo);
+    (function () {
+        var cp = document.createElement("script"); cp.type = "text/javascript";
+        cp.async = true; cp.src = "//www.cincopa.com/media-platform/runtime/libasync.js";
+        var c = document.getElementsByTagName("script")[0];
+        c.parentNode.insertBefore(cp, c);
+    })();
+</script>
+
+@if (this.User.Identity.IsAuthenticated)
+{
+    <div>
+        @Html.ActionLink("Create News", "NewsAdd", "Admin")
+    </div>
+}
+
+@foreach (var item in Model)
+{
+    <article>
+        <div>
+            @Html.Raw(item.Content)
+        </div>
+
+        @if (this.User.Identity.IsAuthenticated)
+        {
+            <div>
+                @Html.ActionLink("Edit", "NewsEdit", "Admin", new { id = item.Id }, null)
+                &nbsp;
+                @Html.ActionLink("Delete", "NewsDelete", "Admin", new { id = item.Id }, new { @class = "text-danger" })
+            </div>
+        }
+    </article>
+}

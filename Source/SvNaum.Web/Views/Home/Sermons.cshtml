@@ -1,0 +1,72 @@
+﻿@model SvNaum.Models.Sermon
+
+@{
+    ViewBag.Title = "Проповеди";
+}
+
+<br />
+@if (this.User.Identity.IsAuthenticated)
+{
+    @Html.ActionLink("Create Sermon", "SermonAdd", "Admin")
+    <br />
+    <br />
+}
+
+@if (this.ViewBag.PrevPage != null && (int)this.ViewBag.PrevPage >= 0)
+{
+    @Html.ActionLink("Предишна", "Sermons", "Home", new { page = this.ViewBag.PrevPage, id = string.Empty }, null)
+    @:&nbsp;
+
+}
+else
+{
+    @:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    @:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}
+|&nbsp;
+@Html.ActionLink("Следваща", "Sermons", "Home", new { page = this.ViewBag.NextPage, id = string.Empty }, null)
+<br />
+
+@if (Model != null)
+{
+    <article>
+        <h2>
+            @Html.DisplayFor(m => m.Title)
+        </h2>
+        <p>
+            @Html.Raw(Model.Text)
+        </p>
+        <br />
+        <div class="avtor">
+            @Html.DisplayFor(m => m.Author)
+        </div>
+        <br />
+
+        @Html.DisplayFor(m => m.Date.ToLocalTime().GetDateTimeFormats()[1])
+        <br />
+        <br />
+        <div id="socialNetworks">
+            <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-action="like" data-show-faces="true" data-share="true">
+            </div>
+            <div id="twitter">
+                <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+            </div>
+            <div class="g-plusone" data-size="medium" data-annotation="bubble" data-width="100">
+            </div>
+        </div>
+
+        @if (this.User.Identity.IsAuthenticated)
+        {
+            <div>
+                @Html.ActionLink("Edit", "SermonEdit", "Admin", new { id = Model.Id }, null)
+                &nbsp;
+                @Html.ActionLink("Delete", "SermonDelete", "Admin", new { id = Model.Id }, new { @class = "text-danger" })
+            </div>
+        }
+
+    </article>
+}
+else
+{
+    <h3>There is no sermons!</h3>
+}

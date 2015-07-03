@@ -1,0 +1,35 @@
+﻿@model SvNaum.Web.Models.MinistrationInputModel
+
+<h2>Create ministration:</h2>
+@using (Html.BeginForm("TimetableAdd", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.LabelFor(m => m.Title)
+    @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Title)
+
+    @Html.LabelFor(m => m.Date)
+    @Html.TextBoxFor(m => m.Date, new { @class = "form-control", placeholder = "dd/mm/yyyy", @type = "date" })
+    @Html.ValidationMessageFor(m => m.Date)
+
+    <br />
+    @Html.LabelFor(m => m.Time)
+    @Html.TextBoxFor(m => m.Time, new { @class = "form-control", placeholder = "HH:mm" })
+    @Html.ValidationMessageFor(m => m.Time)
+    <br />
+    <br />
+    @Html.LabelFor(m => m.Description)
+    <br />
+    @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = "5" })
+    @Html.ValidationMessageFor(m => m.Description)
+    <br />
+    <br />
+    <input type="submit" value="Save" />
+    <input type="button" value="Cancel" onclick="window.location = '/Home/Timetable';" />
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval");
+}

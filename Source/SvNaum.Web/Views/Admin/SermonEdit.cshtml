@@ -1,0 +1,18 @@
+﻿@model SvNaum.Web.Models.SermonUpdateInputModel
+
+<h2>Edit sermon:</h2>
+@using (Html.BeginForm("SermonEdit", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.EditorForModel()
+    <br />
+    <br />
+    <input type="submit" value="Save" />
+    <input type="button" value="Cancel" onclick="window.location = '/Home/Sermons';" />
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval");
+}

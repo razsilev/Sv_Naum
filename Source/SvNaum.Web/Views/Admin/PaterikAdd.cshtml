@@ -1,0 +1,24 @@
+﻿@model SvNaum.Web.Models.PaterikModel
+
+@{
+    ViewBag.Title = "Add paterik";
+}
+
+<h2>Create paterik</h2>
+
+@using (Html.BeginForm("PaterikAdd", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.EditorForModel()
+
+    <br />
+    <br />
+    <input type="submit" value="Save" />
+    <input type="button" value="Cancel" onclick="window.location = '/Home/Index';" />
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval");
+}

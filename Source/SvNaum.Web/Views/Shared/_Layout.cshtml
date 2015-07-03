@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Православен храм Св.Наум Охридски</title>
+    @Styles.Render("~/Content/css")
+    <link type="text/css" rel="stylesheet" href="~/Content/font-awesome-4.3.0/css/font-awesome.css" />
+
+    <!--twitter share button-->
+    <script>
+        !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');
+    </script>
+    <!--end twitter share button-->
+    <!--google+ button-->
+    <script src="https://apis.google.com/js/platform.js" async defer>
+        { lang: 'bg' }
+    </script>
+    <!--end google+ button-->
+
+</head>
+<body>
+    @Html.Action("PopulateLayoutData", "Home")
+
+    <!--facebook buttons-->
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/bg_BG/sdk.js#xfbml=1&version=v2.3";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!--end facebook buttons-->
+
+    <div id="wrapper">
+
+        <div id="topPage">
+            <a class="fa fa-angle-up" href="#anchorTopPage"></a>
+        </div>
+
+        <div id="container">
+
+            <a name="anchorTopPage"></a>
+
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                <div id="login" class="navbar navbar-inverse" style="margin:0;">
+                    @Html.Partial("_LoginPartial")
+                </div>
+            }
+            <header>
+                @if (!this.User.Identity.IsAuthenticated)
+                {
+                    <div id="loginDiv">
+                        @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+                    </div>
+                }
+                <img id="backgroundHeader" src="~/Images/panoramna.png" alt="Снимка на храма" />
+                <div id="headerLogoContainer">
+                    <div id="logo">
+                        <a href="/">
+                            <img src="~/Images/logo4yellow.png" alt="Православен храм Св.Наум Охридски" />
+                        </a>
+                    </div>
+                </div>
+            </header>
+            <div class="hr"></div>
+            <nav>
+                <div class="relative">
+                    <a href="#" class="hidemenu" onclick="displayMenu();">
+                    </a>
+                    <div class="smallmenu">
+                        <ul>
+                            <li><a href="/Home/Timetable">Служение</a></li>
+                            <li><a href="/Home/Pictures">Фотоалбум</a></li>
+                            <li><a href="/Home/Sermons">Проповеди</a></li>
+                            <li><a href="/Home/Breviary">Молитвеник</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <ul>
+                    @*<li class="menu"><a href="/Home/Index"><img src="~/Images/trumbSlujbi.jpg" alt="" />В храма</a></li>*@
+                    <li class="menu"><a href="/Home/Timetable"><img src="~/Images/trumbSlujbi.jpg" alt="" />Служение</a></li>
+                    <li class="menu"><a href="/Home/Pictures"><img src="~/Images/trumbGaleria.jpg" alt="" />Фотоалбум</a></li>
+                    <li class="menu"><a href="/Home/Sermons"><img src="~/Images/trumbPropovedi.jpg" alt="" />Проповеди</a></li>
+                    <li class="menu"><a href="/Home/Breviary"><img src="~/Images/trumbBreviary.png" alt="" />Молитвеник</a></li>
+                </ul>
+            </nav>
+            <div id="secondHr" class="hr"></div>
+            <div id="content">
+
+                <aside id="rightAside">
+                    <!--google search-->
+                    @if (this.User.Identity.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Create new paterik", "PaterikAdd", "Admin")
+                        <br />
+                    }
+
+                    <ul>
+                        @foreach (var item in this.TempData["Pateriks"] as IEnumerable<SvNaum.Models.Paterik>)
+                        {
+                            <li class="citat">
+                                <div>
+                                    <div class="lightBrownTextHover">
+                                        @Html.Raw(item.Text)
+                                    </div>
+                                    <span class="avtor">@item.Author</span>
+                                </div>
+
+                                @if (this.User.Identity.IsAuthenticated)
+                                {
+                                    <div>
+                                        @Html.ActionLink("Edit", "PaterikEdit", "Admin", new { id = item.Id }, null)
+                                        &nbsp;
+                                        @Html.ActionLink("Delete", "PaterikDelete", "Admin", new { id = item.Id }, new { @class = "text-danger" })
+                                    </div>
+                                }
+                            </li>
+                        }
+                    </ul>
+
+                    @*<ul>
+                            <li class="citat">
+                                <img src="~/Images/svPaisii1.jpg" alt="" />
+                                <div>
+                                    <div class="lightBrownTextHover">
+                                        Когато видим човек, обзет от голям душевен смут, притеснение и печал, въпреки че има всичко и нищо не му липсва,
+                                        трябва да знаем, че му липсва Бога.
+                                    </div>
+                                    <span class="avtor">Свети Паисий Атонски</span>
+                                </div>
+                            </li>
+                            <li class="citat">
+                                <img src="~/Images/svPaisii3.jpg" alt="" />
+                                <div>
+                                    <div class="lightBrownTextHover">
+                                        Трябва да правим това, което е в границите на човешките възможности, а другото, което надхвърля силите
+                                        ни, да оставим в Божиите ръце.
+                                    </div>
+                                    <span class="avtor">Свети Паисий Атонски</span>
+                                </div>
+                            </li>
+                            <li class="citat">
+                                <img src="~/Images/svPaisii2.jpg" alt="" />
+                                <div>
+                                    <div class="lightBrownTextHover">
+                                        Светът е като тенджера под налягане с много клапани, готови да експлодират.
+                                        Ако не се пропука от едно място, ще се спука от друго...
+                                        да внимаваме да не бъдем ние причината.
+                                    </div>
+                                    <span class="avtor">Свети Паисий Атонски</span>
+                                </div>
+                            </li>
+                            <li class="citat">
+                                <img src="~/Images/svPaisii4.jpg" alt="" />
+                                <div>
+                                    <div class="lightBrownTextHover">
+                                        През малкото години на нашия живот ние трябва тихо и невидимо да вършим добри дела.
+                                    </div>
+                                    <span class="avtor">Свети Паисий Атонски</span>
+                                </div>
+                            </li>
+                        </ul>*@
+                </aside>
+                <section>
+                    @RenderBody()
+                </section>
+                <aside id="leftAside">
+                    <div>
+                        <h3>Проповеди:</h3>
+
+                        @foreach (SvNaum.Models.Sermon item in this.TempData["TopTenSermons"] as IEnumerable<SvNaum.Models.Sermon>)
+                        {
+                            <ul class="propovediTitle">
+                                <li>
+                                    @Html.ActionLink(new string(item.Title.Take(20).ToArray()) + "...", "Sermons", "Home", new { id = item.Id }, new { title = item.Title })
+                                </li>
+                            </ul>
+                            @*<hr />*@
+                        }
+                    </div>
+                    <div>
+                        <h3>Молитви:</h3>
+
+                        @foreach (SvNaum.Models.Prayer item in this.TempData["TopTenPrayers"] as IEnumerable<SvNaum.Models.Prayer>)
+                        {
+                            <ul class="propovediTitle">
+                                <li>
+                                    @Html.ActionLink(new string(item.Title.Take(20).ToArray()) + "...", "Breviary", "Home", new { id = item.Id }, new { title = item.Title })
+                                </li>
+                            </ul>
+                            @*<hr>*@
+                        }
+                    </div>
+                </aside>
+            </div>
+            @*<div id="koncovkaPrediFooter">
+                </div>*@
+            <hr class="hr" />
+        </div>
+        <footer>
+            <div class="textCenteredFooter">Адрес: гр.София, жк.Дружба1, тел.02/978 86 88</div>
+            <div id="footerBaneri">
+                <a href="http://www.pravoslavnoto-hristianstvo.com/" target="_blank"><img src="~/Images/bg-88x31-native1.gif" alt="Православното християнство в Интернет" class="footerBaneri" /></a>
+                <a href="http://bg-patriarshia.bg/index.php?file=index.xml" target="_blank"><img src="~/Images/120x60_bpc.jpg" alt="Българска Православна Църква" class="footerBaneri" /></a>
+                <a href="http://pravoslaven-sviat.org/" target="_blank"><img src="~/Images/pravoslavenSvqtBaner.png" alt="Православен свят" class="footerBaneri" /></a>
+                <a href="http://mitropolia-sofia.org/index.php" target="_blank"><img src="~/Images/88_31_SM.png" alt="Сайт на Софийска Света Митрополия" class="footerBaneri" /></a>
+            </div>
+        </footer>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/site.js"></script>
+</body>
+</html>

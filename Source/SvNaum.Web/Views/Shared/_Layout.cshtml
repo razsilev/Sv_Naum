@@ -69,15 +69,17 @@
             </header>
             <div class="hr"></div>
             <nav>
-                <a href="#" class="hidemenu" onclick="displayMenu();">
-                </a>
-                <div class="smallmenu">
-                    <ul>
-                        <li><a href="/Home/Timetable">Служение</a></li>
-                        <li><a class="fa fa-caret-down" href="/Home/Pictures">Фотоалбум</a></li>
-                        <li><a class="fa fa-caret-down" href="/Home/Sermons">Проповеди</a></li>
-                        <li><a class="fa fa-caret-down" href="/Home/Breviary">Молитвеник</a></li>
-                    </ul>
+                <div class="relative">
+                    <a href="#" class="hidemenu" onclick="displayMenu();">
+                    </a>
+                    <div class="smallmenu">
+                        <ul>
+                            <li><a href="/Home/Timetable">Служение</a></li>
+                            <li><a class="fa fa-caret-down" href="/Home/Pictures">Фотоалбум</a></li>
+                            <li><a class="fa fa-caret-down" href="/Home/Sermons">Проповеди</a></li>
+                            <li><a class="fa fa-caret-down" href="/Home/Breviary">Молитвеник</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <ul>
                     @*<li class="menu"><a href="/Home/Index"><img src="~/Images/trumbSlujbi.jpg" alt="" />В храма</a></li>*@
@@ -92,7 +94,6 @@
 
                 <aside id="rightAside">
                     <!--google search-->
-
                     @if (this.User.Identity.IsAuthenticated)
                     {
                         @Html.ActionLink("Create new paterik", "PaterikAdd", "Admin")
@@ -123,47 +124,47 @@
                     </ul>
 
                     @*<ul>
-                        <li class="citat">
-                            <img src="~/Images/svPaisii1.jpg" alt="" />
-                            <div>
-                                <div class="lightBrownTextHover">
-                                    Когато видим човек, обзет от голям душевен смут, притеснение и печал, въпреки че има всичко и нищо не му липсва,
-                                    трябва да знаем, че му липсва Бога.
+                            <li class="citat">
+                                <img src="~/Images/svPaisii1.jpg" alt="" />
+                                <div>
+                                    <div class="lightBrownTextHover">
+                                        Когато видим човек, обзет от голям душевен смут, притеснение и печал, въпреки че има всичко и нищо не му липсва,
+                                        трябва да знаем, че му липсва Бога.
+                                    </div>
+                                    <span class="avtor">Свети Паисий Атонски</span>
                                 </div>
-                                <span class="avtor">Свети Паисий Атонски</span>
-                            </div>
-                        </li>
-                        <li class="citat">
-                            <img src="~/Images/svPaisii3.jpg" alt="" />
-                            <div>
-                                <div class="lightBrownTextHover">
-                                    Трябва да правим това, което е в границите на човешките възможности, а другото, което надхвърля силите
-                                    ни, да оставим в Божиите ръце.
+                            </li>
+                            <li class="citat">
+                                <img src="~/Images/svPaisii3.jpg" alt="" />
+                                <div>
+                                    <div class="lightBrownTextHover">
+                                        Трябва да правим това, което е в границите на човешките възможности, а другото, което надхвърля силите
+                                        ни, да оставим в Божиите ръце.
+                                    </div>
+                                    <span class="avtor">Свети Паисий Атонски</span>
                                 </div>
-                                <span class="avtor">Свети Паисий Атонски</span>
-                            </div>
-                        </li>
-                        <li class="citat">
-                            <img src="~/Images/svPaisii2.jpg" alt="" />
-                            <div>
-                                <div class="lightBrownTextHover">
-                                    Светът е като тенджера под налягане с много клапани, готови да експлодират.
-                                    Ако не се пропука от едно място, ще се спука от друго...
-                                    да внимаваме да не бъдем ние причината.
+                            </li>
+                            <li class="citat">
+                                <img src="~/Images/svPaisii2.jpg" alt="" />
+                                <div>
+                                    <div class="lightBrownTextHover">
+                                        Светът е като тенджера под налягане с много клапани, готови да експлодират.
+                                        Ако не се пропука от едно място, ще се спука от друго...
+                                        да внимаваме да не бъдем ние причината.
+                                    </div>
+                                    <span class="avtor">Свети Паисий Атонски</span>
                                 </div>
-                                <span class="avtor">Свети Паисий Атонски</span>
-                            </div>
-                        </li>
-                        <li class="citat">
-                            <img src="~/Images/svPaisii4.jpg" alt="" />
-                            <div>
-                                <div class="lightBrownTextHover">
-                                    През малкото години на нашия живот ние трябва тихо и невидимо да вършим добри дела.
+                            </li>
+                            <li class="citat">
+                                <img src="~/Images/svPaisii4.jpg" alt="" />
+                                <div>
+                                    <div class="lightBrownTextHover">
+                                        През малкото години на нашия живот ние трябва тихо и невидимо да вършим добри дела.
+                                    </div>
+                                    <span class="avtor">Свети Паисий Атонски</span>
                                 </div>
-                                <span class="avtor">Свети Паисий Атонски</span>
-                            </div>
-                        </li>
-                    </ul>*@
+                            </li>
+                        </ul>*@
                 </aside>
                 <section>
                     @RenderBody()
@@ -179,7 +180,7 @@
                                     @Html.ActionLink(new string(item.Title.Take(20).ToArray()) + "...", "Sermons", "Home", new { id = item.Id }, new { title = item.Title })
                                 </li>
                             </ul>
-                         @*<hr />*@
+                            @*<hr />*@
                         }
                     </div>
                     <div>
@@ -189,16 +190,16 @@
                         {
                             <ul class="propovediTitle">
                                 <li>
-                                     @Html.ActionLink(new string(item.Title.Take(20).ToArray()) + "...", "Breviary", "Home", new { id = item.Id }, new { title = item.Title })
+                                    @Html.ActionLink(new string(item.Title.Take(20).ToArray()) + "...", "Breviary", "Home", new { id = item.Id }, new { title = item.Title })
                                 </li>
                             </ul>
-                                     @*<hr>*@
+                            @*<hr>*@
                         }
                     </div>
                 </aside>
             </div>
             @*<div id="koncovkaPrediFooter">
-            </div>*@
+                </div>*@
             <hr class="hr" />
         </div>
         <footer>

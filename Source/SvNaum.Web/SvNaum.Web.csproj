@@ -227,7 +227,6 @@
     <Content Include="Images\svPaisii2.jpg" />
     <Content Include="Images\svPaisii3.jpg" />
     <Content Include="Images\svPaisii4.jpg" />
-    <Content Include="Images\trumbBreviary.png" />
     <Content Include="Images\trumbGaleria.jpg" />
     <Content Include="Images\trumbPropovedi.jpg" />
     <Content Include="Images\trumbSlujbi.jpg" />
@@ -432,28 +431,6 @@
     <Content Include="Scripts\tinymce\tinymce.js" />
     <Content Include="Scripts\tinymce\tinymce.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Admin\MinistrationEdit.cshtml" />
-    <Content Include="Views\Admin\NewsAdd.cshtml" />
-    <Content Include="Views\Admin\NewsEdit.cshtml" />
-    <Content Include="Views\Admin\PaterikAdd.cshtml" />
-    <Content Include="Views\Admin\PaterikEdit.cshtml" />
-    <Content Include="Views\Admin\PrayerAdd.cshtml" />
-    <Content Include="Views\Admin\PrayerEdit.cshtml" />
-    <Content Include="Views\Admin\SermonAdd.cshtml" />
-    <Content Include="Views\Admin\SermonEdit.cshtml" />
-    <Content Include="Views\Admin\TimetableAdd.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Breviary.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Pictures.cshtml" />
-    <Content Include="Views\Home\Sermons.cshtml" />
-    <Content Include="Views\Home\Timetable.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -462,6 +439,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -481,6 +464,15 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Timetable.cshtml" />
+    <Content Include="Views\Home\Pictures.cshtml" />
+    <Content Include="Views\Home\Sermons.cshtml" />
+    <Content Include="Views\Admin\TimetableAdd.cshtml" />
+    <Content Include="Views\Admin\MinistrationEdit.cshtml" />
+    <Content Include="Views\Admin\SermonAdd.cshtml" />
+    <Content Include="Views\Admin\SermonEdit.cshtml" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.json" />
@@ -492,6 +484,11 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
     <Content Include="Scripts\tinymce\langs\readme.md" />
     <Content Include="Views\Shared\EditorTemplates\tinymce_full.cshtml" />
+    <Content Include="Views\Home\Breviary.cshtml" />
+    <Content Include="Views\Admin\PrayerAdd.cshtml" />
+    <Content Include="Views\Admin\PrayerEdit.cshtml" />
+    <Content Include="Views\Admin\NewsAdd.cshtml" />
+    <Content Include="Views\Admin\NewsEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

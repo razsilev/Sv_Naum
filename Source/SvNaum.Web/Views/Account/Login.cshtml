@@ -1,17 +1,17 @@
 ﻿@using SvNaum.Web.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Вход";
+    ViewBag.Title = "Log in";
 }
 
 <h2>@ViewBag.Title.</h2>
 <div class="row">
     <div class="col-md-8">
-        <article id="loginForm">
+        <section id="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h3>Вход само за оторизирани потребители.</h3>
+                <h4>Use a local account to log in.</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
@@ -49,7 +49,7 @@
                         @Html.ActionLink("Forgot your password?", "ForgotPassword")
                     </p>*@
             }
-        </article>
+        </section>
     </div>
     @*<div class="col-md-4">
         <section id="socialLoginForm">

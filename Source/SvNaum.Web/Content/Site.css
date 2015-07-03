@@ -37,9 +37,7 @@ body, article, section, div, aside, ul, li, header, footer, nav, img {
 p {
     display: block;
 }
-.relative {
-    position: relative;
-}
+
 #wrapper {
     background: url('../images/patern_croix3.jpg');
     background-repeat: repeat;
@@ -106,14 +104,14 @@ header {
     position: relative;
 }
 
-header #backgroundHeader {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 1;
-}
+    header #backgroundHeader {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+    }
 
 #loginDiv {
     position: absolute;
@@ -424,6 +422,28 @@ table {
 .persent20 {
     width: 20%;
 }
+/*end ministration*/
+/*sermons, breviary*/
+#back, #next {
+    font-size: 0.8em;
+    color: #3f2e05;
+    font-family: Cambria,"Time New Roman", Helvetica;
+    text-align: left;
+    line-height: 16px;
+    text-decoration: none;
+    position: relative;
+}
+
+    #back:before {
+        content: "\f100";
+        font-family: FontAwesome;
+    }
+
+    #next:after {
+        content: "\f100";
+        font-family: FontAwesome;
+    }
+/*end sermons, breviary*/
 /*razspisanie koncovka*/
 
 td.textAlignCenter {
@@ -436,26 +456,6 @@ td.textAlignCenter {
         margin-left: 40%;
     }
 /*end razspisanie koncovka*/
-/*end ministration*/
-/*sermons, breviary*/
-#back a, #next a {
-    font-size: 0.9em;
-    color: #6e7649;
-    font-family: Cambria,"Time New Roman", Helvetica;
-    line-height: 16px;
-    text-decoration: none;
-    position: relative;
-}
-#back:before {
-    content: "\f100";
-    font-family: FontAwesome;
-}
-#next:after {
-    content: "\f101";
-    font-family: FontAwesome;
-}
-/*end sermons, breviary*/
-
 /*social networks*/
 #socialNetworks > div {
     float: left;
@@ -589,37 +589,36 @@ img {
         margin-bottom: 20px;
     }
 
- nav .smallmenu {
+    nav .smallmenu {
         left: 50px;
-        top: 5px;
+        top: 155px;
         position: absolute;
         padding: 3px 20px;
         margin-bottom: 50px;
         border-radius: 10px;
         border: 2px solid #c7c397;
-        background-image: url('../Images/patern_croix3.jpg');
         z-index: 50;
-}
-.smallmenu > ul {
-    list-style-type: none;
-}
-.smallmenu ul a {
-    color: #dfd27c;
-    text-decoration: none;
-    line-height: 1.05em;
-    font-family: 'Bukyvede_Light';
-    font-size: 1.2em;
-    text-shadow: 3px 2px 2px #3f2e05;
-    position: relative;
-    transition: all 0.5s ease;
-}
+    }
 
-.smallmenu ul a:before{
-    content:  "\f0da";
-    font-family: FontAwesome;
-    margin-right: 5px;
-    color:  #e5ae86;
-}
+    .smallmenu > ul {
+        list-style-type: none;
+    }
+
+    .smallmenu ul a {
+        color: #dfd27c;
+        text-decoration: none;
+        line-height: 1.05em;
+        font-family: 'Bukyvede_Light';
+        font-size: 1.2em;
+        position: relative;
+        transition: all 0.5s ease;
+    }
+
+        .smallmenu ul a:before {
+            content: "\f0da";
+            font-family: FontAwesome;
+            margin-right: 5px;
+        }
 
     nav > ul, #secondHr {
         display: none;
@@ -627,7 +626,7 @@ img {
     /*example animation*/
 
     /* The animation code */
-    /*@keyframes bullets {
+    @keyframes bullets {
         0% {
             content: "\f0da";
         }
@@ -639,7 +638,7 @@ img {
         50% {
             content: "\f0d9";
         }
-        70%  {content:  "\f0d8";}
+        /*70%  {content:  "\f0d8";}*/
         100% {
             content: "\f0da";
         }
@@ -657,11 +656,14 @@ img {
         50% {
             content: "\f0d9";
         }
-        70%  {content:  "\f0d8";}
+        /*70%  {content:  "\f0d8";}*/
         100% {
             content: "\f0da";
         }
-    }*/
+    }
+
+
+
     /*slideshow index page*/
     .textBoxDesc, .textBox {
         display: none;
@@ -715,12 +717,12 @@ li:hover {
     }
 
     /* The element to apply the animation to */
-    /*li:hover .smallmenu ul a:before {
+    li:hover .smallmenu ul a:before {
         animation-name: bullets;
         animation-duration: 5s;
         -webkit-animation-name: bullets;
         -webkit-animation-duration: 5s;
-    }*/
+    }
 
 li a:hover {
     color: #fff;
@@ -738,6 +740,3 @@ li a:hover {
     background: #6e7649;
     border: 2px solid #c7c397;
 }
-#back a:hover, #next a:hover {
-    text-decoration: underline;
-} 

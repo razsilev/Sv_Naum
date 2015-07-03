@@ -1,0 +1,19 @@
+﻿@model SvNaum.Web.Models.NewsUpdateModel
+
+<h2>Edit news:</h2>
+@using (Html.BeginForm("NewsEdit", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.EditorForModel()
+    
+    <br />
+    <br />
+    <input type="submit" value="Save" />
+    <input type="button" value="Cancel" onclick="window.location = '/Home/Index';" />
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval");
+}

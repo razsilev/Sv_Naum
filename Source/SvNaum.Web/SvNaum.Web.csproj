@@ -433,7 +433,9 @@
     <Content Include="Scripts\tinymce\tinymce.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Admin\MinistrationEdit.cshtml" />
-    <Content Include="Views\Admin\NewsAdd.cshtml" />
+    <Content Include="Views\Admin\NewsAdd.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Views\Admin\NewsEdit.cshtml" />
     <Content Include="Views\Admin\PaterikAdd.cshtml" />
     <Content Include="Views\Admin\PaterikEdit.cshtml" />

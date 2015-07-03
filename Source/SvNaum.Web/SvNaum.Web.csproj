@@ -210,23 +210,17 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\120x60_bpc.jpg" />
+    <Content Include="Images\88_31_SM.png" />
     <Content Include="Images\bg-88x31-native1.gif" />
     <Content Include="Images\frizGreen.png" />
     <Content Include="Images\hidemenu.png" />
-    <Content Include="Images\hr.gif" />
-    <Content Include="Images\logo3.png" />
     <Content Include="Images\logo4yellow.png" />
     <Content Include="Images\ornament.png" />
     <Content Include="Images\panoramna.png" />
-    <Content Include="Images\panoramnaLight1.jpg" />
     <Content Include="Images\patern_croix3.jpg" />
-    <Content Include="Images\post-200x179.jpg" />
     <Content Include="Images\pravoslavenSvqtBaner.png" />
-    <Content Include="Images\svNaumBlur.png" />
     <Content Include="Images\svPaisii1.jpg" />
-    <Content Include="Images\svPaisii2.jpg" />
-    <Content Include="Images\svPaisii3.jpg" />
-    <Content Include="Images\svPaisii4.jpg" />
+    <Content Include="Images\trumbBreviary.png" />
     <Content Include="Images\trumbGaleria.jpg" />
     <Content Include="Images\trumbPropovedi.jpg" />
     <Content Include="Images\trumbSlujbi.jpg" />
@@ -489,6 +483,8 @@
     <Content Include="Views\Admin\PrayerEdit.cshtml" />
     <Content Include="Views\Admin\NewsAdd.cshtml" />
     <Content Include="Views\Admin\NewsEdit.cshtml" />
+    <Content Include="Views\Admin\PaterikAdd.cshtml" />
+    <Content Include="Views\Admin\PaterikEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

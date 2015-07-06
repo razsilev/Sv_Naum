@@ -4,7 +4,6 @@
     ViewBag.Title = "Проповеди";
 }
 
-<br />
 @if (this.User.Identity.IsAuthenticated)
 {
     @Html.ActionLink("Create Sermon", "SermonAdd", "Admin")
@@ -25,9 +24,12 @@ else
     @:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 }
 |&nbsp;
-<span id="next">
-    @Html.ActionLink("Следваща", "Sermons", "Home", new { page = this.ViewBag.NextPage, id = string.Empty }, null)
-</span>
+@if (this.ViewBag.NextPage != null && this.ViewBag.SermonsCount != null && (int)this.ViewBag.NextPage < (int)this.ViewBag.SermonsCount)
+{
+    @:<span id="next">
+        @Html.ActionLink("Следваща", "Sermons", "Home", new { page = this.ViewBag.NextPage, id = string.Empty }, null)
+    @:</span>
+}
 <br />
 
 @if (Model != null)

@@ -73,6 +73,9 @@
             this.ViewBag.PrevPage = page - 1;
             this.ViewBag.NextPage = page + 1;
 
+            long sermonsCount = this.Context.Sermons.Count();
+            this.ViewBag.SermonsCount = sermonsCount;
+
             if (!string.IsNullOrEmpty(id))
             {
                 var sermonById = this.Context.Sermons.FindOneById(ObjectId.Parse(id));
@@ -110,6 +113,9 @@
 
             this.ViewBag.PrevPage = page - 1;
             this.ViewBag.NextPage = page + 1;
+
+            long prayersCount = this.Context.Prayers.Count();
+            this.ViewBag.PrayersCount = prayersCount;
 
             if (!string.IsNullOrEmpty(id))
             {

@@ -455,7 +455,12 @@ td.textAlignCenter {
     font-family: FontAwesome;
 }
 /*end sermons, breviary*/
-
+/*gallery*/
+.smallImagesGallery img{
+    display: inline-block;
+    margin: 5px 0.5% 5px 0.5%;
+}
+/*end gallery*/
 /*social networks*/
 #socialNetworks > div {
     float: left;

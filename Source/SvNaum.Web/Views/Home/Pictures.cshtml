@@ -2,5 +2,31 @@
     ViewBag.Title = "Фотоалбум";
 }
 
-<h2>Фотоалбум!!!</h2>
+<h2>Летен празник 20.06.2015 година</h2>
 
+<div class="smallImagesGallery">
+    <a class="fancybox" rel="group" href="http://svnaum-images.mathematica6.org/letenPraznik/1.jpg"><img src="http://svnaum-images.mathematica6.org/letenPraznik/1small.jpg" alt="" /></a>
+    <a class="fancybox" rel="group" href="http://svnaum-images.mathematica6.org/letenPraznik/2.jpg"><img src="http://svnaum-images.mathematica6.org/letenPraznik/2small.jpg" alt="" /></a>
+    <a class="fancybox" rel="group" href="http://svnaum-images.mathematica6.org/letenPraznik/3.jpg"><img src="http://svnaum-images.mathematica6.org/letenPraznik/1small.jpg" alt="" /></a>
+    <a class="fancybox" rel="group" href="http://svnaum-images.mathematica6.org/letenPraznik/4.jpg"><img src="http://svnaum-images.mathematica6.org/letenPraznik/2small.jpg" alt="" /></a>
+    <a class="fancybox" rel="group" href="http://svnaum-images.mathematica6.org/letenPraznik/5.jpg"><img src="http://svnaum-images.mathematica6.org/letenPraznik/1small.jpg" alt="" /></a>
+    <a class="fancybox" rel="group" href="http://svnaum-images.mathematica6.org/letenPraznik/6.jpg"><img src="http://svnaum-images.mathematica6.org/letenPraznik/2small.jpg" alt="" /></a>
+    <a class="fancybox" rel="group" href="http://svnaum-images.mathematica6.org/letenPraznik/7.jpg"><img src="http://svnaum-images.mathematica6.org/letenPraznik/1small.jpg" alt="" /></a>
+    <a class="fancybox" rel="group" href="http://svnaum-images.mathematica6.org/letenPraznik/8.jpg"><img src="http://svnaum-images.mathematica6.org/letenPraznik/2small.jpg" alt="" /></a>
+
+</div>
+
+@section style
+{
+    <link rel="stylesheet" href="~/Scripts/fancyapps-fancyBox-18d1712/source/jquery.fancybox.css" type="text/css" media="screen" />
+}
+
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/fancyapps-fancyBox-18d1712/source/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox").fancybox();
+        });
+    </script>
+}

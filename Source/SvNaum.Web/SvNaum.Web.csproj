@@ -212,9 +212,10 @@
     <Content Include="Images\120x60_bpc.jpg" />
     <Content Include="Images\88_31_SM.png" />
     <Content Include="Images\bg-88x31-native1.gif" />
+    <Content Include="Images\favicon.png" />
     <Content Include="Images\frizGreen.png" />
     <Content Include="Images\hidemenu.png" />
-    <Content Include="Images\logo4yellow.png" />
+    <Content Include="Images\logo.png" />
     <Content Include="Images\ornament.png" />
     <Content Include="Images\panoramna.png" />
     <Content Include="Images\patern_croix3.jpg" />

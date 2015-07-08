@@ -24,9 +24,12 @@ else
     @:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 }
 |&nbsp;
-<span id="next">
-    @Html.ActionLink("Следваща", "Breviary", "Home", new { page = this.ViewBag.NextPage, id = string.Empty }, null)
-</span>
+@if (this.ViewBag.NextPage != null && this.ViewBag.PrayersCount != null && (int)this.ViewBag.NextPage < (int)this.ViewBag.PrayersCount)
+{
+    @:<span id="next">
+        @Html.ActionLink("Следваща", "Breviary", "Home", new { page = this.ViewBag.NextPage, id = string.Empty }, null)
+    @:</span>
+}
 <br />
 
 @if (Model != null)

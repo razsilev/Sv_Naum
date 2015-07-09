@@ -516,11 +516,14 @@ footer {
 }
 
 footer > #footerBaneri {
-    width: 100%;
-    bottom: 5px;
-    margin-top: 20px;
+    width: 90%;
+    bottom: 15px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
-    height: 40px;
+    /*height: 40px;*/
+    text-align: center;
 }
 
 footer img.footerBaneri {
@@ -531,8 +534,8 @@ footer img.footerBaneri {
 }
 
 footer .footerBaneri {
-    margin: 0px 5px 3px 5px;
-    float: right;
+    margin: 0px 5px 5px 5px;
+    /*float: right;*/
     display: inline-block;
 }
 /*end footer*/
@@ -586,6 +589,7 @@ img {
     header {
         height: 120px;
     }
+
     #headerLogoContainer {
         height: 120px;
     }
@@ -603,7 +607,7 @@ img {
         margin-bottom: 20px;
     }
 
- nav .smallmenu {
+    nav .smallmenu {
         left: 50px;
         top: 5px;
         position: absolute;
@@ -613,27 +617,29 @@ img {
         border: 2px solid #c7c397;
         background-image: url('../Images/patern_croix3.jpg');
         z-index: 50;
-}
-.smallmenu > ul {
-    list-style-type: none;
-}
-.smallmenu ul a {
-    color: #dfd27c;
-    text-decoration: none;
-    line-height: 1.05em;
-    font-family: 'Bukyvede_Light';
-    font-size: 1.2em;
-    text-shadow: 3px 2px 2px #3f2e05;
-    position: relative;
-    transition: all 0.5s ease;
-}
+    }
 
-.smallmenu ul a:before{
-    content:  "\f0da";
-    font-family: FontAwesome;
-    margin-right: 5px;
-    color:  #e5ae86;
-}
+    .smallmenu > ul {
+        list-style-type: none;
+    }
+
+    .smallmenu ul a {
+        color: #dfd27c;
+        text-decoration: none;
+        line-height: 1.05em;
+        font-family: 'Bukyvede_Light';
+        font-size: 1.2em;
+        text-shadow: 3px 2px 2px #3f2e05;
+        position: relative;
+        transition: all 0.5s ease;
+    }
+
+        .smallmenu ul a:before {
+            content: "\f0da";
+            font-family: FontAwesome;
+            margin-right: 5px;
+            color: #e5ae86;
+        }
 
     nav > ul, #secondHr {
         display: none;
@@ -692,9 +698,9 @@ img {
         margin-top: 70px;
     }
     /*footer*/
-    footer > #footerBaneri {
+    /*footer > #footerBaneri {
         height: 90px;
-    }
+    }*/
 
     .textCenteredFooter {
         width: 70%;
@@ -716,6 +722,9 @@ img {
     }
     /*footer*/
     .textCenteredFooter {
+        width: 100%;
+    }
+        footer > #footerBaneri {
         width: 100%;
     }
 }

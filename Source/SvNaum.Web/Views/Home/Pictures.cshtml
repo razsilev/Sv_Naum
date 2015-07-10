@@ -1,10 +1,40 @@
-﻿@{
+﻿@model IList<SvNaum.Models.ImagesGroup>
+
+@{
     ViewBag.Title = "Фотоалбум";
+}
+
+@if (this.User.Identity.IsAuthenticated)
+{
+    @Html.ActionLink("Create Album", "ImagesGroupAdd", "Admin")
+}
+
+@foreach (var imagesGroup in Model)
+{
+    <div class="h2Gallery">
+        <h2>@imagesGroup.Title</h2>
+    </div>
+    <div class="smallImagesGallery">
+        @foreach (var item in imagesGroup.ImagesUrls)
+        {
+            <a class="fancybox" rel="group @imagesGroup.Id" href="@item.BigImageUrl"><img src="@item.SmallImageUrl" alt="Some image" /></a>
+        }
+    </div>
+    
+    if (this.User.Identity.IsAuthenticated)
+    {
+        <div>
+            @Html.ActionLink("Edit", "ImagesGroupEdit", "Admin", new { id = imagesGroup.Id }, null)
+            &nbsp;
+            @Html.ActionLink("Delete", "ImagesGroupDelete", "Admin", new { id = imagesGroup.Id }, new { @class = "text-danger" })
+        </div>
+    }
 }
 
 <div class="h2Gallery">
     <h2>Летен празник 20.06.2015 година</h2>
 </div>
+
 <div class="smallImagesGallery">
     <a class="fancybox" rel="group" href="http://svnaum-images.mathematica6.org/letenPraznik/1.jpg"><img src="http://svnaum-images.mathematica6.org/letenPraznik/1small.jpg" alt="" /></a>
     <a class="fancybox" rel="group" href="http://svnaum-images.mathematica6.org/letenPraznik/2.jpg"><img src="http://svnaum-images.mathematica6.org/letenPraznik/2small.jpg" alt="" /></a>

@@ -471,6 +471,86 @@
             return RedirectToAction("Index", "Home");
         }
 
+
+        // ImagesGroup CRUT
+        [HttpGet]
+        public ActionResult ImagesGroupAdd()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ImagesGroupAdd(PaterikModel inputPaterik)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var paterikDb = new Paterik();
+
+                paterikDb.Text = this.sanitizer.Sanitize(inputPaterik.Text);
+                paterikDb.Author = inputPaterik.Author;
+
+                this.Context.Pateriks.Insert(paterikDb);
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(inputPaterik);
+        }
+
+        [HttpGet]
+        public ActionResult ImagesGroupEdit(string id)
+        {
+            IMongoQuery query = this.CreateQueryById(id);
+            var paterikDb = this.Context.Pateriks.Find(query).FirstOrDefault();
+
+            if (paterikDb != null)
+            {
+                var paterikViewModel = new PaterikModel()
+                {
+                    Id = paterikDb.Id,
+                    Text = paterikDb.Text,
+                    Author = paterikDb.Author
+                };
+
+                return View(paterikViewModel);
+            }
+
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ImagesGroupEdit(PaterikModel paterikInput)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var paterikDb = new Paterik();
+
+                paterikDb.Text = this.sanitizer.Sanitize(paterikInput.Text);
+                paterikDb.Author = paterikInput.Author;
+
+                this.Context.Pateriks.Insert(paterikDb);
+
+                this.DeletePaterikBy(paterikInput.Id);
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(paterikInput);
+        }
+
+        public ActionResult ImagesGroupDelete(string id)
+        {
+            this.DeleteImagesGroupBy(id);
+
+            return RedirectToAction("Pictures", "Home");
+        }
+
+
+
+
         private void DeleteMinistrationBy(string id)
         {
             IMongoQuery query = this.CreateQueryById(id);
@@ -504,6 +584,13 @@
             IMongoQuery query = this.CreateQueryById(id);
 
             this.Context.Pateriks.Remove(query);
+        }
+
+        private void DeleteImagesGroupBy(string id)
+        {
+            IMongoQuery query = this.CreateQueryById(id);
+
+            this.Context.ImagesGroups.Remove(query);
         }
 
         private IMongoQuery CreateQueryById(string id)

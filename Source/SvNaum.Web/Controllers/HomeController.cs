@@ -54,13 +54,23 @@
 
             }
 
-
             return View(result);
         }
 
         public ActionResult Pictures()
         {
-            return View();
+            var imagesGroups = new List<ImagesGroup>();
+            
+            try
+            {
+                imagesGroups = this.Context.ImagesGroups.FindAll().Reverse().ToList();
+            }
+            catch (System.Exception)
+            {
+
+            }
+
+            return View(imagesGroups);
         }
 
         public ActionResult Sermons(int page = 0, string id = null)

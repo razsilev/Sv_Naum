@@ -101,7 +101,7 @@ header {
     max-width: 1100px;
     height: 200px;
     background-color: #6e7649;
-    /*background-image:url('../images/panoramnaLight1.jpg') ;*/
+    /*background-image:url('../images/panoramna.png') ;*/
     font-size: 1.2em;
     position: relative;
 }
@@ -128,27 +128,26 @@ header #loginLink {
 }
 
 #headerLogoContainer {
-    vertical-align: middle;
-    width: 80%;
-    height: 200px;
-    position: relative;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    /*bottom: 0px;*/
     z-index: 2;
 }
 
 #logo {
     position: absolute;
-    left: 30%;
     top: 0px;
-    width: 65%;
-    height: 200px;
+    /*bottom: 0px;*/
+    width: 50%;
+    margin-left: 25%;
     z-index: 2;
 }
-
-    #logo img {
-        position: relative;
-        margin-left: 15%;
-        z-index: 2;
-    }
+#logo img {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 header img {
     width: auto;
@@ -499,24 +498,32 @@ footer {
     border: 0px solid #000;
     z-index: 2;
 }
-
+/*@font-face {
+    font-family: 'Bukyvede_Bold';
+    src: url('../fonts/BukyVede-Bold.ttf');
+}*/
 .textCenteredFooter {
     z-index: 2;
     padding-top: 5px;
     margin-left: auto;
     margin-right: auto;
+    /*font-family: 'Bukyvede_Bold';*/
     font-size: 0.9em;
     text-align: center;
     color: #dfd27c;
     width: 30%;
+    transition: all 0.5s ease; 
 }
 
 footer > #footerBaneri {
-    width: 100%;
-    bottom: 5px;
-    margin-top: 20px;
+    width: 90%;
+    bottom: 15px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
-    height: 40px;
+    /*height: 40px;*/
+    text-align: center;
 }
 
 footer img.footerBaneri {
@@ -527,8 +534,8 @@ footer img.footerBaneri {
 }
 
 footer .footerBaneri {
-    margin: 0px 5px 3px 5px;
-    float: right;
+    margin: 0px 5px 5px 5px;
+    /*float: right;*/
     display: inline-block;
 }
 /*end footer*/
@@ -543,13 +550,9 @@ img {
     }
 
     #headerLogoContainer {
-        width: 70%;
         height: 150px;
     }
 
-    #logo {
-        width: 70%;
-    }
     /*aside. section*/
     #leftAside {
         display: none;
@@ -587,10 +590,10 @@ img {
         height: 120px;
     }
 
-    #logo {
-        width: 65%;
+    #headerLogoContainer {
         height: 120px;
     }
+
     /*menu*/
     .hidemenu {
         display: block;
@@ -604,7 +607,7 @@ img {
         margin-bottom: 20px;
     }
 
- nav .smallmenu {
+    nav .smallmenu {
         left: 50px;
         top: 5px;
         position: absolute;
@@ -614,27 +617,29 @@ img {
         border: 2px solid #c7c397;
         background-image: url('../Images/patern_croix3.jpg');
         z-index: 50;
-}
-.smallmenu > ul {
-    list-style-type: none;
-}
-.smallmenu ul a {
-    color: #dfd27c;
-    text-decoration: none;
-    line-height: 1.05em;
-    font-family: 'Bukyvede_Light';
-    font-size: 1.2em;
-    text-shadow: 3px 2px 2px #3f2e05;
-    position: relative;
-    transition: all 0.5s ease;
-}
+    }
 
-.smallmenu ul a:before{
-    content:  "\f0da";
-    font-family: FontAwesome;
-    margin-right: 5px;
-    color:  #e5ae86;
-}
+    .smallmenu > ul {
+        list-style-type: none;
+    }
+
+    .smallmenu ul a {
+        color: #dfd27c;
+        text-decoration: none;
+        line-height: 1.05em;
+        font-family: 'Bukyvede_Light';
+        font-size: 1.2em;
+        text-shadow: 3px 2px 2px #3f2e05;
+        position: relative;
+        transition: all 0.5s ease;
+    }
+
+        .smallmenu ul a:before {
+            content: "\f0da";
+            font-family: FontAwesome;
+            margin-right: 5px;
+            color: #e5ae86;
+        }
 
     nav > ul, #secondHr {
         display: none;
@@ -693,9 +698,9 @@ img {
         margin-top: 70px;
     }
     /*footer*/
-    footer > #footerBaneri {
+    /*footer > #footerBaneri {
         height: 90px;
-    }
+    }*/
 
     .textCenteredFooter {
         width: 70%;
@@ -703,8 +708,23 @@ img {
 }
 
 @media only screen and (max-width: 450px) {
+        /*header*/
+    header {
+        height: 100px;
+    }
+
+    #headerLogoContainer {
+        height: 100px;
+    }
+    #logo {
+        width: 60%;
+        margin-left: 20%;
+    }
     /*footer*/
     .textCenteredFooter {
+        width: 100%;
+    }
+        footer > #footerBaneri {
         width: 100%;
     }
 }

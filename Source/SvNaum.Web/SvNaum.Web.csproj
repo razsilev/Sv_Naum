@@ -212,9 +212,10 @@
     <Content Include="Images\120x60_bpc.jpg" />
     <Content Include="Images\88_31_SM.png" />
     <Content Include="Images\bg-88x31-native1.gif" />
+    <Content Include="Images\favicon.png" />
     <Content Include="Images\frizGreen.png" />
     <Content Include="Images\hidemenu.png" />
-    <Content Include="Images\logo4yellow.png" />
+    <Content Include="Images\logo.png" />
     <Content Include="Images\ornament.png" />
     <Content Include="Images\panoramna.png" />
     <Content Include="Images\patern_croix3.jpg" />
@@ -224,6 +225,8 @@
     <Content Include="Images\trumbGaleria.jpg" />
     <Content Include="Images\trumbPropovedi.jpg" />
     <Content Include="Images\trumbSlujbi.jpg" />
+    <Content Include="Images\trumbs\trumbOtecVladimir.jpg" />
+    <Content Include="Images\trumbs\trumbPatriarxHeofit.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\BukyVede-Bold.ttf" />

@@ -88,6 +88,19 @@
 
             if (!string.IsNullOrEmpty(id))
             {
+                var ids = this.Context.Sermons.FindAll().SetFields(new string[] { "_id", "Date" }).OrderByDescending(s => s.Date).ToList();
+
+                for (int i = 0; i < ids.Count; i++)
+                {
+                    if (ids[i].Id == id)
+                    {
+                        this.ViewBag.PrevPage = i - 1;
+                        this.ViewBag.NextPage = i + 1;
+
+                        break;
+                    }
+                }
+
                 var sermonById = this.Context.Sermons.FindOneById(ObjectId.Parse(id));
 
                 return View(sermonById);
@@ -129,6 +142,19 @@
 
             if (!string.IsNullOrEmpty(id))
             {
+                var ids = this.Context.Prayers.FindAll().SetFields(new string[] { "_id" }).Reverse().ToList();
+
+                for (int i = 0; i < ids.Count; i++)
+                {
+                    if (ids[i].Id == id)
+                    {
+                        this.ViewBag.PrevPage = i - 1;
+                        this.ViewBag.NextPage = i + 1;
+
+                        break;
+                    }
+                }
+
                 var prayerById = this.Context.Prayers.FindOneById(ObjectId.Parse(id));
 
                 return View(prayerById);

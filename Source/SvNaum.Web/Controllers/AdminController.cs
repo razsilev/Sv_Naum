@@ -471,7 +471,6 @@
             return RedirectToAction("Index", "Home");
         }
 
-
         // ImagesGroup CRUT
         [HttpGet]
         public ActionResult ImagesGroupAdd()
@@ -481,64 +480,72 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ImagesGroupAdd(PaterikModel inputPaterik)
+        public ActionResult ImagesGroupAdd(ImagesGroupAddModel inputImagesGroup)
         {
             if (this.ModelState.IsValid)
             {
-                var paterikDb = new Paterik();
+                var ImagesGroupDb = new ImagesGroup();
 
-                paterikDb.Text = this.sanitizer.Sanitize(inputPaterik.Text);
-                paterikDb.Author = inputPaterik.Author;
+                ImagesGroupDb.Title = inputImagesGroup.Title;
+                ImagesGroupDb.ImagesUrls = inputImagesGroup.ImagesUrls;
 
-                this.Context.Pateriks.Insert(paterikDb);
+                this.Context.ImagesGroups.Insert(ImagesGroupDb);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Pictures", "Home");
             }
 
-            return View(inputPaterik);
+            return View(inputImagesGroup);
         }
 
         [HttpGet]
         public ActionResult ImagesGroupEdit(string id)
         {
             IMongoQuery query = this.CreateQueryById(id);
-            var paterikDb = this.Context.Pateriks.Find(query).FirstOrDefault();
+            var imagesGroupDb = this.Context.ImagesGroups.Find(query).FirstOrDefault();
 
-            if (paterikDb != null)
+            if (imagesGroupDb != null)
             {
-                var paterikViewModel = new PaterikModel()
+                var imagesGroupViewModel = new ImagesGroupAddModel()
                 {
-                    Id = paterikDb.Id,
-                    Text = paterikDb.Text,
-                    Author = paterikDb.Author
+                    Id = imagesGroupDb.Id,
+                    Title = imagesGroupDb.Title,
+                    ImagesUrls = imagesGroupDb.ImagesUrls
                 };
 
-                return View(paterikViewModel);
+                return View(imagesGroupViewModel);
             }
 
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Pictures", "Home");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ImagesGroupEdit(PaterikModel paterikInput)
+        public ActionResult ImagesGroupEdit(ImagesGroupAddModel ImagesGroupInput)
         {
             if (this.ModelState.IsValid)
             {
-                var paterikDb = new Paterik();
+                var imagesGroupDb = new ImagesGroup();
 
-                paterikDb.Text = this.sanitizer.Sanitize(paterikInput.Text);
-                paterikDb.Author = paterikInput.Author;
+                imagesGroupDb.Title = ImagesGroupInput.Title;
+                imagesGroupDb.ImagesUrls = new List<TwoSizeImageUrls>();
 
-                this.Context.Pateriks.Insert(paterikDb);
+                foreach (var item in ImagesGroupInput.ImagesUrls)
+                {
+                    if (item != null && !string.IsNullOrWhiteSpace(item.BigImageUrl) && !string.IsNullOrWhiteSpace(item.SmallImageUrl))
+                    {
+                        imagesGroupDb.ImagesUrls.Add(item);
+                    }
+                }
 
-                this.DeletePaterikBy(paterikInput.Id);
+                this.Context.ImagesGroups.Insert(imagesGroupDb);
 
-                return RedirectToAction("Index", "Home");
+                this.DeleteImagesGroupBy(ImagesGroupInput.Id);
+
+                return RedirectToAction("Pictures", "Home");
             }
 
-            return View(paterikInput);
+            return View(ImagesGroupInput);
         }
 
         public ActionResult ImagesGroupDelete(string id)
@@ -547,9 +554,6 @@
 
             return RedirectToAction("Pictures", "Home");
         }
-
-
-
 
         private void DeleteMinistrationBy(string id)
         {

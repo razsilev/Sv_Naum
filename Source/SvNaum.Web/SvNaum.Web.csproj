@@ -186,6 +186,7 @@
     <Compile Include="Infrastructure\HtmlSanitizerAdapter.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ImagesGroupAddModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MinistrationInputModel.cs" />
     <Compile Include="Models\MinistrationUpdateInputModel.cs" />
@@ -524,6 +525,7 @@
     <Content Include="Views\Admin\PaterikAdd.cshtml" />
     <Content Include="Views\Admin\PaterikEdit.cshtml" />
     <Content Include="Views\Admin\ImagesGroupAdd.cshtml" />
+    <Content Include="Views\Admin\ImagesGroupEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

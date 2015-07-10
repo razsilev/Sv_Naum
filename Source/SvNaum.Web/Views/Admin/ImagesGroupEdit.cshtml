@@ -1,12 +1,12 @@
 ﻿@model SvNaum.Web.Models.ImagesGroupAddModel
 
 @{
-    this.ViewBag.Title = "Add images groupe";
+    this.ViewBag.Title = "Edit images groupe";
 }
 
-<h2>Create images group:</h2>
+<h2>Edit images group:</h2>
 
-@using (Html.BeginForm("ImagesGroupAdd", "Admin", FormMethod.Post))
+@using (Html.BeginForm("ImagesGroupEdit", "Admin", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
@@ -19,12 +19,18 @@
     @:&nbsp;&nbsp;&nbsp;
     <input type="button" id="remove_image" value="Remove image urls" />
     <br />
-    <br />
-    <label>url image</label>
-    @Html.TextBoxFor(m => m.ImagesUrls[0].BigImageUrl)
-    <br />
-    <label>url small image</label>
-    @Html.TextBoxFor(m => m.ImagesUrls[0].SmallImageUrl)
+    
+    for (int i = 0; i < Model.ImagesUrls.Count; i++)
+	{
+        <br />
+        <img src="@Model.ImagesUrls[i].SmallImageUrl" alt="small image" />
+        <label>url image</label>
+        @Html.TextBoxFor(m => Model.ImagesUrls[i].BigImageUrl)
+        <br />
+        <label>url small image</label>
+        @Html.TextBoxFor(m => Model.ImagesUrls[i].SmallImageUrl)
+    }
+
     <div id="images_urls">
     </div>
 
@@ -37,7 +43,7 @@
 @section scripts
 {
     <script>
-        var imagesCount = 0;
+        var imagesCount = @Model.ImagesUrls.Count - 1;
 
         $('#add_image').on('click', function () {
             //alert('add image');

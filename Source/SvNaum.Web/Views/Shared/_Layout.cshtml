@@ -180,7 +180,7 @@
                         {
                             <ul class="propovediTitle">
                                 <li>
-                                    @Html.ActionLink(new string(item.Title.Take(20).ToArray()) + "...", "Sermons", "Home", new { id = item.Id }, new { title = item.Title })
+                                    @Html.ActionLink(item.Theme, "Sermons", "Home", new { id = item.Id }, new { title = item.Title })
                                 </li>
                             </ul>
                             @*<hr />*@
@@ -193,7 +193,7 @@
                         {
                             <ul class="propovediTitle">
                                 <li>
-                                    @Html.ActionLink(new string(item.Title.Take(20).ToArray()) + "...", "Breviary", "Home", new { id = item.Id }, new { title = item.Title })
+                                    @Html.ActionLink(item.TitleSecond ?? "No title", "Breviary", "Home", new { id = item.Id }, new { title = item.Title })
                                 </li>
                             </ul>
                             @*<hr>*@

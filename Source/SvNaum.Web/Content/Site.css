@@ -21,10 +21,9 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
+input[type = text],
 textarea {
-    max-width: 280px;
+    width: 90%;
 }
 
 /* Our css */
@@ -399,6 +398,9 @@ nav:after {
     left: 0px;
     position: absolute;
 }
+/*news*/
+
+/*end news*/
 /*ministration*/
 table {
     width: 100%;

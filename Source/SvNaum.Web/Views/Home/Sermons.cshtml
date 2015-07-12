@@ -35,6 +35,16 @@ else
 @if (Model != null)
 {
     <article>
+
+        @if (this.User.Identity.IsAuthenticated)
+        {
+            <div>
+                @Html.ActionLink("Edit", "SermonEdit", "Admin", new { id = Model.Id }, null)
+                &nbsp;
+                @Html.ActionLink("Delete", "SermonDelete", "Admin", new { id = Model.Id }, new { @class = "text-danger" })
+            </div>
+        }
+
         <h2>
             @Html.DisplayFor(m => m.Title)
         </h2>
@@ -59,16 +69,6 @@ else
             <div class="g-plusone" data-size="medium" data-annotation="bubble" data-width="100">
             </div>
         </div>
-
-        @if (this.User.Identity.IsAuthenticated)
-        {
-            <div>
-                @Html.ActionLink("Edit", "SermonEdit", "Admin", new { id = Model.Id }, null)
-                &nbsp;
-                @Html.ActionLink("Delete", "SermonDelete", "Admin", new { id = Model.Id }, new { @class = "text-danger" })
-            </div>
-        }
-
     </article>
 }
 else

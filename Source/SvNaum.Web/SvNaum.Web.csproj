@@ -222,12 +222,15 @@
     <Content Include="Images\patern_croix3.jpg" />
     <Content Include="Images\pravoslavenSvqtBaner.png" />
     <Content Include="Images\svPaisii1.jpg" />
+    <Content Include="Images\svPaisii3.jpg" />
+    <Content Include="Images\svPaisii4.jpg" />
     <Content Include="Images\trumbBreviary.png" />
     <Content Include="Images\trumbGaleria.jpg" />
     <Content Include="Images\trumbPropovedi.jpg" />
     <Content Include="Images\trumbSlujbi.jpg" />
     <Content Include="Images\trumbs\trumbOtecVladimir.jpg" />
     <Content Include="Images\trumbs\trumbPatriarxHeofit.jpg" />
+    <Content Include="Images\trumbs\trumbSvSinod.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\BukyVede-Bold.ttf" />
@@ -564,7 +567,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>60229</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

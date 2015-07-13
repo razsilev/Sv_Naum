@@ -48,12 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImagesGroup.cs" />
     <Compile Include="NewsSingle.cs" />
     <Compile Include="Paterik.cs" />
     <Compile Include="Prayer.cs" />
     <Compile Include="Ministration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sermon.cs" />
+    <Compile Include="TwoSizeImageUrls.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

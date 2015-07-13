@@ -1,0 +1,76 @@
+﻿@model SvNaum.Web.Models.ImagesGroupAddModel
+
+@{
+    this.ViewBag.Title = "Edit images groupe";
+}
+
+<h2>Edit images group:</h2>
+
+@using (Html.BeginForm("ImagesGroupEdit", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.LabelFor(m => m.Title)
+    @:&nbsp;
+    @Html.EditorFor(m => m.Title)
+    @Html.ValidationMessageFor(m => m.Title)
+    <br />
+    <br />
+    <input type="button" id="add_image" value="Add image urls" />
+    @:&nbsp;&nbsp;&nbsp;
+    <input type="button" id="remove_image" value="Remove image urls" />
+    <br />
+    
+    for (int i = 0; i < Model.ImagesUrls.Count; i++)
+	{
+        <br />
+        <img src="@Model.ImagesUrls[i].SmallImageUrl" alt="small image" />
+        <label>url image</label>
+        @Html.TextBoxFor(m => Model.ImagesUrls[i].BigImageUrl)
+        <br />
+        <label>url small image</label>
+        @Html.TextBoxFor(m => Model.ImagesUrls[i].SmallImageUrl)
+    }
+
+    <div id="images_urls">
+    </div>
+
+    <br />
+    <br />
+    <input type="submit" value="Save" />
+    <input type="button" value="Cancel" onclick="window.location = '/Home/Pictures';" />
+}
+
+@section scripts
+{
+    <script>
+        var imagesCount = @Model.ImagesUrls.Count - 1;
+
+        $('#add_image').on('click', function () {
+            //alert('add image');
+            imagesCount += 1;
+
+            var div = '<div id="' + imagesCount + '"><br />'
+                        + '<label>url image</label>'
+                        + '<input name="ImagesUrls[' + imagesCount + '].BigImageUrl" type="text">'
+                        + '<br />'
+                        + '<label>url small image</label>'
+                        + '<input name="ImagesUrls[' + imagesCount + '].SmallImageUrl" type="text">'
+                        + '</div';
+
+            $('#images_urls').append(div);
+
+        });
+
+        $('#remove_image').on('click', function () {
+            if (imagesCount > 0) {
+                $('#' + imagesCount).remove();
+
+                imagesCount -= 1;
+            }
+
+        });
+    </script>
+
+    @Scripts.Render("~/bundles/jqueryval");
+}

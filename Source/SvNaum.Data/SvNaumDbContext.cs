@@ -54,5 +54,13 @@
                 return this.db.GetCollection<Paterik>("Pateriks");
             }
         }
+
+        public MongoCollection<ImagesGroup> ImagesGroups
+        {
+            get
+            {
+                return this.db.GetCollection<ImagesGroup>("ImagesGroup");
+            }
+        }
     }
 }

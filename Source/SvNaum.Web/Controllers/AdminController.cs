@@ -471,6 +471,90 @@
             return RedirectToAction("Index", "Home");
         }
 
+        // ImagesGroup CRUT
+        [HttpGet]
+        public ActionResult ImagesGroupAdd()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ImagesGroupAdd(ImagesGroupAddModel inputImagesGroup)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var ImagesGroupDb = new ImagesGroup();
+
+                ImagesGroupDb.Title = inputImagesGroup.Title;
+                ImagesGroupDb.ImagesUrls = inputImagesGroup.ImagesUrls;
+
+                this.Context.ImagesGroups.Insert(ImagesGroupDb);
+
+                return RedirectToAction("Pictures", "Home");
+            }
+
+            return View(inputImagesGroup);
+        }
+
+        [HttpGet]
+        public ActionResult ImagesGroupEdit(string id)
+        {
+            IMongoQuery query = this.CreateQueryById(id);
+            var imagesGroupDb = this.Context.ImagesGroups.Find(query).FirstOrDefault();
+
+            if (imagesGroupDb != null)
+            {
+                var imagesGroupViewModel = new ImagesGroupAddModel()
+                {
+                    Id = imagesGroupDb.Id,
+                    Title = imagesGroupDb.Title,
+                    ImagesUrls = imagesGroupDb.ImagesUrls
+                };
+
+                return View(imagesGroupViewModel);
+            }
+
+
+            return RedirectToAction("Pictures", "Home");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ImagesGroupEdit(ImagesGroupAddModel ImagesGroupInput)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var imagesGroupDb = new ImagesGroup();
+
+                imagesGroupDb.Title = ImagesGroupInput.Title;
+                imagesGroupDb.ImagesUrls = new List<TwoSizeImageUrls>();
+
+                foreach (var item in ImagesGroupInput.ImagesUrls)
+                {
+                    if (item != null && !string.IsNullOrWhiteSpace(item.BigImageUrl) && !string.IsNullOrWhiteSpace(item.SmallImageUrl))
+                    {
+                        imagesGroupDb.ImagesUrls.Add(item);
+                    }
+                }
+
+                this.Context.ImagesGroups.Insert(imagesGroupDb);
+
+                this.DeleteImagesGroupBy(ImagesGroupInput.Id);
+
+                return RedirectToAction("Pictures", "Home");
+            }
+
+            return View(ImagesGroupInput);
+        }
+
+        public ActionResult ImagesGroupDelete(string id)
+        {
+            this.DeleteImagesGroupBy(id);
+
+            return RedirectToAction("Pictures", "Home");
+        }
+
         private void DeleteMinistrationBy(string id)
         {
             IMongoQuery query = this.CreateQueryById(id);
@@ -504,6 +588,13 @@
             IMongoQuery query = this.CreateQueryById(id);
 
             this.Context.Pateriks.Remove(query);
+        }
+
+        private void DeleteImagesGroupBy(string id)
+        {
+            IMongoQuery query = this.CreateQueryById(id);
+
+            this.Context.ImagesGroups.Remove(query);
         }
 
         private IMongoQuery CreateQueryById(string id)

@@ -1,0 +1,70 @@
+﻿@model SvNaum.Web.Models.ImagesGroupAddModel
+
+@{
+    this.ViewBag.Title = "Add images groupe";
+}
+
+<h2>Create images group:</h2>
+
+@using (Html.BeginForm("ImagesGroupAdd", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.LabelFor(m => m.Title)
+    @:&nbsp;
+    @Html.EditorFor(m => m.Title)
+    @Html.ValidationMessageFor(m => m.Title)
+    <br />
+    <br />
+    <input type="button" id="add_image" value="Add image urls" />
+    @:&nbsp;&nbsp;&nbsp;
+    <input type="button" id="remove_image" value="Remove image urls" />
+    <br />
+    <br />
+    <label>url image</label>
+    @Html.TextBoxFor(m => m.ImagesUrls[0].BigImageUrl)
+    <br />
+    <label>url small image</label>
+    @Html.TextBoxFor(m => m.ImagesUrls[0].SmallImageUrl)
+    <div id="images_urls">
+    </div>
+
+    <br />
+    <br />
+    <input type="submit" value="Save" />
+    <input type="button" value="Cancel" onclick="window.location = '/Home/Pictures';" />
+}
+
+@section scripts
+{
+    <script>
+        var imagesCount = 0;
+
+        $('#add_image').on('click', function () {
+            //alert('add image');
+            imagesCount += 1;
+
+            var div = '<div id="' + imagesCount + '"><br />'
+                        + '<label>url image</label>'
+                        + '<input name="ImagesUrls[' + imagesCount + '].BigImageUrl" type="text">'
+                        + '<br />'
+                        + '<label>url small image</label>'
+                        + '<input name="ImagesUrls[' + imagesCount + '].SmallImageUrl" type="text">'
+                        + '</div';
+
+            $('#images_urls').append(div);
+
+        });
+
+        $('#remove_image').on('click', function () {
+            if (imagesCount > 0) {
+                $('#' + imagesCount).remove();
+
+                imagesCount -= 1;
+            }
+
+        });
+    </script>
+
+    @Scripts.Render("~/bundles/jqueryval");
+}

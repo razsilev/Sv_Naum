@@ -427,6 +427,9 @@ nav:after {
     text-align: right;
     transition: all 0.5s ease;
 }
+#news table img {
+    opacity: 0.8;
+}
 /*end news*/
 /*ministration*/
 table {
@@ -795,6 +798,7 @@ li.citat:hover .lightBrownTextHover p {
 }
 #news table img:hover {
     box-shadow: 0px 2px 2px #3f2e05;
+    opacity: 1;
 }
 .textCenteredFooter:hover {
     color: #fff;

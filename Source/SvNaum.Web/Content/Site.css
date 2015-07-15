@@ -388,6 +388,17 @@ nav:after {
         transition: all 0.5s ease;
     }
 /*end aside citat*/
+/*left aside*/
+.propovediTitle > li {
+    line-height: 22px;
+}
+.propovediTitle > li > a {
+    text-decoration: none;
+    color: #3f2e05;
+    font-size: 0.9em;
+    transition: all 0.5s ease;
+}
+/*end left aside*/
 #koncovkaPrediFooter {
     height: 22px;
     width: 100%;
@@ -399,7 +410,23 @@ nav:after {
     position: absolute;
 }
 /*news*/
-
+#news table a {
+    text-decoration: none;
+    color: #793f0d;
+    font-family: 'BukyVede-Regular';
+    font-size: 1.2em;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px #999;
+    transition: all 0.5s ease;
+}
+#news table > tr > td:last-of-type a {
+    text-decoration: none;
+    color: #3f2e05;
+    font-family: Cambria,"Time New Roman", Helvetica;
+    font-size: 0.8em;
+    text-align: right;
+    transition: all 0.5s ease;
+}
 /*end news*/
 /*ministration*/
 table {
@@ -732,24 +759,24 @@ img {
 }
 /*end media*/
 
-li:hover {
+li.smallmenu:hover, li.menu:hover, li.citat:hover {
     background-color: #001515;
     border-radius: 0px;
     cursor: pointer;
 }
 
-    li:hover a {
-        color: #fff;
-        text-decoration: none;
-    }
+li.smallmenu:hover, li.menu:hover, li.citat:hover a {
+    color: #fff;
+    text-decoration: none;
+}
 
-    li:hover span.avtor {
-        color: #fff;
-    }
+li.citat:hover span.avtor {
+    color: #fff;
+}
 
-    li:hover .lightBrownTextHover p {
-        color: #e5ae86;
-    }
+li.citat:hover .lightBrownTextHover p {
+    color: #e5ae86;
+}
 
     /* The element to apply the animation to */
     /*li:hover .smallmenu ul a:before {
@@ -759,11 +786,13 @@ li:hover {
         -webkit-animation-duration: 5s;
     }*/
 
-li a:hover {
-    color: #fff;
-    text-decoration: none;
+.propovediTitle > li > a:hover {
+    border-bottom: 1px solid #ac703d;
+    color: #ac703d;
 }
-
+#news table a:hover {
+    color: #ac703d;
+}
 .textCenteredFooter:hover {
     color: #fff;
     cursor: pointer;

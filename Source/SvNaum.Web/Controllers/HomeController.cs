@@ -1,12 +1,12 @@
 ﻿namespace SvNaum.Web.Controllers
 {
-    using MongoDB.Bson;
-    using MongoDB.Driver;
-    using MongoDB.Driver.Builders;
-    using SvNaum.Models;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    
+    using MongoDB.Bson;
+    
+    using SvNaum.Models;
 
     public class HomeController : BaseController
     {

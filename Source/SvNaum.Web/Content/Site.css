@@ -793,6 +793,9 @@ li.citat:hover .lightBrownTextHover p {
 #news table a:hover {
     color: #ac703d;
 }
+#news table img:hover {
+    box-shadow: 0px 2px 2px #3f2e05;
+}
 .textCenteredFooter:hover {
     color: #fff;
     cursor: pointer;

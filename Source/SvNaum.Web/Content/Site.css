@@ -258,11 +258,11 @@ p {
     display: block;
 }
 
-article > p:first-line {
+article > p:first-line, section > div > p:first-line {
     line-height: 28px;
 }
 
-article > p:first-letter {
+article > p:first-letter, section > div > p:first-letter {
     font-family: 'BukyVede-Regular';
     font-size: 1.5em;
     font-weight: bold;

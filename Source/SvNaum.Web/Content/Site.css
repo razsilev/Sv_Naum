@@ -7,15 +7,6 @@
     color: #3f2e05;
 }
 
-/* Set padding to keep content from hitting the edges */
-/*.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}*/
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
@@ -36,9 +27,11 @@ body, article, section, div, aside, ul, li, header, footer, nav, img {
 p {
     display: block;
 }
+
 .relative {
     position: relative;
 }
+
 #wrapper {
     background: url('../images/patern_croix3.jpg');
     background-repeat: repeat;
@@ -60,7 +53,8 @@ div #container {
     box-shadow: 0px 0px 15px black;
     z-index: 0;
 }
-/*link top page*/
+
+/*#region link top page*/
 #topPage {
     position: fixed;
     bottom: 40px;
@@ -93,8 +87,9 @@ div #container {
     #topPage .fa-angle-up:before {
         content: "\f106";
     }
-/*end link top page*/
-/*start header*/
+/*#endregion end link top page*/
+
+/*#region start header*/
 header {
     width: 100%;
     max-width: 1100px;
@@ -105,14 +100,14 @@ header {
     position: relative;
 }
 
-header #backgroundHeader {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 1;
-}
+    header #backgroundHeader {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+    }
 
 #loginDiv {
     position: absolute;
@@ -142,16 +137,18 @@ header #loginLink {
     margin-left: 25%;
     z-index: 2;
 }
-#logo img {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-}
+
+    #logo img {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
 header img {
     width: auto;
 }
-/*end header*/
+/*#endregion end header*/
+
 .hr {
     height: 29px;
     background-image: url('../images/frizGreen.png');
@@ -160,7 +157,8 @@ header img {
     position: relative;
     z-index: 3;
 }
-/*aside*/
+
+/*#region aside*/
 #rightAside {
     width: 18%;
     max-width: 200px;
@@ -193,12 +191,13 @@ ul.propovediTitle {
         text-decoration: none;
         transition: all 0.3s ease;
     }
-/*end aside*/
+/*#endregion end aside*/
+
 #rightAside, section, #leftAside {
     float: right;
 }
 
-/*h2*/
+/*#region h2*/
 @font-face {
     font-family: 'BukyVede-Regular';
     src: url('../fonts/BukyVede-Regular.ttf');
@@ -211,8 +210,9 @@ h2 {
     margin-bottom: 20px;
     margin-top: 25px;
 }
-/*end h2*/
-/*h3*/
+/*#endregion end h2*/
+
+/*#region h3*/
 h3 {
     color: #3f2e05;
     font-family: Cambria,"Time New Roman", Helvetica;
@@ -221,8 +221,9 @@ h3 {
     font-size: 1.2em;
     font-weight: bold;
 }
-/*end h3*/
-/*article*/
+/*#endregion end h3*/
+
+/*#region article*/
 section {
     width: 60%;
     max-width: 700px;
@@ -279,9 +280,9 @@ article > p:first-letter, section > div > p:first-letter {
     font-style: italic;
     font-size: 1em;
 }
-/*end article*/
+/*#endregion end article*/
 
-/*start menu*/
+/*#region start menu*/
 .hidemenu, .smallmenu {
     display: none;
 }
@@ -346,8 +347,9 @@ nav:after {
     clear: both;
     zoom: 1;
 }
-/*end menu*/
-/*slideshow index page*/
+/*#endregion end menu*/
+
+/*#region slideshow index page*/
 .ze_flexslider {
     margin-top: 20px !important;
     border: none !important;
@@ -361,8 +363,14 @@ nav:after {
 .textBox {
     left: 0px !important;
 }
-/*end */
-/*aside citat*/
+
+#cp_widget_08eb9e0f-f6e9-42e2-bd2d-b686428611dd > div:last-of-type {
+    display: none;
+}
+
+/*#endregion end */
+
+/*#region aside citat*/
 .citat {
     width: 100%;
     padding: 3px 3px 3px 3px;
@@ -387,18 +395,21 @@ nav:after {
     .lightBrownTextHover > p {
         transition: all 0.5s ease;
     }
-/*end aside citat*/
-/*left aside*/
+/*#endregion end aside citat*/
+
+/*#region left aside*/
 .propovediTitle > li {
     line-height: 22px;
 }
-.propovediTitle > li > a {
-    text-decoration: none;
-    color: #3f2e05;
-    font-size: 0.9em;
-    transition: all 0.5s ease;
-}
-/*end left aside*/
+
+    .propovediTitle > li > a {
+        text-decoration: none;
+        color: #3f2e05;
+        font-size: 0.9em;
+        transition: all 0.5s ease;
+    }
+/*#endregion end left aside*/
+
 #koncovkaPrediFooter {
     height: 22px;
     width: 100%;
@@ -409,7 +420,8 @@ nav:after {
     left: 0px;
     position: absolute;
 }
-/*news*/
+
+/*#region news*/
 #news table a {
     text-decoration: none;
     color: #793f0d;
@@ -419,6 +431,7 @@ nav:after {
     text-shadow: 2px 2px 2px #999;
     transition: all 0.5s ease;
 }
+
 #news table > tr > td:last-of-type a {
     text-decoration: none;
     color: #3f2e05;
@@ -427,11 +440,13 @@ nav:after {
     text-align: right;
     transition: all 0.5s ease;
 }
+
 #news table img {
     opacity: 0.8;
 }
-/*end news*/
-/*ministration*/
+/*#endregion end news*/
+
+/*#region ministration*/
 table {
     width: 100%;
     border-collapse: collapse;
@@ -467,8 +482,9 @@ td.textAlignCenter {
         margin-left: 40%;
     }
 /*end razspisanie koncovka*/
-/*end ministration*/
-/*sermons, breviary*/
+/*#endregion end ministration*/
+
+/*#region sermons, breviary*/
 #back a, #next a {
     font-size: 0.9em;
     color: #6e7649;
@@ -477,32 +493,38 @@ td.textAlignCenter {
     text-decoration: none;
     position: relative;
 }
+
 #back:before {
     content: "\f100";
     font-family: FontAwesome;
 }
+
 #next:after {
     content: "\f101";
     font-family: FontAwesome;
 }
-/*end sermons, breviary*/
-/*gallery*/
+/*#endregion end sermons, breviary*/
+
+/*#region gallery*/
 .h2Gallery {
     margin: 30px 0px 10px;
 }
-.smallImagesGallery img{
+
+.smallImagesGallery img {
     float: left;
     /*display: inline-block;*/
     margin: 5px 0.5% 5px 0.5%;
 }
+
 .smallImagesGallery:after, .smallImagesGallery:before {
     content: "";
     display: block;
     clear: both;
     zoom: 1;
 }
-/*end gallery*/
-/*social networks*/
+/*#endregion end gallery*/
+
+/*#region social networks*/
 #socialNetworks > div {
     float: left;
     /*display: inline-block;*/
@@ -520,8 +542,9 @@ td.textAlignCenter {
         zoom: 1;
         clear: both;
     }
-/*end social networks*/
-/*start footer*/
+/*#endregion end social networks*/
+
+/*#region start footer*/
 footer {
     width: 100%;
     margin-top: 20px;
@@ -530,10 +553,7 @@ footer {
     border: 0px solid #000;
     z-index: 2;
 }
-/*@font-face {
-    font-family: 'Bukyvede_Bold';
-    src: url('../fonts/BukyVede-Bold.ttf');
-}*/
+
 .textCenteredFooter {
     z-index: 2;
     padding-top: 5px;
@@ -544,7 +564,7 @@ footer {
     text-align: center;
     color: #dfd27c;
     width: 30%;
-    transition: all 0.5s ease; 
+    transition: all 0.5s ease;
 }
 
 footer > #footerBaneri {
@@ -570,11 +590,13 @@ footer .footerBaneri {
     /*float: right;*/
     display: inline-block;
 }
-/*end footer*/
+/*#endregion end footer*/
+
 img {
     max-width: 100%;
 }
-/*media*/
+
+/*#region media*/
 @media only screen and (max-width:1000px) {
     /*header*/
     header {
@@ -740,7 +762,7 @@ img {
 }
 
 @media only screen and (max-width: 450px) {
-        /*header*/
+    /*header*/
     header {
         height: 100px;
     }
@@ -748,6 +770,7 @@ img {
     #headerLogoContainer {
         height: 100px;
     }
+
     #logo {
         width: 60%;
         margin-left: 20%;
@@ -756,11 +779,12 @@ img {
     .textCenteredFooter {
         width: 100%;
     }
-        footer > #footerBaneri {
+
+    footer > #footerBaneri {
         width: 100%;
     }
 }
-/*end media*/
+/*#endregion end media*/
 
 li.smallmenu:hover, li.menu:hover, li.citat:hover {
     background-color: #001515;
@@ -768,21 +792,21 @@ li.smallmenu:hover, li.menu:hover, li.citat:hover {
     cursor: pointer;
 }
 
-li.smallmenu:hover, li.menu:hover, li.citat:hover a {
-    color: #fff;
-    text-decoration: none;
-}
+    li.smallmenu:hover, li.menu:hover, li.citat:hover a {
+        color: #fff;
+        text-decoration: none;
+    }
 
-li.citat:hover span.avtor {
-    color: #fff;
-}
+    li.citat:hover span.avtor {
+        color: #fff;
+    }
 
-li.citat:hover .lightBrownTextHover p {
-    color: #e5ae86;
-}
+    li.citat:hover .lightBrownTextHover p {
+        color: #e5ae86;
+    }
 
-    /* The element to apply the animation to */
-    /*li:hover .smallmenu ul a:before {
+/* The element to apply the animation to */
+/*li:hover .smallmenu ul a:before {
         animation-name: bullets;
         animation-duration: 5s;
         -webkit-animation-name: bullets;
@@ -793,13 +817,16 @@ li.citat:hover .lightBrownTextHover p {
     border-bottom: 1px solid #ac703d;
     color: #ac703d;
 }
+
 #news table a:hover {
     color: #ac703d;
 }
+
 #news table img:hover {
     box-shadow: 0px 2px 2px #3f2e05;
     opacity: 1;
 }
+
 .textCenteredFooter:hover {
     color: #fff;
     cursor: pointer;
@@ -811,6 +838,7 @@ li.citat:hover .lightBrownTextHover p {
     background: #6e7649;
     border: 2px solid #c7c397;
 }
+
 #back a:hover, #next a:hover {
     text-decoration: underline;
-} 
+}

@@ -636,12 +636,6 @@ img {
 }
 
 @media only screen and (max-width: 750px) {
-    /*top page*/
-    #topPage a {
-        color: #e5ae86;
-        border: 2px solid #e5ae86;
-        text-decoration: none;
-    }
     /*header*/
     header {
         height: 120px;

@@ -62,6 +62,7 @@ div #container {
 }
 /*link top page*/
 #topPage {
+    display: none;
     position: fixed;
     bottom: 40px;
     right: 2%;
@@ -69,15 +70,17 @@ div #container {
 }
 
     #topPage a {
-        width: 45px;
-        height: 45px;
+        width: 35px;
+        height: 35px;
         display: block;
         text-decoration: none;
-        background: transparent;
-        border-radius: 500px;
-        border: 2px solid #c7c397;
+        /*background: transparent;*/
         color: #c7c397;
-        font-size: 2.5em;
+        background: #6e7649;
+        border-radius: 500px;
+        border: 1px solid #c7c397;
+        /*color: #c7c397;*/
+        font-size: 2em;
         text-align: center;
         position: relative;
         transition: all 0.5s ease;
@@ -807,8 +810,9 @@ li.citat:hover .lightBrownTextHover p {
 }
 
 #topPage a:hover {
-    color: #c7c397;
-    background: #6e7649;
+    /*color: #c7c397;
+    background: #6e7649;*/
+    opacity: 0.6;
     border: 2px solid #c7c397;
 }
 #back a:hover, #next a:hover {

@@ -8,6 +8,7 @@
     <link type="text/css" rel="stylesheet" href="~/Content/font-awesome-4.3.0/css/font-awesome.css" />
     <link rel="icon" href="~/Images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="~/Images/favicon.png" type="image/x-icon">
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
     @RenderSection("style", required: false)
 
     <!--twitter share button-->
@@ -43,6 +44,16 @@
         <div id="topPage">
             <a class="fa fa-angle-up" href="#anchorTopPage"></a>
         </div>
+        <script>
+            $(window).bind("scroll", function () {
+                if ($(this).scrollTop() > 500) {
+                    $("#topPage").fadeIn();
+                } else {
+                    $("#topPage").stop().fadeOut();
+                }
+            });
+        </script>
+
 
         <div id="container">
 

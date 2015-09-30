@@ -68,7 +68,7 @@
                 ministration.DayName = dayName;
                 ministration.Description = inputMinistration.Description;
 
-                this.Context.Ministration.Insert(ministration);
+                this.Repo.Insert<Ministration>(this.Context.Ministration, ministration);
 
                 return RedirectToAction("Timetable", "Home");
             }

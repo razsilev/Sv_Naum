@@ -14,30 +14,9 @@
         {
             List<NewsSingle> news = new List<NewsSingle>();
 
-            try
-            {
-                news = this.Context.News.FindAll().Reverse().ToList();
-            }
-            catch (System.Exception)
-            {
-
-            }
+            news = this.Repo.FindAll<NewsSingle>(this.Context.News).Reverse().ToList();
 
             return View(news);
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
         }
 
         [HttpGet]
@@ -47,7 +26,7 @@
 
             try
             {
-                result = this.Context.Ministration.FindAll().OrderBy(m => m.Date).ToList();
+                result = this.Repo.FindAll<Ministration>(this.Context.Ministration).OrderBy(m => m.Date).ToList();
             }
             catch (System.Exception)
             {
@@ -63,7 +42,7 @@
             
             try
             {
-                imagesGroups = this.Context.ImagesGroups.FindAll().Reverse().ToList();
+                imagesGroups = this.Repo.FindAll<ImagesGroup>(this.Context.ImagesGroups).Reverse().ToList();
             }
             catch (System.Exception)
             {
@@ -88,7 +67,7 @@
 
             if (!string.IsNullOrEmpty(id))
             {
-                var ids = this.Context.Sermons.FindAll().SetFields(new string[] { "_id", "Date" }).OrderByDescending(s => s.Date).ToList();
+                var ids = this.Repo.FindAll(this.Context.Sermons).SetFields(new string[] { "_id", "Date" }).OrderByDescending(s => s.Date).ToList();
 
                 for (int i = 0; i < ids.Count; i++)
                 {
@@ -101,7 +80,7 @@
                     }
                 }
 
-                var sermonById = this.Context.Sermons.FindOneById(ObjectId.Parse(id));
+                var sermonById = this.Repo.FindOneById<Sermon>(this.Context.Sermons, id);
 
                 return View(sermonById);
             }
@@ -110,11 +89,11 @@
 
             try
             {
-                sermon = this.Context.Sermons.FindAll().OrderByDescending(s => s.Date).Skip(page).FirstOrDefault();
+                sermon = this.Repo.FindAll<Sermon>(this.Context.Sermons).OrderByDescending(s => s.Date).Skip(page).FirstOrDefault();
 
                 if (sermon == null)
                 {
-                    sermon = this.Context.Sermons.FindAll().OrderByDescending(s => s.Date).FirstOrDefault();
+                    sermon = this.Repo.FindAll<Sermon>(this.Context.Sermons).OrderByDescending(s => s.Date).FirstOrDefault();
                     this.ViewBag.NextPage = 1;
                     this.ViewBag.PrevPage = -1;
                 }
@@ -142,7 +121,7 @@
 
             if (!string.IsNullOrEmpty(id))
             {
-                var ids = this.Context.Prayers.FindAll().SetFields(new string[] { "_id" }).Reverse().ToList();
+                var ids = this.Repo.FindAll(this.Context.Prayers).SetFields(new string[] { "_id" }).Reverse().ToList();
 
                 for (int i = 0; i < ids.Count; i++)
                 {
@@ -155,7 +134,7 @@
                     }
                 }
 
-                var prayerById = this.Context.Prayers.FindOneById(ObjectId.Parse(id));
+                var prayerById = this.Repo.FindOneById(this.Context.Prayers, id);
 
                 return View(prayerById);
             }
@@ -164,11 +143,11 @@
 
             try
             {
-                prayer = this.Context.Prayers.FindAll().Reverse().Skip(page).FirstOrDefault();
+                prayer = this.Repo.FindAll(this.Context.Prayers).Reverse().Skip(page).FirstOrDefault();
 
                 if (prayer == null)
                 {
-                    prayer = this.Context.Prayers.FindAll().Reverse().FirstOrDefault();
+                    prayer = this.Repo.FindAll(this.Context.Prayers).Reverse().FirstOrDefault();
                     this.ViewBag.NextPage = 1;
                     this.ViewBag.PrevPage = -1;
                 }

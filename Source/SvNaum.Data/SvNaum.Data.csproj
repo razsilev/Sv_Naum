@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="DbConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="SvNaumDbContext.cs" />
   </ItemGroup>
   <ItemGroup>

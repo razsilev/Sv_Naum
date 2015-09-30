@@ -13,6 +13,7 @@
     public abstract class BaseController : Controller
     {
         private SvNaumDbContext context;
+        private SvNaum.Data.Repository repo;
 
         public BaseController()
         {
@@ -20,6 +21,8 @@
 
             var conString = this.GetMongoDbConnectionString();
             this.context = new SvNaumDbContext(conString);
+
+            this.repo = new SvNaum.Data.Repository();
         }
 
         public SvNaumDbContext Context
@@ -27,6 +30,14 @@
             get
             {
                 return context;
+            }
+        }
+
+        public SvNaum.Data.Repository Repo
+        {
+            get
+            {
+                return this.repo;
             }
         }
 

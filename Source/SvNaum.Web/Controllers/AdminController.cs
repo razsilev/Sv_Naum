@@ -351,8 +351,10 @@
         [HttpGet]
         public ActionResult NewsEdit(string id)
         {
-            IMongoQuery query = this.CreateQueryById(id);
-            var newsDb = this.Context.News.Find(query).FirstOrDefault();
+            //IMongoQuery query = this.CreateQueryById(id);
+            //var newsDb = this.Context.News.Find(query).FirstOrDefault();
+
+            var newsDb = this.Repo.FindOneById<NewsSingle>(this.Context.News, id);
 
             if (newsDb != null)
             {
@@ -364,7 +366,6 @@
 
                 return View(newsViewModel);
             }
-
 
             return RedirectToAction("Index", "Home");
         }
@@ -378,9 +379,8 @@
                 var newsDb = new NewsSingle();
                 newsDb.Content = this.sanitizer.Sanitize(newsInput.Content);
 
-                this.Context.News.Insert(newsDb);
-
-                this.DeleteNewsBy(newsInput.Id);
+                this.Repo.Insert<NewsSingle>(this.Context.News, newsDb);
+                this.Repo.Delete(this.Context.News, newsInput.Id);
 
                 return RedirectToAction("Index", "Home");
             }
@@ -390,7 +390,7 @@
 
         public ActionResult NewsDelete(string id)
         {
-            this.DeleteNewsBy(id);
+            this.Repo.Delete(this.Context.News, id);
 
             return RedirectToAction("Index", "Home");
         }

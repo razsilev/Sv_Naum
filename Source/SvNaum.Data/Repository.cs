@@ -1,11 +1,7 @@
 ﻿namespace SvNaum.Data
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    
+
     using MongoDB.Driver;
     using MongoDB.Bson;
     using MongoDB.Driver.Builders;
@@ -49,11 +45,11 @@
             collection.Insert(data);
         }
 
-        public void Update<T>(MongoCollection<T> collection, T data, string id)
+        public void Update<T>(MongoCollection<T> collection, T data, string idUpdatedEntry)
         {
             collection.Insert(data);
 
-            this.Delete(collection, id);
+            this.Delete(collection, idUpdatedEntry);
         }
 
         public void Delete(MongoCollection collection, string id)

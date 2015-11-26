@@ -2,18 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
-
-    using MongoDB.Bson;
-    using MongoDB.Driver;
-    using MongoDB.Driver.Builders;
-
-    using SvNaum.Data;
     using SvNaum.Models;
-    using SvNaum.Web.Models;
+
     using SvNaum.Web.Infrastructure;
+    using SvNaum.Web.Models;
 
     [Authorize]
     public class AdminController : BaseController
@@ -79,9 +72,7 @@
         [HttpGet]
         public ActionResult MinistrationEdit(string id)
         {
-            MongoDB.Driver.IMongoQuery query = Query.EQ("_id", ObjectId.Parse(id));
-
-            var ministration = this.Context.Ministration.Find(query).FirstOrDefault();
+            var ministration = this.Repo.FindOneById(this.Context.Ministration, id);
 
             if (ministration != null)
             {
@@ -98,8 +89,7 @@
 
                 return View(minViewModel);
             }
-
-
+            
             return RedirectToAction("Timetable", "Home");
         }
 
@@ -135,9 +125,7 @@
                 ministration.DayName = dayName;
                 ministration.Description = inputMinistration.Description;
 
-                this.Context.Ministration.Insert(ministration);
-
-                this.DeleteMinistrationBy(inputMinistration.Id);
+                this.Repo.Update(this.Context.Ministration, ministration, inputMinistration.Id);
 
                 return RedirectToAction("Timetable", "Home");
             }
@@ -147,7 +135,7 @@
 
         public ActionResult DeleteMinistration(string id)
         {
-            this.DeleteMinistrationBy(id);
+            this.Repo.Delete(this.Context.Ministration, id);
 
             return RedirectToAction("Timetable", "Home");
         }
@@ -173,8 +161,8 @@
                 sermon.Theme = inputSermon.Theme;
                 sermon.Title = inputSermon.Title;
                 sermon.ImageUrl = string.Empty;
-
-                this.Context.Sermons.Insert(sermon);
+                
+                this.Repo.Insert(this.Context.Sermons, sermon);
 
                 return RedirectToAction("Sermons", "Home");
             }
@@ -185,9 +173,7 @@
         [HttpGet]
         public ActionResult SermonEdit(string id)
         {
-            MongoDB.Driver.IMongoQuery query = Query.EQ("_id", ObjectId.Parse(id));
-
-            var sermon = this.Context.Sermons.Find(query).FirstOrDefault();
+            var sermon = this.Repo.FindOneById(this.Context.Sermons, id);
 
             if (sermon != null)
             {
@@ -223,10 +209,8 @@
                 sermon.Theme = inputSermon.Theme;
                 sermon.Title = inputSermon.Title;
                 sermon.Date = inputSermon.Date;
-
-                this.Context.Sermons.Insert(sermon);
-
-                this.DeleteSermonBy(inputSermon.Id);
+                
+                this.Repo.Update(this.Context.Sermons, sermon, inputSermon.Id);
 
                 return RedirectToAction("Sermons", "Home");
             }
@@ -236,7 +220,7 @@
 
         public ActionResult SermonDelete(string id)
         {
-            this.DeleteSermonBy(id);
+            this.Repo.Delete(this.Context.Sermons, id);
 
             return RedirectToAction("Sermons", "Home");
         }
@@ -260,8 +244,8 @@
                 prayerDb.Text = this.sanitizer.Sanitize(inputPrayer.Text);
                 prayerDb.Title = inputPrayer.Title;
                 prayerDb.TitleSecond = inputPrayer.TitleSecond ?? string.Empty;
-
-                this.Context.Prayers.Insert(prayerDb);
+                
+                this.Repo.Insert(this.Context.Prayers, prayerDb);
 
                 return RedirectToAction("Breviary", "Home");
             }
@@ -272,8 +256,7 @@
         [HttpGet]
         public ActionResult PrayerEdit(string id)
         {
-            IMongoQuery query = this.CreateQueryById(id);
-            var prauerDb = this.Context.Prayers.Find(query).FirstOrDefault();
+            var prauerDb = this.Repo.FindOneById(this.Context.Prayers, id);
 
             if (prauerDb != null)
             {
@@ -299,16 +282,14 @@
         {
             if (this.ModelState.IsValid)
             {
-                var PrayerDb = new Prayer();
+                var prayerDb = new Prayer();
 
-                PrayerDb.Title = prayerInput.Title;
-                PrayerDb.TitleSecond = prayerInput.TitleSecond;
-                PrayerDb.Text = this.sanitizer.Sanitize(prayerInput.Text);
-                PrayerDb.Author = prayerInput.Author;
-
-                this.Context.Prayers.Insert(PrayerDb);
-
-                this.DeletePrayerBy(prayerInput.Id);
+                prayerDb.Title = prayerInput.Title;
+                prayerDb.TitleSecond = prayerInput.TitleSecond;
+                prayerDb.Text = this.sanitizer.Sanitize(prayerInput.Text);
+                prayerDb.Author = prayerInput.Author;
+                
+                this.Repo.Update(this.Context.Prayers, prayerDb, prayerInput.Id);
 
                 return RedirectToAction("Breviary", "Home");
             }
@@ -318,7 +299,7 @@
 
         public ActionResult PrayerDelete(string id)
         {
-            this.DeletePrayerBy(id);
+            this.Repo.Delete(this.Context.Prayers, id);
 
             return RedirectToAction("Breviary", "Home");
         }
@@ -339,8 +320,8 @@
                 var newsSingleDb = new NewsSingle();
 
                 newsSingleDb.Content = this.sanitizer.Sanitize(inputNews.Content);
-
-                this.Context.News.Insert(newsSingleDb);
+                
+                this.Repo.Insert(this.Context.News, newsSingleDb);
 
                 return RedirectToAction("Index", "Home");
             }
@@ -351,9 +332,6 @@
         [HttpGet]
         public ActionResult NewsEdit(string id)
         {
-            //IMongoQuery query = this.CreateQueryById(id);
-            //var newsDb = this.Context.News.Find(query).FirstOrDefault();
-
             var newsDb = this.Repo.FindOneById<NewsSingle>(this.Context.News, id);
 
             if (newsDb != null)
@@ -379,8 +357,7 @@
                 var newsDb = new NewsSingle();
                 newsDb.Content = this.sanitizer.Sanitize(newsInput.Content);
 
-                this.Repo.Insert<NewsSingle>(this.Context.News, newsDb);
-                this.Repo.Delete(this.Context.News, newsInput.Id);
+                this.Repo.Update(this.Context.News, newsDb, newsInput.Id);
 
                 return RedirectToAction("Index", "Home");
             }
@@ -412,8 +389,8 @@
 
                 paterikDb.Text = this.sanitizer.Sanitize(inputPaterik.Text);
                 paterikDb.Author = inputPaterik.Author;
-
-                this.Context.Pateriks.Insert(paterikDb);
+                
+                this.Repo.Insert(this.Context.Pateriks, paterikDb);
 
                 return RedirectToAction("Index", "Home");
             }
@@ -424,8 +401,7 @@
         [HttpGet]
         public ActionResult PaterikEdit(string id)
         {
-            IMongoQuery query = this.CreateQueryById(id);
-            var paterikDb = this.Context.Pateriks.Find(query).FirstOrDefault();
+            var paterikDb = this.Repo.FindOneById(this.Context.Pateriks, id);
 
             if (paterikDb != null)
             {
@@ -438,8 +414,7 @@
 
                 return View(paterikViewModel);
             }
-
-
+            
             return RedirectToAction("Index", "Home");
         }
 
@@ -453,10 +428,8 @@
 
                 paterikDb.Text = this.sanitizer.Sanitize(paterikInput.Text);
                 paterikDb.Author = paterikInput.Author;
-
-                this.Context.Pateriks.Insert(paterikDb);
-
-                this.DeletePaterikBy(paterikInput.Id);
+                
+                this.Repo.Update(this.Context.Pateriks, paterikDb, paterikInput.Id);
 
                 return RedirectToAction("Index", "Home");
             }
@@ -466,7 +439,7 @@
 
         public ActionResult PaterikDelete(string id)
         {
-            this.DeletePaterikBy(id);
+            this.Repo.Delete(this.Context.Pateriks, id);
 
             return RedirectToAction("Index", "Home");
         }
@@ -488,8 +461,8 @@
 
                 ImagesGroupDb.Title = inputImagesGroup.Title;
                 ImagesGroupDb.ImagesUrls = inputImagesGroup.ImagesUrls;
-
-                this.Context.ImagesGroups.Insert(ImagesGroupDb);
+                
+                this.Repo.Insert(this.Context.ImagesGroups, ImagesGroupDb);
 
                 return RedirectToAction("Pictures", "Home");
             }
@@ -500,8 +473,7 @@
         [HttpGet]
         public ActionResult ImagesGroupEdit(string id)
         {
-            IMongoQuery query = this.CreateQueryById(id);
-            var imagesGroupDb = this.Context.ImagesGroups.Find(query).FirstOrDefault();
+            var imagesGroupDb = this.Repo.FindOneById(this.Context.ImagesGroups, id);
 
             if (imagesGroupDb != null)
             {
@@ -521,87 +493,36 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ImagesGroupEdit(ImagesGroupAddModel ImagesGroupInput)
+        public ActionResult ImagesGroupEdit(ImagesGroupAddModel imagesGroupInput)
         {
             if (this.ModelState.IsValid)
             {
                 var imagesGroupDb = new ImagesGroup();
 
-                imagesGroupDb.Title = ImagesGroupInput.Title;
+                imagesGroupDb.Title = imagesGroupInput.Title;
                 imagesGroupDb.ImagesUrls = new List<TwoSizeImageUrls>();
 
-                foreach (var item in ImagesGroupInput.ImagesUrls)
+                foreach (var item in imagesGroupInput.ImagesUrls)
                 {
                     if (item != null && !string.IsNullOrWhiteSpace(item.BigImageUrl) && !string.IsNullOrWhiteSpace(item.SmallImageUrl))
                     {
                         imagesGroupDb.ImagesUrls.Add(item);
                     }
                 }
-
-                this.Context.ImagesGroups.Insert(imagesGroupDb);
-
-                this.DeleteImagesGroupBy(ImagesGroupInput.Id);
+                
+                this.Repo.Update(this.Context.ImagesGroups, imagesGroupDb, imagesGroupInput.Id);
 
                 return RedirectToAction("Pictures", "Home");
             }
 
-            return View(ImagesGroupInput);
+            return View(imagesGroupInput);
         }
 
         public ActionResult ImagesGroupDelete(string id)
         {
-            this.DeleteImagesGroupBy(id);
+            this.Repo.Delete(this.Context.ImagesGroups, id);
 
             return RedirectToAction("Pictures", "Home");
-        }
-
-        private void DeleteMinistrationBy(string id)
-        {
-            IMongoQuery query = this.CreateQueryById(id);
-
-            this.Context.Ministration.Remove(query);
-        }
-
-        private void DeleteSermonBy(string id)
-        {
-            IMongoQuery query = this.CreateQueryById(id);
-
-            this.Context.Sermons.Remove(query);
-        }
-
-        private void DeletePrayerBy(string id)
-        {
-            IMongoQuery query = this.CreateQueryById(id);
-
-            this.Context.Prayers.Remove(query);
-        }
-
-        private void DeleteNewsBy(string id)
-        {
-            IMongoQuery query = this.CreateQueryById(id);
-
-            this.Context.News.Remove(query);
-        }
-
-        private void DeletePaterikBy(string id)
-        {
-            IMongoQuery query = this.CreateQueryById(id);
-
-            this.Context.Pateriks.Remove(query);
-        }
-
-        private void DeleteImagesGroupBy(string id)
-        {
-            IMongoQuery query = this.CreateQueryById(id);
-
-            this.Context.ImagesGroups.Remove(query);
-        }
-
-        private IMongoQuery CreateQueryById(string id)
-        {
-            MongoDB.Driver.IMongoQuery query = Query.EQ("_id", ObjectId.Parse(id));
-
-            return query;
         }
     }
 }

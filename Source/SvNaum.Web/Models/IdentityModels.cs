@@ -23,7 +23,7 @@ namespace SvNaum.Web.Models
     {
         public ApplicationDbContext()
             : base(ConfigurationManager.AppSettings.Get("SQLSERVER_CONNECTION_STRING") ??
-               // "DefaultConnection", throwIfV1Schema: false)
+                //"DefaultConnection", throwIfV1Schema: false)
                  "Server=bb2264f3-721c-4f43-b889-a4ad00b89cf3.sqlserver.sequelizer.com;Database=dbbb2264f3721c4f43b889a4ad00b89cf3;User ID=ntbjuekuftsjyche;Password=a4UTh4sX7cM8hyUtXYcF37mv2SioRiqGHKDsWqhLAmyTFANVayEhcSqbQxZwTdgX;", throwIfV1Schema: false)
         {
         }

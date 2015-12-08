@@ -47,9 +47,16 @@
 
         public void Update<T>(MongoCollection<T> collection, T data, string idUpdatedEntry)
         {
-            collection.Insert(data);
+            //collection.Insert(data);
+            //this.Delete(collection, idUpdatedEntry);
 
-            this.Delete(collection, idUpdatedEntry);
+            var bsonData = data.ToBsonDocument();
+            bsonData.Remove("_id");
+
+            var update = new UpdateDocument("$set", bsonData);
+            var query = this.CreateQueryById(idUpdatedEntry);
+
+            collection.Update(query, update);
         }
 
         public void Delete(MongoCollection collection, string id)

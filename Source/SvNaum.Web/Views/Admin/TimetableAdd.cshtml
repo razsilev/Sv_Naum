@@ -9,8 +9,9 @@
     @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
     @Html.ValidationMessageFor(m => m.Title)
 
+    <br />
     @Html.LabelFor(m => m.Date)
-    @Html.TextBoxFor(m => m.Date, new { @class = "form-control", placeholder = "dd/mm/yyyy", @type = "date" })
+    @Html.TextBoxFor(m => m.Date, new { @class = "form-control", placeholder = "dd/mm/yyyy", @type = "text", id = "date" })
     @Html.ValidationMessageFor(m => m.Date)
 
     <br />
@@ -32,4 +33,31 @@
 @section scripts
 {
     @Scripts.Render("~/bundles/jqueryval");
+
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+    <script>
+        jQuery.validator.methods.date = function (value, element) {
+            if (value) {
+                try {
+                    $.datepicker.parseDate('dd/mm/yy', value);
+                } catch (ex) {
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        $('#date').datepicker({ dateFormat: 'dd/mm/yy' });
+    </script>
+}
+
+@section style
+{
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css" />
+    <style type="text/css">
+        .field-validation-error {
+            color: #d00;
+        }
+    </style>
 }
